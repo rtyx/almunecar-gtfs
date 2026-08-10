@@ -29,9 +29,40 @@ what each kind is good for and how far to trust it.
 3. verified OSM road geometry
 4. reconstruction from the stop sequence
 
+## What is actually registered (2026-08-10)
+
+| source_id | Type | What it gives us |
+|---|---|---|
+| `official_index` | official | Route inventory, agency details, headsigns |
+| `official_l1_summer` / `official_l1_winter` | official | Line 1 timetables; roadworks diversion notice |
+| `official_l2_summer` / `official_l2_winter` | official | 2A and 2B timetables and diagrams; Marina del Este winter footnote; Feria de San José notice |
+| `official_l3a_summer` / `official_l3a_winter` | official | Line 3A timetables |
+| `official_l3b_summer` | official | Line 3B timetable and the Cabria extension notice |
+| `official_l3c_summer` | official | Line 3C timetable |
+| `official_torrecuevas_summer` / `official_torrecuevas_winter` | official | Torrecuevas timetables — and the disputed line number |
+| `osm_route_relations` | osm | Stop coordinates, ordered stop sequences, route geometry |
+
+Moovit is registered separately as a comparison source only; see
+[`comparison.md`](comparison.md).
+
+### Sources looked for and not found
+
+**iBusGPS.** Searched on 2026-08-10: the operator's site
+(`urbanosalmunecar.es`), the parent group's site (`grupofajardo.es`, whose
+`www` certificate does not match its hostname), and the web generally. No
+public iBusGPS endpoint, app link or embedded map is reachable from any of
+them. The realtime work in plan task 15 has nothing to attach to yet.
+
+**Ayuntamiento de Almuñécar.** No municipal timetable or GIS document has been
+located; the municipal page found so far is prose about the service rather than
+data. The `municipal` tier of the hierarchy is therefore currently empty.
+
 ## Notes per source
 
-**Operator (`official`).** Authoritative for its own network. Not automatically
+**Operator (`official`).** Authoritative for its own network. In this case it
+publishes **every timetable as an image**, so there is nothing to parse: the
+departure times in `sources/official.py` were read off those images by hand,
+each recording the image URL and the date it was read. Not automatically
 current: seasonal pages linger for years. When a page is known to be superseded,
 set `authoritative_until` so it can never outrank a newer page. A route number
 found only on a stale page goes in `former_short_names`; it is never promoted.

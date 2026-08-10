@@ -2,6 +2,14 @@
 
 *Plan date: 2026-08-08. Execution started: 2026-08-09.*
 
+> **Status 2026-08-10.** Tasks 1–6 and 9–14 are implemented; tasks 16–19 are in
+> place as machinery. The research release is complete for the operator's whole
+> published network. The GTFS release is **blocked on one thing**: no source
+> publishes a time at any intermediate stop, so every pattern is
+> `not_publishable` and no feed is built. Tasks 15 (realtime) and 17–18
+> (publication) cannot start until iBusGPS is located and the operator is
+> approached. See the README for the current position.
+
 **Goal:** Build a maintainable, source-backed GTFS dataset for the complete Almuñécar
 urban bus network, suitable for validation, publication and eventual submission to
 Google Transit / Google Maps.
