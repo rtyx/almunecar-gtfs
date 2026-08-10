@@ -14,9 +14,11 @@ login happens on openstreetmap.org, in your browser, as it should.
 Add ``--dry-run`` to print the osmChange payload and exit without touching the
 API or authenticating. Do that first.
 
-The registered redirect URI must be ``http://localhost:3000``. OpenStreetMap
-permits plain http for localhost; an https redirect would need a local
-certificate for no benefit.
+OpenStreetMap requires registered redirect URIs to be https, so the loopback
+listener speaks TLS using a self-signed certificate generated fresh each run.
+Your browser will warn that it is untrusted; that is expected, and the only
+thing crossing it is the authorisation code travelling to your own machine.
+Override the default with ``OSM_REDIRECT_URI`` if your app registered another.
 """
 
 from __future__ import annotations
@@ -28,7 +30,11 @@ import http.server
 import json
 import os
 import secrets
+import shutil
+import ssl
+import subprocess
 import sys
+import tempfile
 import threading
 import urllib.parse
 import webbrowser
@@ -40,7 +46,10 @@ import httpx
 API = os.environ.get("OSM_API", "https://api.openstreetmap.org")
 AUTHORIZE = f"{API}/oauth2/authorize"
 TOKEN = f"{API}/oauth2/token"
-REDIRECT_URI = "http://localhost:3000"
+#: Must match a redirect URI registered on the OAuth application exactly — OSM
+#: compares the string, not the host. Override when your app registered a
+#: different one than the default.
+REDIRECT_URI = os.environ.get("OSM_REDIRECT_URI", "https://localhost:3000")
 SCOPES = "write_api read_prefs"
 
 TOKEN_CACHE = (
@@ -94,6 +103,35 @@ def summarise(osm_file: Path) -> str:
 # -- OAuth ---------------------------------------------------------------
 
 
+def _wrap_tls(sock):
+    """Wrap the loopback listener in a throwaway self-signed certificate.
+
+    Generated fresh each run into a temporary directory and never written to the
+    repository. It exists only because OSM insists a registered redirect URI be
+    https; nothing sensitive is protected by it beyond the authorisation code
+    hopping from your browser to a socket on the same machine.
+    """
+    directory = Path(tempfile.mkdtemp(prefix="almunecar-gtfs-tls-"))
+    key, cert = directory / "key.pem", directory / "cert.pem"
+    openssl = shutil.which("openssl")
+    if openssl is None:
+        raise SystemExit(
+            "openssl is not on PATH, so the https loopback listener cannot be "
+            "created. Use JOSM instead — see osm/README.md."
+        )
+    subprocess.run(
+        [openssl, "req", "-x509", "-newkey", "rsa:2048", "-nodes",
+         "-keyout", str(key), "-out", str(cert), "-days", "1",
+         "-subj", "/CN=localhost",
+         "-addext", "subjectAltName=DNS:localhost,IP:127.0.0.1"],
+        check=True,
+        capture_output=True,
+    )
+    context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
+    context.load_cert_chain(certfile=cert, keyfile=key)
+    return context.wrap_socket(sock, server_side=True)
+
+
 class _CallbackHandler(http.server.BaseHTTPRequestHandler):
     code: str | None = None
 
@@ -137,11 +175,30 @@ def authorise(client_id: str, client_secret: str | None) -> str:
     }
     url = f"{AUTHORIZE}?{urllib.parse.urlencode(params)}"
 
-    server = http.server.HTTPServer(("localhost", 3000), _CallbackHandler)
+    parsed = urllib.parse.urlparse(REDIRECT_URI)
+    host = parsed.hostname or "localhost"
+    port = parsed.port or (443 if parsed.scheme == "https" else 80)
+
+    server = http.server.HTTPServer((host, port), _CallbackHandler)
+    if parsed.scheme == "https":
+        # OpenStreetMap requires registered redirect URIs to be https, so the
+        # loopback listener has to speak TLS. The certificate is generated here,
+        # used once and thrown away; your browser will warn that it is not
+        # trusted, which is correct and expected. The only thing crossing it is
+        # the authorisation code travelling from your browser to your own
+        # machine.
+        server.socket = _wrap_tls(server.socket)
+
     thread = threading.Thread(target=server.handle_request, daemon=True)
     thread.start()
 
     print("Opening your browser to authorise. Log in to OpenStreetMap and approve.")
+    if parsed.scheme == "https":
+        print(
+            "Your browser will warn about a self-signed certificate for "
+            f"{host}. That is this script's own throwaway certificate — "
+            "choose 'Advanced' and proceed."
+        )
     print(f"If it does not open, visit:\n  {url}\n")
     webbrowser.open(url)
     thread.join(timeout=300)

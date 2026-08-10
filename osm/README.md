@@ -55,7 +55,15 @@ directory (`~/.cache/almunecar-gtfs/osm-token.json`, mode 600). The token never
 enters this repository.
 
 Register an app at <https://www.openstreetmap.org/oauth2/applications> with
-redirect URI `http://localhost:3000` and the `write_api` permission, then:
+redirect URI `https://localhost:3000` and the `write_api` permission.
+
+OpenStreetMap insists redirect URIs be https, so the loopback listener speaks
+TLS using a self-signed certificate generated fresh on each run and thrown away
+afterwards. Your browser will warn that it is untrusted — that is expected;
+choose *Advanced* and proceed. The only thing crossing that connection is the
+authorisation code travelling from your browser to a socket on your own machine.
+
+Then:
 
 ```bash
 python osm/upload_changeset.py osm/relation-18501914-reorder.osm --comment "..." --dry-run
