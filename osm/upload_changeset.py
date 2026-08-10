@@ -236,7 +236,28 @@ def authorise(client_id: str, client_secret: str | None) -> str:
         payload["client_secret"] = client_secret
 
     response = httpx.post(TOKEN, data=payload, headers={"User-Agent": USER_AGENT}, timeout=30)
-    response.raise_for_status()
+    if response.status_code != 200:
+        # OpenStreetMap explains itself here; an opaque HTTPStatusError would
+        # throw that explanation away, which is exactly when it is most needed.
+        try:
+            error = response.json()
+        except ValueError:
+            error = {"raw": response.text[:400]}
+        hint = ""
+        if error.get("error") == "invalid_client" and not client_secret:
+            hint = (
+                "\n\nThe application is registered as *confidential*, so OSM wants a "
+                "client secret even though PKCE is in use. Either:\n"
+                "  - set OSM_CLIENT_SECRET, or\n"
+                "  - better, edit the app at "
+                "https://www.openstreetmap.org/oauth2/applications and untick "
+                "'Confidential application'. With PKCE the secret buys nothing, and "
+                "a secret you never store cannot leak."
+            )
+        raise SystemExit(
+            f"token exchange failed ({response.status_code}): "
+            f"{json.dumps(error, ensure_ascii=False)}{hint}"
+        )
     token = response.json()["access_token"]
 
     TOKEN_CACHE.parent.mkdir(parents=True, exist_ok=True)
