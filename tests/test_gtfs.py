@@ -243,3 +243,54 @@ def test_a_blocking_conflict_is_only_an_error_if_the_entity_escapes_into_the_fee
     held_out = qa.check_provenance(network.model_copy(update={"patterns": [excluded]}), store)
     blocking = [f for f in held_out if f.code == "provenance.blocking_conflict"]
     assert blocking and blocking[0].severity is qa.Severity.WARNING
+
+
+def test_every_transcribed_timetable_cites_a_committed_image():
+    """A transcription without its source picture is unverifiable."""
+    from pathlib import Path
+
+    from almunecar_gtfs.sources import images as images_mod
+    from almunecar_gtfs.sources import official
+
+    evidence_dir = Path(__file__).resolve().parents[1] / "data" / "evidence"
+    archived = images_mod.by_source_url(evidence_dir)
+    missing = sorted(
+        {t.image_url for t in official.TIMETABLES if t.image_url not in archived}
+    )
+    assert missing == [], f"timetables citing an unarchived image: {missing}"
+
+
+def test_the_image_manifest_matches_what_is_on_disk():
+    from pathlib import Path
+
+    from almunecar_gtfs.sources import images as images_mod
+
+    evidence_dir = Path(__file__).resolve().parents[1] / "data" / "evidence"
+    assert images_mod.verify(evidence_dir) == []
+
+
+def test_a_tampered_image_is_detected(tmp_path):
+    import yaml
+
+    from almunecar_gtfs.sources import images as images_mod
+
+    (tmp_path / "images").mkdir()
+    (tmp_path / "images" / "x.png").write_bytes(b"original")
+    (tmp_path / "images.yaml").write_text(
+        yaml.safe_dump(
+            [
+                {
+                    "file": "x.png",
+                    "sha256": "0" * 64,
+                    "bytes": 8,
+                    "source_id": "s",
+                    "source_url": "https://example.invalid/x.png",
+                    "kind": "timetable",
+                    "depicts": "fixture",
+                }
+            ]
+        ),
+        encoding="utf-8",
+    )
+    problems = images_mod.verify(tmp_path)
+    assert problems and "sha256" in problems[0]

@@ -11,7 +11,8 @@ build/
 # Generated GTFS output (rebuilt deterministically from canonical data)
 data/generated/
 
-# Cached raw source responses (may contain copyrighted site assets)
+# Cached raw source responses. The operator's timetable images are *not* here:
+# they are committed under data/evidence/images/ with a manifest and attribution.
 data/cache/
 
 # QA artifacts

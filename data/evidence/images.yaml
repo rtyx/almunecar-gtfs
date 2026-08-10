@@ -1,0 +1,153 @@
+# Manifest of the operator's published timetable and route-diagram images.
+# These are third-party material, reproduced here for verification and archive;
+# see data/evidence/images/README.md. Every departure time in
+# src/almunecar_gtfs/sources/official.py was read off one of these.
+- file: line-1-route-diagram.png
+  sha256: 9bfed3f91d524ba2dcf2f23c4018e0a53d3b8c1ce36563cf412fc8b917c1aed8
+  bytes: 266443
+  source_id: official_l1_summer
+  source_url: https://urbanosalmunecar.es/wp-content/uploads/2022/05/image.png
+  kind: diagram
+  depicts: Línea 1 Circular stop diagram, 22 calls, Plaza de la Carrera round trip
+- file: line-1-summer-timetable.png
+  sha256: 38ae971d265c5eedd1d9a807e233a11885fd185d435ceec58416905858e127c6
+  bytes: 315897
+  source_id: official_l1_summer
+  source_url: https://urbanosalmunecar.es/wp-content/uploads/2025/08/domingo-y-festivos-circular-ok-pica.png
+  kind: timetable
+  depicts: Línea 1 summer departures, Mon-Sat and Sun/holidays
+- file: line-1-diversion-notice.png
+  sha256: 80a58b6db3e7c5b86433b008dafa34bfb057c7937849c9fbd8c8485a5718f073
+  bytes: 496433
+  source_id: official_l1_summer
+  source_url: https://urbanosalmunecar.es/wp-content/uploads/2026/07/desvio-linea-circular-20-febrero.png
+  kind: notice
+  depicts: 'MODIFICACIÓN LÍNEA 1 CIRCULAR: roadworks diversion map'
+- file: line-1-route-map.png
+  sha256: db2643d4514f87a61ac6b1b3f8cff35a57119bc536f2ad1602c8d46695afe50a
+  bytes: 625655
+  source_id: official_l1_winter
+  source_url: https://urbanosalmunecar.es/wp-content/uploads/2022/09/image-8.png
+  kind: map
+  depicts: Línea 1 routing drawn on a street map, outbound and return
+- file: line-1-winter-timetable.png
+  sha256: 83679f93e8850a3461bba59e87a62c503b26e11690b96213a438764e14975353
+  bytes: 51429
+  source_id: official_l1_winter
+  source_url: https://urbanosalmunecar.es/wp-content/uploads/2022/09/linea-1-almunecar-correcta.png
+  kind: timetable
+  depicts: Línea 1 winter departures, Mon-Sat and Sunday
+- file: line-2a-route-diagram.png
+  sha256: 9e61d34e5be0dbd545fa60ac18c22d7c0de3146d2efe6c2dc5f99f312f9aa0d0
+  bytes: 355823
+  source_id: official_l2_summer
+  source_url: https://urbanosalmunecar.es/wp-content/uploads/2022/05/image-3.png
+  kind: diagram
+  depicts: Línea 2A stop diagram, 22 calls
+- file: line-2a-summer-timetable.png
+  sha256: ed101a8de497a8196b025600b86b1676936a3958c1f57b51e99aaadfae41ecb0
+  bytes: 214605
+  source_id: official_l2_summer
+  source_url: https://urbanosalmunecar.es/wp-content/uploads/2025/08/horarios-2-a-ok-subir.png
+  kind: timetable
+  depicts: Línea 2A summer departures; no Sunday service
+- file: line-2a-winter-timetable.png
+  sha256: bda5279600373f2217ceafeebc5b9bb85eab1626bcc2468039ffd65aadf0b256
+  bytes: 66422
+  source_id: official_l2_winter
+  source_url: https://urbanosalmunecar.es/wp-content/uploads/2022/09/image-3.png
+  kind: timetable
+  depicts: Línea 2A winter departures; no Sunday service
+- file: line-2b-route-diagram.png
+  sha256: 97c06d182dcae74a45bc77b4cdaa86867a032186d68368222d9c32f61427cf9f
+  bytes: 258176
+  source_id: official_l2_summer
+  source_url: https://urbanosalmunecar.es/wp-content/uploads/2022/05/image-5.png
+  kind: diagram
+  depicts: Línea 2B stop diagram, 29 calls; MARINA DEL ESTE carries the winter-omission
+    asterisk
+- file: line-2b-summer-timetable.png
+  sha256: 939d6cc84dc172637058b7352320c5cbb091cc1d9f5c5dd7f9e4fef9857083c2
+  bytes: 63035
+  source_id: official_l2_summer
+  source_url: https://urbanosalmunecar.es/wp-content/uploads/2022/06/image-7.png
+  kind: timetable
+  depicts: Línea 2B summer departures, split into an unmarked row and a '* BAJADA
+    PUERTO' row
+- file: line-2b-winter-timetable.png
+  sha256: 94d1716b3daea823bb5f0f0ce223ebc5e6ebba905bac4b0e701cadf304558541
+  bytes: 70985
+  source_id: official_l2_winter
+  source_url: https://urbanosalmunecar.es/wp-content/uploads/2022/09/image-5.png
+  kind: timetable
+  depicts: Línea 2B winter departures, single undivided row
+- file: line-3a-route-diagram.png
+  sha256: 847404a559cbd0e4f084e1a752e7669eaba89b2c928b3dd05573b1f6a97afd50
+  bytes: 248818
+  source_id: official_l3a_summer
+  source_url: https://urbanosalmunecar.es/wp-content/uploads/2022/05/image-7.png
+  kind: diagram
+  depicts: Línea 3A stop diagram, 26 calls
+- file: line-3a-summer-timetable.png
+  sha256: b838df3f6eb9dbbc56fb973a00f7b460fe6b9dea42184cbb1d2183e62f16a7b6
+  bytes: 52192
+  source_id: official_l3a_summer
+  source_url: https://urbanosalmunecar.es/wp-content/uploads/2022/06/image-10.png
+  kind: timetable
+  depicts: Línea 3A summer departures, only two per day
+- file: line-3a-winter-timetable.png
+  sha256: 86e184001032d2e6989a3683d5c4879544e4fa4686dfefa2dc662134ee1934aa
+  bytes: 110395
+  source_id: official_l3a_winter
+  source_url: https://urbanosalmunecar.es/wp-content/uploads/2022/09/image-6.png
+  kind: timetable
+  depicts: Línea 3A winter departures with two footnoted exceptions
+- file: line-3b-route-diagram.png
+  sha256: 5038ea810e4d7931c57442cbbee85bb8467830df6a6c89f78de4681382b7f852
+  bytes: 320104
+  source_id: official_l3b_summer
+  source_url: https://urbanosalmunecar.es/wp-content/uploads/2022/06/image.png
+  kind: diagram
+  depicts: Línea 3B stop diagram, 37 calls, with * extended and ** omitted stops
+- file: line-3b-summer-timetable.png
+  sha256: 38216ef6eaa9429fda97d46fb0c4cc160d61788a9a3b6400eb1cc3a2dd958e70
+  bytes: 92054
+  source_id: official_l3b_summer
+  source_url: https://urbanosalmunecar.es/wp-content/uploads/2022/06/image-1.png
+  kind: timetable
+  depicts: Línea 3B summer service; Mon-Sat printed as a frequency, not a list
+- file: line-3c-route-diagram.png
+  sha256: b30ede42457eb99e9b4775220b5aad77674ed1e2de8e7584aef178e5d77654fc
+  bytes: 173924
+  source_id: official_l3c_summer
+  source_url: https://urbanosalmunecar.es/wp-content/uploads/2022/06/image-2.png
+  kind: diagram
+  depicts: Línea 3C stop diagram, 11 calls
+- file: line-3c-summer-timetable.png
+  sha256: f3d4f554f51f2413c8a6444ee0fb5c3747cc9dc8ccc1b236837b86e45e33d207
+  bytes: 47719
+  source_id: official_l3c_summer
+  source_url: https://urbanosalmunecar.es/wp-content/uploads/2022/06/image-11.png
+  kind: timetable
+  depicts: Línea 3C summer departures; no Sunday service
+- file: torrecuevas-route-diagram.png
+  sha256: d2a6fafd494960623ae6c67e0c40829c741b06a04b8fd15869f1e2c75c37ed40
+  bytes: 255606
+  source_id: official_torrecuevas_summer
+  source_url: https://urbanosalmunecar.es/wp-content/uploads/2022/05/image-9.png
+  kind: diagram
+  depicts: Torrecuevas stop diagram, 25 calls; OSM and Moovit list only 17
+- file: torrecuevas-summer-timetable.png
+  sha256: e2b46a2e16e7ffce4e6f4d6f67e4c6f6139af27b331e468c68598006aa76aec1
+  bytes: 56269
+  source_id: official_torrecuevas_summer
+  source_url: https://urbanosalmunecar.es/wp-content/uploads/2022/06/image-8.png
+  kind: timetable
+  depicts: Torrecuevas summer departures
+- file: torrecuevas-winter-timetable.png
+  sha256: 03d8cf559d3e515ec270c160a9e21c7e36c3867c3bd877ca4fcf2f20c2102687
+  bytes: 63066
+  source_id: official_torrecuevas_winter
+  source_url: https://urbanosalmunecar.es/wp-content/uploads/2022/09/image-7.png
+  kind: timetable
+  depicts: Torrecuevas winter departures

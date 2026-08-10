@@ -23,6 +23,7 @@ from almunecar_gtfs.gtfs import build as build_mod
 from almunecar_gtfs.gtfs import validate as validate_mod
 from almunecar_gtfs.provenance import EvidenceStore, dump_conflicts
 from almunecar_gtfs.qamap import write_qa_map
+from almunecar_gtfs.sources import images as images_mod
 from almunecar_gtfs.sources.base import fetch
 from almunecar_gtfs.sources.ingest import ingest
 
@@ -85,6 +86,22 @@ def cmd_check(args: argparse.Namespace) -> int:
     network = dataset.read_network(canonical_dir)
     evidence = _load_evidence(evidence_dir) if (evidence_dir / "sources.yaml").exists() else None
     findings = qa.check_all(network, evidence)
+
+    # The images are what the timetable transcriptions rest on, so a swapped or
+    # missing one invalidates evidence rather than merely losing a picture.
+    image_problems = images_mod.verify(evidence_dir)
+    findings = [
+        *findings,
+        *[
+            qa.Finding(
+                severity=qa.Severity.ERROR,
+                code="evidence.image_mismatch",
+                entity="images",
+                message=problem,
+            )
+            for problem in image_problems
+        ],
+    ]
 
     for finding in findings:
         print(finding)

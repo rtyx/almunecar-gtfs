@@ -75,6 +75,24 @@ domain and cannot establish a coordinate on its own. It is rescued only if a
 then downgraded to `low` confidence. A stop with no other evidence produces a
 reconciliation problem and is left out, rather than being invented.
 
+## Images as evidence
+
+The operator publishes timetables and route diagrams only as pictures. Every
+departure time in this dataset was therefore read off one by hand, which makes
+the transcription the weakest link in the chain — so the pictures are committed
+next to it, under `data/evidence/images/`, with a manifest recording each one's
+SHA-256, source page and upload URL.
+
+That turns "trust us" into "check it": open the image beside
+`sources/official.py` and the numbers either match or they do not. `check`
+verifies the hashes, so an image cannot be silently replaced under a
+transcription that cites it, and the archive outlives the operator reorganising
+their site — which they have already done once.
+
+The images are the operator's own material, reproduced unmodified with
+attribution. The *facts* taken from them are not copyrightable and are what the
+dataset is built on; the pictures are there to make those facts auditable.
+
 ## Conflicts
 
 Any `(entity, field)` where registered sources state different values becomes a

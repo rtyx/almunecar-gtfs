@@ -30,6 +30,7 @@ from almunecar_gtfs.provenance import (
     dump_sources,
     load_sources,
 )
+from almunecar_gtfs.sources import images as images_mod
 from almunecar_gtfs.sources import official
 from almunecar_gtfs.sources.base import fetch
 
@@ -582,8 +583,9 @@ PATTERN_FOR: dict[tuple[str, str], str] = {
 }
 
 
-def _departure_observations(today: dt.date) -> list[Observation]:
+def _departure_observations(today: dt.date, evidence_dir: Path) -> list[Observation]:
     rows: list[Observation] = []
+    local = images_mod.by_source_url(evidence_dir)
     for timetable in official.TIMETABLES:
         pattern_id = PATTERN_FOR.get((timetable.route_id, timetable.season))
         if pattern_id is None:
@@ -600,9 +602,15 @@ def _departure_observations(today: dt.date) -> list[Observation]:
                 source_url=timetable.image_url,
                 notes=(
                     "Transcribed by hand from the operator's timetable image on "
-                    f"{official.TRANSCRIBED_AT}. Departures from the principal stop."
-                    + (f" {timetable.note}" if timetable.note else "")
-                ),
+                    f"{official.TRANSCRIBED_AT}. Departures from the principal stop. "
+                    f"Image archived at images/{local[timetable.image_url].file}."
+                    if timetable.image_url in local
+                    else (
+                        "Transcribed by hand from the operator's timetable image on "
+                        f"{official.TRANSCRIBED_AT}. Departures from the principal stop."
+                    )
+                )
+                + (f" {timetable.note}" if timetable.note else ""),
             )
         )
     return rows
@@ -744,7 +752,7 @@ def ingest(
         *_stop_observations(registry, today),
         *_pattern_observations(evidence_dir, registry, today),
         *_service_observations(today),
-        *_departure_observations(today),
+        *_departure_observations(today, evidence_dir),
         *_shape_observations(evidence_dir, today),
     ]
     sources = _sources(hashes, today)

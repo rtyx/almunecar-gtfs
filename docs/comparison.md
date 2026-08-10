@@ -48,8 +48,11 @@ endpoints can be compared mechanically; the names themselves are listed in
 
 | Pattern | Diagram | Our stops | Diagram stops | Verdict |
 |---|---|---:|---:|---|
+| `ALM_1_CIRC` | ALM_1 operator diagram | 19 | 22 | stop counts differ by 3 |
 | `ALM_2A_CIRC` | ALM_2A operator diagram | 20 | 22 | stop counts differ by 2 |
 | `ALM_2B_CIRC_SUMMER` | ALM_2B operator diagram | 24 | 29 | stop counts differ by 5 |
 | `ALM_2B_CIRC_WINTER` | ALM_2B operator diagram | 23 | 29 | stop counts differ by 6 |
+| `ALM_3A_CIRC` | ALM_3A operator diagram | 22 | 26 | stop counts differ by 4 |
 | `(none for ALM_3B)` | ALM_3B operator diagram | 0 | 37 | no reconstructed pattern to compare against |
+| `(none for ALM_3C)` | ALM_3C operator diagram | 0 | 11 | no reconstructed pattern to compare against |
 | `ALM_TORRECUEVAS_CIRC` | ALM_TORRECUEVAS operator diagram | 17 | 25 | stop counts differ by 8 |
