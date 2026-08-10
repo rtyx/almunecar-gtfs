@@ -21,6 +21,7 @@ from almunecar_gtfs.models import (
     Network,
     PublicationStatus,
     TimingMethod,
+    haversine_m,
 )
 from almunecar_gtfs.provenance import EvidenceDomain, EvidenceStore, SourceType
 
@@ -484,6 +485,70 @@ def check_calendars(
 # -- geometry ------------------------------------------------------------
 
 
+def check_stop_order(network: Network) -> list[Finding]:
+    """Does the stop sequence actually run along the shape in that order?
+
+    The proximity check in :func:`check_geometry` asks only whether each stop is
+    *near* the route. A sequence can pass that while being scrambled — every stop
+    is on the line, just listed in the wrong order — and a scrambled sequence
+    produces nonsense ``shape_dist_traveled`` and nonsense interpolated times.
+
+    The test walks the shape forward, one stop at a time, and asks what it costs
+    to keep the given order. If honouring the order forces a stop to match a
+    vertex far away when the stop sits comfortably close to some *other* vertex,
+    the order and the geometry disagree, and the order is the suspect.
+
+    A single wrap back to the start is allowed, because every line here is a
+    circular that ends where it began.
+    """
+    found: list[Finding] = []
+
+    for pattern in sorted(network.patterns, key=lambda p: p.pattern_id):
+        shape = network.shapes_by_id.get(pattern.shape_id or "")
+        if shape is None:
+            continue
+        points = shape.points
+        cursor = 0
+        wrapped = False
+        offenders: list[str] = []
+
+        for stop_id in pattern.stop_ids:
+            stop = network.stops_by_id.get(stop_id)
+            if stop is None:
+                continue
+            distances = [
+                haversine_m(stop.latitude, stop.longitude, lat, lon) for lat, lon in points
+            ]
+            unconstrained = min(distances)
+            forward = min(range(cursor, len(points)), key=lambda i: distances[i])
+            if distances[forward] > SHAPE_STOP_ERROR_M and not wrapped:
+                # Allow one wrap: a loop's last stops precede its first on the line.
+                wrapped = True
+                cursor = 0
+                forward = min(range(len(points)), key=lambda i: distances[i])
+            if distances[forward] > SHAPE_STOP_ERROR_M and unconstrained <= SHAPE_STOP_WARN_M:
+                offenders.append(
+                    f"{stop_id} ({stop.name}) sits {unconstrained:.0f} m from the shape but "
+                    f"{distances[forward]:.0f} m from where its position in the sequence puts it"
+                )
+            cursor = forward
+
+        if offenders:
+            found.append(
+                Finding(
+                    severity=Severity.ERROR,
+                    code="pattern.stop_order_disagrees_with_shape",
+                    entity=f"pattern:{pattern.pattern_id}",
+                    message=(
+                        f"{len(offenders)} stop(s) are on the route but out of order along it: "
+                        + "; ".join(offenders[:3])
+                        + ("; …" if len(offenders) > 3 else "")
+                    ),
+                )
+            )
+    return found
+
+
 def check_geometry(network: Network) -> list[Finding]:
     found: list[Finding] = []
     stops = network.stops_by_id
@@ -736,6 +801,7 @@ def check_all(
         *check_trips(network),
         *check_calendars(network, today=today),
         *check_geometry(network),
+        *check_stop_order(network),
         *check_readiness(network),
     ]
     if evidence is not None:

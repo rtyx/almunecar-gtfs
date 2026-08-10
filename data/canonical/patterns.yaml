@@ -379,7 +379,16 @@
     offset_seconds: 0
     timing_method: unknown
     request_stop: false
+  - stop_id: ALM_0072
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0069
+    timing_method: unknown
+    request_stop: false
   - stop_id: ALM_0060
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0065
     timing_method: unknown
     request_stop: false
   - stop_id: ALM_0061
@@ -391,10 +400,13 @@
   - stop_id: ALM_0063
     timing_method: unknown
     request_stop: false
+  - stop_id: ALM_0073
+    timing_method: unknown
+    request_stop: false
   - stop_id: ALM_0064
     timing_method: unknown
     request_stop: false
-  - stop_id: ALM_0065
+  - stop_id: ALM_0074
     timing_method: unknown
     request_stop: false
   - stop_id: ALM_0066
@@ -406,22 +418,10 @@
   - stop_id: ALM_0068
     timing_method: unknown
     request_stop: false
-  - stop_id: ALM_0069
-    timing_method: unknown
-    request_stop: false
   - stop_id: ALM_0070
     timing_method: unknown
     request_stop: false
   - stop_id: ALM_0071
-    timing_method: unknown
-    request_stop: false
-  - stop_id: ALM_0072
-    timing_method: unknown
-    request_stop: false
-  - stop_id: ALM_0073
-    timing_method: unknown
-    request_stop: false
-  - stop_id: ALM_0074
     timing_method: unknown
     request_stop: false
   - stop_id: ALM_0001

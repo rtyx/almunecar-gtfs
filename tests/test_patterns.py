@@ -248,3 +248,48 @@ def test_a_pattern_with_guessed_ends_never_reaches_the_feed(network):
     )
     with pytest.raises(build_mod.BuildError, match="no publishable trips"):
         build_mod.build_feed(network.model_copy(update={"patterns": [guessed]}))
+
+
+def test_a_scrambled_stop_sequence_is_caught_even_though_every_stop_is_on_the_route(network):
+    """Proximity alone cannot see this: every stop is still beside the line.
+
+    One out-of-order jump is indistinguishable from a loop closing, so the check
+    tolerates it. Two is a scrambled sequence, which is what OSM's Torrecuevas
+    relation actually contained.
+    """
+    pattern = network.patterns_by_id["ALM_9_OUT"]
+    order = [0, 2, 1, 3, 2]
+    scrambled = pattern.model_copy(
+        update={
+            "stops": [
+                pattern.stops[position].model_copy(update={"offset_seconds": seconds})
+                for position, seconds in zip(order, [0, 240, 480, 900, 1200], strict=True)
+            ]
+        }
+    )
+    candidate = network.model_copy(update={"patterns": [scrambled]})
+
+    # Every stop is still within tolerance of the shape...
+    assert not [f for f in qa.check_geometry(candidate) if f.severity is qa.Severity.ERROR]
+    # ...but the order disagrees with the geometry.
+    findings = qa.check_stop_order(candidate)
+    assert any(f.code == "pattern.stop_order_disagrees_with_shape" for f in findings)
+
+
+def test_a_correctly_ordered_sequence_passes_the_order_check(network):
+    assert qa.check_stop_order(network) == []
+
+
+def test_a_loop_returning_to_its_origin_is_not_flagged(network):
+    """One wrap is legitimate: these lines all end where they began."""
+    pattern = network.patterns_by_id["ALM_9_OUT"]
+    looped = pattern.model_copy(
+        update={
+            "stops": [
+                *pattern.stops,
+                pattern.stops[0].model_copy(update={"offset_seconds": 1800}),
+            ]
+        }
+    )
+    findings = qa.check_stop_order(network.model_copy(update={"patterns": [looped]}))
+    assert findings == []

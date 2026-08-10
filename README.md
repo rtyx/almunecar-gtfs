@@ -104,10 +104,18 @@ What is in the dataset today, all with provenance:
 - **Public holidays are not modelled.** Sunday and holiday timetables are shared,
   but the operator does not publish which days are holidays.
 
-- **OpenStreetMap's Torrecuevas route is missing stops.** The operator's own
-  diagram lists 25 calls (including Cementerio, Eucalipto and Cahicillos 1/2);
-  OSM and Moovit both list 17. Since the sequence comes from OSM, the pattern is
-  very likely incomplete — another reason that route is held back.
+- **OpenStreetMap's Torrecuevas data is both incomplete and mis-ordered.** The
+  operator's diagram lists 25 calls; OSM and Moovit list 17. Worse, OSM's order
+  was wrong — it placed Cortijo Cahicillos, the far apex, between two stops beside
+  the town. The geometry check caught it (honouring that order puts the stop
+  3.5 km from where it sits) and the sequence now follows the operator's diagram
+  instead. The eight unmapped calls — Cementerio, Eucalipto, Cahicillos 2 and
+  their returns — are named in `data/evidence/observations.csv` and are the survey
+  work needed to finish the line.
+- **OSM is systematically thinner than the operator's diagrams**, not just on
+  Torrecuevas. Line 1's diagram names `IES ANTIGUA SEXI` and `AVD. MEDITERRÁNEO`,
+  which appear in neither OSM nor Moovit. Per-line counts are in
+  [`docs/comparison.md`](docs/comparison.md).
 
 Every unresolved disagreement is in [`docs/conflicts.md`](docs/conflicts.md),
 generated from `data/evidence/conflicts.yaml`. Cross-checks against Moovit and

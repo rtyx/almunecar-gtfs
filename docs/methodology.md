@@ -203,6 +203,29 @@ observation so it keeps its provenance. QA flags a shape that jumps more than
 300 m between consecutive points (too coarse) or 1.5 km (broken), and a stop more
 than 50 m from its own shape.
 
+### Stop order, not just stop proximity
+
+Checking that every stop is *near* its route is not the same as checking that the
+route visits them *in that order*. A scrambled sequence passes the proximity test
+easily — every stop really is on the line — while producing nonsense
+`shape_dist_traveled` and, once timings exist, nonsense interpolated times.
+
+So the order is tested against the geometry directly: walk the shape forward, one
+stop at a time, and ask what it costs to honour the given order. If honouring it
+forces a stop to match a vertex far away when that stop sits comfortably close to
+some *other* vertex, the order and the geometry disagree — and the order is the
+suspect. One wrap back to the start is allowed, because every line here is a
+circular that ends where it began; two is a scramble.
+
+This is not hypothetical. OpenStreetMap relation 18501914 lists the Torrecuevas
+platforms in an order that puts Cortijo Cahicillos, the far apex of the line,
+between two stops beside the town. The check measured the contradiction: honouring
+that order puts Cortijo Cahicillos 3,471 m from where it actually sits, and
+Torrecuevas 2,432 m, while both are within 10 m of the route. The operator's own
+route diagram gives the correct order and outranks OSM for sequences, so it wins —
+and OSM's claim stays in `conflicts.yaml`, because the upstream relation deserves
+fixing rather than working around.
+
 ## Seasons
 
 Two published periods — summer (1 July – 15 September) and winter (16 September –

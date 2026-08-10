@@ -41,6 +41,7 @@ OSM_RELATIONS_FILE = "osm/relations.json"
 STOP_REGISTRY_FILE = "stop_registry.yaml"
 
 OSM_SOURCE_ID = "osm_route_relations"
+IMG_BASE = "https://urbanosalmunecar.es/wp-content/uploads"
 OSM_ATTRIBUTION = "© OpenStreetMap contributors, ODbL"
 
 #: OSM route relations, in the order stop ids were first assigned.
@@ -64,6 +65,42 @@ OSM_RELATIONS: dict[int, dict[str, str]] = {
 #: with an asterisk and the winter page explains: "Esta parada no se realiza en
 #: el horario de invierno."
 MARINA_DEL_ESTE_OSM_NODE = 4167568437
+
+#: The Torrecuevas relation's platform members are not in travel order — it puts
+#: Cortijo Cahicillos, the far apex, between two stops beside the town. The
+#: operator's own route diagram states the order, and the operator outranks OSM
+#: for stop sequences, so this maps each diagram call to the stop we hold for it.
+#:
+#: ``None`` means the operator names a call that is not mapped in OSM at all.
+#: Those are listed rather than dropped silently: they are exactly the survey
+#: work needed to complete the line.
+TORRECUEVAS_DIAGRAM_ORDER: tuple[tuple[str, str | None], ...] = (
+    ("PLAZA DE LA CARRERA", "ALM_0001"),
+    ("SAN SEBASTIAN 1", "ALM_0072"),
+    ("SAN SEBASTIAN 2", "ALM_0069"),
+    ("LADERAS DE CASTELAR", "ALM_0060"),
+    ("CEMENTERIO", None),
+    ("PEÑUELAS", "ALM_0065"),
+    ("VTA LUCIANO 1", "ALM_0061"),
+    ("VTA LUCIANO 2", None),
+    ("TORRECUEVAS", "ALM_0062"),
+    ("ARCOS TORRECUEVAS", "ALM_0063"),
+    ("EUCALIPTO", None),
+    ("CAHICILLOS 1", "ALM_0073"),
+    ("CAHICILLOS 2", None),
+    ("CAHICILLOS 1 R", None),
+    ("EUCALIPTO R", None),
+    ("ARCOS TORRECUEVAS R", "ALM_0064"),
+    ("TORRECUEVAS R", "ALM_0074"),
+    ("VTA LUCIANO 2 R", "ALM_0066"),
+    ("VTA LUCIANO 1 R", None),
+    ("PEÑUELAS R", "ALM_0067"),
+    ("CEMENTERIO R", None),
+    ("LADERAS DE CASTELAR R", "ALM_0068"),
+    ("SAN SEBASTIAN 2 R", "ALM_0070"),
+    ("SAN SEBASTIAN 1 R", "ALM_0071"),
+    ("PLAZA DE LA CARRERA R", "ALM_0001"),
+)
 
 SEASONS: dict[str, tuple[dt.date, dt.date]] = {
     # Only the periods the operator currently documents. Future seasons are not
@@ -462,6 +499,34 @@ def _pattern_observations(
                 source_id=OSM_SOURCE_ID, retrieved_at=today, confidence=Confidence.HIGH,
             ),
         ]
+
+        # Torrecuevas: override OSM's scrambled order with the operator's.
+        if spec["pattern_id"] == "ALM_TORRECUEVAS_CIRC":
+            ordered = [sid for _, sid in TORRECUEVAS_DIAGRAM_ORDER if sid]
+            unmapped = [name for name, sid in TORRECUEVAS_DIAGRAM_ORDER if sid is None]
+            rows.append(
+                Observation(
+                    entity=entity,
+                    field="stop_sequence",
+                    value=";".join(ordered),
+                    source_id="official_torrecuevas_summer",
+                    retrieved_at=today,
+                    confidence=Confidence.HIGH,
+                    evidence_kind=EvidenceKind.NARRATIVE,
+                    source_url=f"{IMG_BASE}/2022/05/image-9.png",
+                    derivation=(
+                        "Order taken from the operator's route diagram; each diagram call "
+                        "matched by name and position to the stop we hold for it. OSM's "
+                        "relation lists the same platforms but not in travel order."
+                    ),
+                    derived_from=f"official_torrecuevas_summer;{OSM_SOURCE_ID}",
+                    notes=(
+                        f"The diagram names {len(TORRECUEVAS_DIAGRAM_ORDER)} calls; "
+                        f"{len(unmapped)} have no mapped stop and are omitted here: "
+                        + ", ".join(unmapped)
+                    ),
+                )
+            )
 
         # Winter 2B: the same sequence without Marina del Este, which the
         # operator's winter page states is not served.
