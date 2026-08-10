@@ -77,7 +77,7 @@ sequences; `trips` are scheduled departures reconstructed from the timetables.
 | 3A | Velilla – Taramay | 1 | 17 | ❌ | no intermediate timings |
 | 3B | Velilla *(summer only)* | 0 | 0 | ❌ | no stop sequence in any machine-readable source |
 | 3C | Taramay *(summer only)* | 0 | 0 | ❌ | no stop sequence in any machine-readable source |
-| 4 / 5 | Torrecuevas | 1 | 25 | ❌ | **line number disputed** (blocking conflict) |
+| ? | Torrecuevas | 1 | 25 | ❌ | **line number disputed** — `route_short_name` deliberately left unset |
 
 ### Patterns
 
@@ -214,16 +214,24 @@ win by default.
 
 1. **How long does each loop take?** The blocker. One number per line unblocks the
    whole feed. → drafted email to the operator; or record runs.
+   *Working hypothesis:* each line is worked by a **single bus** that runs the
+   loop, returns, waits, and departs again at the next published time. That would
+   make the minimum headway an upper bound on the loop — and the hypothesis
+   survives testing, since Moovit's durations fit inside every headway with a
+   plausible layover (Línea 1 ≤ 30 min against 19; Torrecuevas ≤ 60 against 18).
+   A bound is still not a duration, but it makes *"is it one bus per line?"* a
+   far easier question to get answered than *"how long is the loop?"*. See
+   [`docs/methodology.md`](docs/methodology.md).
 2. **Torrecuevas: line 4 or line 5?** The summer page body says `LINEA 4`; the
    winter page title *and URL slug* say `Línea 5`; OSM and Moovit say 5. Both
    operator pages carry the **same** sitemap `lastmod` (2026-05-14), so neither is
    simply the older one — and the summer page is demonstrably careless, its own
    validity line reading *"horario de **invierno** desde el 1 julio"*. Recorded as
-   a blocking conflict. **Known weakness:** `routes.yaml` currently shows
-   `route_short_name: "4"`, which is not a decision — it is an alphabetical
-   tiebreak on `source_id` between two equally-ranked claims. The route is held out
-   of the feed by the blocking conflict, so nothing consumes it, but the value
-   looks more settled than it is.
+   a blocking conflict, and reconciliation now **refuses to emit a value at all** for
+   a field under an unsettled blocking dispute — `route_short_name` is absent from
+   `routes.yaml`, with the reason recorded on the route. Previously it read `"4"`,
+   which was not a decision but an alphabetical tiebreak on `source_id` between two
+   equally-ranked claims.
 3. **Which 2B departures actually descend to the port?** The summer image splits
    into an unmarked row (10:30, 12:30, 16:30, 20:30, 21:30) and a `* BAJADA PUERTO`
    row (8:45, 14:00, 17:30, 19:00). Which is which is stated nowhere.

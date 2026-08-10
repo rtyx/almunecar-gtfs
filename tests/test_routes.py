@@ -182,3 +182,44 @@ def test_comparison_report_flags_stop_count_mismatches(network):
     # "nothing to compare" kind rather than a false agreement.
     assert all(isinstance(row, Comparison) for row in rows)
     assert not any(row.pattern_id == "ALM_9_OUT" for row in rows)
+
+
+def test_a_blocking_conflict_leaves_the_field_unset_rather_than_picking_a_winner():
+    """Two equally-ranked claims must not be settled by source_id alphabetics."""
+    store = EvidenceStore(
+        sources=FIXTURE_SOURCES,
+        observations=[
+            observation("route:ALM_4", "route_short_name", "4"),
+            observation("route:ALM_4", "route_short_name", "5", source_id="fixture_moovit"),
+            observation("route:ALM_4", "route_long_name", "Torrecuevas fixture"),
+        ],
+        conflicts=[_conflict("4", "5", blocks_publication=True)],
+    )
+    # The conflict fixture is on route:ALM_4 / route_short_name.
+    assert store.blocked_fields() == {("route:ALM_4", "route_short_name")}
+
+    routes, problems = reconcile_routes(store)
+    assert problems == [], problems
+    assert len(routes) == 1
+    route = routes[0]
+    assert route.route_short_name is None
+    assert route.route_long_name == "Torrecuevas fixture"
+    assert route.status is PublicationStatus.NOT_PUBLISHABLE
+    assert "unresolved" in route.notes
+
+
+def test_resolving_the_conflict_restores_the_value():
+    resolved = _conflict(
+        "4", "5", status="resolved", resolved_value="4", blocks_publication=True
+    )
+    store = EvidenceStore(
+        sources=FIXTURE_SOURCES,
+        observations=[
+            observation("route:ALM_4", "route_short_name", "4"),
+            observation("route:ALM_4", "route_long_name", "Torrecuevas fixture"),
+        ],
+        conflicts=[resolved],
+    )
+    assert store.blocked_fields() == set()
+    routes, _ = reconcile_routes(store)
+    assert routes[0].route_short_name == "4"

@@ -238,9 +238,16 @@ class Resolver:
             self.problems.append(f"{entity}/{field} from {observation.source_id}: {error}")
             return None
 
+    def is_blocked(self, entity: str, field: str) -> bool:
+        """Whether an unsettled, publication-blocking dispute covers this field."""
+        return (entity, field) in self.evidence.blocked_fields()
+
     def require(self, entity: str, field: str) -> Resolved | None:
         resolved = self.resolve(entity, field)
-        if resolved is None:
+        if resolved is None and not self.is_blocked(entity, field):
+            # A blocked field is missing on purpose and already recorded in
+            # conflicts.yaml; reporting it as a problem would turn a documented
+            # decision into noise the caller has to learn to ignore.
             self.problems.append(f"{entity}: no usable evidence for required field {field!r}")
         return resolved
 

@@ -20,7 +20,12 @@ def reconcile_routes(evidence: EvidenceStore) -> tuple[list[Route], list[str]]:
         route_id = entity.split(":", 1)[1]
         short_name = resolver.require(entity, "route_short_name")
         long_name = resolver.require(entity, "route_long_name")
-        if short_name is None or long_name is None:
+        if long_name is None:
+            continue
+        disputed_short_name = short_name is None and resolver.is_blocked(
+            entity, "route_short_name"
+        )
+        if short_name is None and not disputed_short_name:
             continue
 
         seasons: list[Season] = []
@@ -37,15 +42,27 @@ def reconcile_routes(evidence: EvidenceStore) -> tuple[list[Route], list[str]]:
             resolver.problems.append(f"{entity}: unknown status {status_text!r}")
             status = PublicationStatus.NOT_PUBLISHABLE
 
+        if disputed_short_name:
+            # The designation itself is what is in dispute. Publishing the route
+            # under a number nobody has established would be worse than holding
+            # it back, so it is held back and the reason travels with it.
+            status = PublicationStatus.NOT_PUBLISHABLE
+
         routes.append(
             Route(
                 route_id=route_id,
-                route_short_name=short_name.value,
+                route_short_name=None if short_name is None else short_name.value,
                 route_long_name=long_name.value,
                 route_desc=resolver.value(entity, "route_desc"),
                 seasons=seasons,
                 status=status,
                 former_short_names=resolver.value(entity, "former_short_names", []),
+                notes=(
+                    "route_short_name is unresolved: competing claims are recorded "
+                    "in conflicts.yaml and none has been established."
+                    if disputed_short_name
+                    else None
+                ),
             )
         )
 

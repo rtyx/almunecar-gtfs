@@ -58,7 +58,6 @@
   status: not_publishable
   former_short_names: []
 - route_id: ALM_TORRECUEVAS
-  route_short_name: '4'
   route_long_name: Torrecuevas
   route_type: 3
   route_desc: Line number disputed between the operator's own summer and winter pages.
@@ -67,3 +66,5 @@
   - winter
   status: not_publishable
   former_short_names: []
+  notes: 'route_short_name is unresolved: competing claims are recorded in conflicts.yaml and none has
+    been established.'

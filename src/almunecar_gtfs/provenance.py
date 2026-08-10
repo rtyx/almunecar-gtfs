@@ -393,6 +393,20 @@ class EvidenceStore:
             if c.blocks_publication and c.status == "unresolved"
         }
 
+    def blocked_fields(self) -> set[tuple[str, str]]:
+        """``(entity, field)`` pairs where an unsettled dispute blocks publication.
+
+        Reconciliation refuses to produce a value for these. The alternative is
+        worse than having no value: with two equally-ranked claims the ordering
+        falls through to the source id, so the dataset would report whichever
+        source happens to sort first as though it had been chosen.
+        """
+        return {
+            c.key
+            for c in self.conflicts
+            if c.blocks_publication and c.status == "unresolved"
+        }
+
     # -- ordering --------------------------------------------------------
 
     def sort_key(self, domain: EvidenceDomain, observation: Observation) -> tuple:
@@ -422,6 +436,10 @@ class EvidenceStore:
         Returns ``None`` when the only available evidence is disqualified and
         uncorroborated, rather than silently promoting it.
         """
+        if (entity, field) in self.blocked_fields():
+            # An unsettled, publication-blocking dispute has no winner. Returning
+            # the top-ranked claim here would dress a tie-break up as a decision.
+            return None
         candidates = self.ranked(domain, entity, field)
         if not candidates:
             return None

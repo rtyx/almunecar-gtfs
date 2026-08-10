@@ -192,6 +192,40 @@ Ranked ways to get that number, best first:
 Options 1 and 2 are the real ones. Until one of them lands, the honest output is
 no feed, which is what the pipeline produces.
 
+#### The single-vehicle hypothesis
+
+A plausible explanation for how sparse the service is: **each line is worked by one
+bus**, which runs the loop, returns, waits, and sets off again at the next
+published departure. If true, the minimum headway within a service period is an
+*upper bound* on the loop time — the bus cannot leave again before it gets back.
+
+This is worth stating carefully, because it is a hypothesis with a consequence,
+not evidence. It has not been confirmed by the operator. But it is falsifiable,
+and it survives: if any line's journey time exceeded its own minimum headway, one
+vehicle could not cover it. Comparing minimum headway per service period against
+Moovit's stated durations:
+
+| Route | Tightest service | Min headway | Moovit duration | Implied layover |
+|---|---|---:|---:|---:|
+| Línea 1 | Mon–Sat | 30 min | 19 min | ≤ 11 min |
+| Línea 2B | Mon–Sat | 60 min | 33 min | ≤ 27 min |
+| Línea 3A | winter Mon–Sat | 30 min | 20 min | ≤ 10 min |
+| Torrecuevas | Mon–Sat | 60 min | 18 min | ≤ 42 min |
+
+Every duration fits inside its headway with a plausible layover. Nothing
+contradicts one bus per line.
+
+What this changes: it makes the headway a *valid* bound, which it would not be if
+two vehicles were interleaving. What it does **not** change: a bound is not a
+duration, and `stop_times.txt` needs a duration. A loop bounded at ≤ 30 minutes
+could be 12 or 28, and the difference is every intermediate time in the feed.
+
+Where it genuinely helps is in what to ask. *"How long does the loop take?"* asks
+an operator to produce a figure they may never have written down. *"Is it one bus
+per line?"* is a yes/no they answer instantly — and combined with the headways
+above it brackets the answer usefully. Both questions are in the draft to the
+operator.
+
 ## Geometry
 
 `shapes.txt` is generated even though GTFS tolerates its absence, because a feed

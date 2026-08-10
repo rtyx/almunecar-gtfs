@@ -161,7 +161,11 @@ class Route(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
     route_id: str
-    route_short_name: str
+    route_short_name: str | None = None
+    """``None`` when an unsettled, publication-blocking conflict covers it. GTFS
+    allows a route to carry only a long name, and such a route never reaches the
+    feed anyway."""
+
     route_long_name: str
     route_type: int = 3
     route_desc: str | None = None
