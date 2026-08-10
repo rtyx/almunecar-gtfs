@@ -1,160 +1,326 @@
 # almunecar-gtfs
 
-Source-backed GTFS Schedule and transit data for the Almuñécar urban bus network.
+Source-backed GTFS Schedule data for the Almuñécar urban bus network — built so
+that every fact in it can be traced back to who said it, when, and why we
+believed them.
 
-> **This is an unofficial dataset.** It is not published by, endorsed by, or
-> affiliated with Autocares Urbanos Almuñécar / Roalfa. Nothing here may be
-> presented as an official operator feed unless and until the operator
-> authorises it — see [`docs/google-transit-submission.md`](docs/google-transit-submission.md).
+> **Unofficial.** Not published by, endorsed by, or affiliated with Autocares
+> Urbanos Almuñécar / Grupo Fajardo. Nothing here may be presented as an official
+> operator feed unless and until the operator authorises it. See
+> [`docs/google-transit-submission.md`](docs/google-transit-submission.md).
 
-## What this repository is
+---
 
-A defensible, maintainable representation of Almuñécar's public bus network —
-not a script that manufactures a valid ZIP. It answers two questions separately
-and never lets the second destroy the first:
+## Status at a glance
 
-1. **What do the available sources say?** → `data/evidence/`
-2. **What do we believe the canonical network actually is?** → `data/canonical/`
-
-GTFS is generated deterministically from the canonical dataset. Generated files
-are never hand-edited.
-
-```
-sources          reconciliation        canonical            GTFS
- official  ─┐                       ┌─ stops.geojson  ─┐
- municipal ─┤    observations.csv   ├─ routes.yaml     ├─ data/generated/
- iBusGPS   ─┼──▶ conflicts.yaml ───▶┼─ patterns.yaml   ┼─▶ almunecar-gtfs.zip
- Moovit    ─┤                       ├─ schedules.yaml  ┤
- OSM       ─┘                       └─ shapes.geojson ─┘
-```
-
-## Current data coverage
-
-Source research is done for the operator's whole published network; the dataset
-reconciles cleanly and passes every QA invariant. **No GTFS feed can be built
-yet**, for one reason, stated up front:
-
-> The operator publishes only the departure time from the principal stop —
-> every page says so: *"LOS HORARIOS INDICAN LA HORA DE SALIDA DESDE LA PARADA
-> PRINCIPAL"*. GTFS requires a time at every stop. No source found so far gives
-> one, and no observed vehicle runs are available to derive one. Rather than
-> invent them, every pattern is marked `not_publishable` and
-> `almunecar-gtfs check` names the blocker per pattern.
-
-What is in the dataset today, all with provenance:
-
-| | Count |
+| | |
 |---|---|
-| Physical stops with coordinates | 74 |
-| Routes | 7 |
-| Route patterns with ordered stop sequences | 6 |
-| Origin departures transcribed from operator timetables | 116 |
-| Route shapes from real road geometry | 5 |
-| Recorded source conflicts | 1 (blocking) |
+| Research | ✅ complete for the operator's whole published network |
+| Canonical dataset | ✅ 74 stops, 7 routes, 6 patterns, 116 trips, 5 shapes |
+| Provenance | ✅ 433 observations across 12 registered sources |
+| QA invariants | ✅ 0 errors, 24 warnings |
+| Tests / CI | ✅ 87 tests, green |
+| **GTFS feed** | ❌ **cannot be built — see The Blocker** |
+| Google Transit ready | ❌ blocked, and needs operator authorisation |
+| Last source verification | **2026-08-10** |
 
-| Line | Service | Sequence | Timetable | Publishable |
-|------|---------|----------|-----------|-------------|
-| 1 | Circular | ✅ OSM | ✅ summer + winter | ❌ roadworks diversion not in geometry |
-| 2A | Almuñécar – La Herradura | ✅ OSM | ✅ summer + winter | ❌ no intermediate timings |
-| 2B | …– Punta de la Mona | ✅ OSM, summer and winter variants | ✅ summer + winter | ❌ no intermediate timings |
-| 3A | Velilla – Taramay | ✅ OSM | ✅ summer + winter | ❌ no intermediate timings |
-| 3B | Velilla (summer only) | ❌ not mapped | ⚠️ Sundays only; weekdays published as a frequency | ❌ no stop sequence |
-| 3C | Taramay (summer only) | ❌ not mapped | ✅ summer | ❌ no stop sequence |
-| 4 / 5 | Torrecuevas | ✅ OSM | ✅ summer + winter | ❌ line number disputed |
+---
 
-**Last source verification: 2026-08-10.**
+## The Blocker
 
-## Known uncertainties
+**No source publishes a time at any intermediate stop, so no feed can be built.**
 
-- **The Torrecuevas line number is unresolved and blocks publication of that
-  route.** The operator's summer page body says `LINEA 4 TORRECUEVAS`; its winter
-  page title and URL say `Línea 5`; OpenStreetMap independently says `Línea 5`.
-  Both operator pages carry the *same* sitemap `lastmod` (2026-05-14), so neither
-  is simply the older one, and the summer page is demonstrably careless — its own
-  validity sentence reads "horario de **invierno** desde el 1 julio". Settle it by
-  asking the operator or photographing the vehicle, not by guessing.
-- **Intermediate stop times do not exist in any source.** This is the single
-  thing standing between this dataset and a publishable feed. GTFS is happy with
-  an estimated middle marked `timepoint=0`, but it requires real times at the
-  first and last stop — and since every line here is a circular, that reduces to
-  one missing number per pattern: the loop running time. Ranked ways to get it are
-  in [`docs/methodology.md`](docs/methodology.md#unblocking-stop_timestxt); the
-  two realistic ones are asking the operator and recording a few runs.
-- **Line 2B and Puerto Marina del Este: resolved.** The operator's 2B route
-  diagram marks `MARINA DEL ESTE*` and the winter page footnotes it: *"Esta parada
-  no se realiza en el horario de invierno."* So it is a **seasonal pattern
-  difference**, not an operational exception and not a realtime alert. The winter
-  pattern `ALM_2B_CIRC_WINTER` omits that stop. What remains unclear is the summer
-  timetable's split into an unmarked row and a `* BAJADA PUERTO` row — which of
-  the two actually descends to the port is not stated anywhere.
-- **Temporary diversion, active now.** From 13 April 2026 the Paseo del Altillo is
-  closed for roadworks on the Paseo de la Caletilla, estimated ten months, and the
-  urban lines divert via calle Guadix. The available geometry does not reflect
-  this, which is why line 1 is held back.
-- **3B Cabria extension, confirmed.** From 17 July to 15 September, line 3B runs
-  on to a new stop at the Avda. Pintor Domínguez de Haro roundabout by Playa de
-  Cabria. The operator links a map pin for it; that pin sits noticeably inland of
-  the beach and needs checking before use.
-- **Feria de San José.** Between 16 and 22 March, line 2B runs the 2A itinerary.
-- **3B weekday service is a frequency, not a list** ("cada 30 min desde las 8:30
-  hasta 14:30 y desde 17:00 hasta 0:30"). Expanding that into departures is an
-  interpretation, so it is recorded as prose rather than as published times.
-- **iBusGPS was looked for and not found.** Nothing on the operator's site or on
-  grupofajardo.es links to a public realtime endpoint as of 2026-08-10.
-- **Public holidays are not modelled.** Sunday and holiday timetables are shared,
-  but the operator does not publish which days are holidays.
+Every operator page says the same thing:
 
-- **OpenStreetMap's Torrecuevas order was wrong, and has been fixed upstream.**
-  OSM placed Cortijo Cahicillos, the far apex of the line, between two stops
-  beside the town. The geometry check caught it — honouring that order puts the
-  stop 3.5 km from where it actually sits, while it is within 10 m of the route.
-  Corrected in OSM on 2026-08-10
-  ([changeset 187244187](https://www.openstreetmap.org/changeset/187244187),
-  relation 18501914 v6), so OSM and the operator now agree. The conflict record is
-  kept rather than deleted: the disagreement was real, and keeping it is what makes
-  the fix auditable.
-- **Torrecuevas is still incomplete.** The operator's diagram lists 25 calls; OSM
-  and Moovit list 17. The eight unmapped calls — Cementerio, Eucalipto,
-  Cahicillos 2, Vta Luciano 2 and their returns — are named in
-  `data/evidence/observations.csv`. No source gives a position for any of them, so
-  they need a survey rather than a guess.
-- **OSM is systematically thinner than the operator's diagrams**, not just on
-  Torrecuevas. Line 1's diagram names `IES ANTIGUA SEXI` and `AVD. MEDITERRÁNEO`,
-  which appear in neither OSM nor Moovit. Per-line counts are in
-  [`docs/comparison.md`](docs/comparison.md).
+> *"LOS HORARIOS INDICAN LA HORA DE SALIDA DESDE LA PARADA PRINCIPAL"*
+> — the timetables give the departure from the principal stop.
 
-Every unresolved disagreement is in [`docs/conflicts.md`](docs/conflicts.md),
-generated from `data/evidence/conflicts.yaml`. Cross-checks against Moovit and
-against the operator's own route diagrams are in
+GTFS needs a time at *every* stop. It is perfectly happy for the middle of a trip
+to be estimated, as long as `timepoint=0` says so — but `arrival_time` and
+`departure_time` are **required** at the first and last stop, and an estimate
+there is not a marked approximation, it is the feed asserting when the service
+starts and finishes.
+
+So the rule this project enforces in code, not just in prose:
+
+| Position in trip | GTFS | What we allow |
+|---|---|---|
+| First stop | times **required** | must be `published` |
+| Intermediate | `timepoint=0` marks an approximation | may be estimated, if it says so |
+| Last stop | times **required** | must be `published` |
+
+`Pattern.has_anchored_endpoints` requires published times at both ends,
+`is_publishable` requires it, and the builder drops any pattern that fails.
+Every pattern currently fails, so `almunecar-gtfs build` refuses rather than
+shipping invented precision.
+
+**The good news: every line is a circular** that starts and ends at Plaza de la
+Carrera. That collapses the problem to a single missing number per pattern — the
+loop running time. With it, intermediate offsets follow by distance-proportional
+allocation along the shape, marked `timepoint=0`. Ranked ways to get it are in
+[`docs/methodology.md`](docs/methodology.md); the two realistic ones are **asking
+the operator** and **recording a few runs and taking medians** (never a single
+run — one bus stuck behind a delivery van is not a timetable).
+
+---
+
+## The network
+
+Seven routes as the operator publishes them. `patterns` are distinct ordered stop
+sequences; `trips` are scheduled departures reconstructed from the timetables.
+
+| Line | Name | Patterns | Trips | Publishable | Why not |
+|---|---|---:|---:|---|---|
+| 1 | Circular | 1 | 41 | ❌ | roadworks diversion not in geometry; no timings |
+| 2A | Almuñécar – La Herradura | 1 | 6 | ❌ | no intermediate timings |
+| 2B | Almuñécar – La Herradura – Punta de la Mona | 2 | 27 | ❌ | no intermediate timings |
+| 3A | Velilla – Taramay | 1 | 17 | ❌ | no intermediate timings |
+| 3B | Velilla *(summer only)* | 0 | 0 | ❌ | no stop sequence in any machine-readable source |
+| 3C | Taramay *(summer only)* | 0 | 0 | ❌ | no stop sequence in any machine-readable source |
+| 4 / 5 | Torrecuevas | 1 | 25 | ❌ | **line number disputed** (blocking conflict) |
+
+### Patterns
+
+| Pattern | Season | Stops | Shape | Notes |
+|---|---|---:|---|---|
+| `ALM_1_CIRC` | all year | 19 | 6.3 km | |
+| `ALM_2A_CIRC` | all year | 20 | 15.4 km | |
+| `ALM_2B_CIRC_SUMMER` | summer | 24 | 20.2 km | serves Marina del Este |
+| `ALM_2B_CIRC_WINTER` | winter | 23 | — | omits Marina del Este; **no shape yet** |
+| `ALM_3A_CIRC` | all year | 22 | 10.7 km | |
+| `ALM_TORRECUEVAS_CIRC` | all year | 17 | 9.0 km | order fixed from the operator's diagram |
+
+### Seasons
+
+The operator runs two periods, and this dataset models only the ones currently
+published — future seasons are **not** assumed to repeat:
+
+* **Summer** 1 July – 15 September 2026
+* **Winter** 16 September 2026 – 30 June 2027
+
+Ten service periods across those two seasons (Mon–Fri, Mon–Sat, Sat,
+Sun/holidays, plus the 2B `_PUERTO` variants).
+
+---
+
+## Where the data comes from
+
+### Operator — [urbanosalmunecar.es](https://urbanosalmunecar.es/)
+
+Top of the hierarchy for route names, service periods and departures.
+Contact: `urbanos@grupofajardo.es`, +34 958 88 27 62.
+
+| Source id | Page |
+|---|---|
+| `official_index` | [Líneas urbanas](https://urbanosalmunecar.es/lineas-urbanas-almunecar/) |
+| `official_l1_summer` | [Línea 1 Circular verano](https://urbanosalmunecar.es/lineas-urbanas-almunecar/circular-verano/) |
+| `official_l1_winter` | [Línea 1 Circular invierno](https://urbanosalmunecar.es/lineas-urbanas-almunecar/almunecar-circular-linea-1-invierno/) |
+| `official_l2_summer` | [Línea 2 La Herradura verano](https://urbanosalmunecar.es/lineas-urbanas-almunecar/la-herradura-verano/) |
+| `official_l2_winter` | [Línea 2 La Herradura invierno](https://urbanosalmunecar.es/lineas-urbanas-almunecar/la-herradura-linea-2-invierno/) |
+| `official_l3a_summer` | [Línea 3A Velilla–Taramay verano](https://urbanosalmunecar.es/lineas-urbanas-almunecar/velilla-taramay-verano/) |
+| `official_l3a_winter` | [Línea 3A Velilla–Taramay invierno](https://urbanosalmunecar.es/lineas-urbanas-almunecar/velilla-taramay-invierno/) |
+| `official_l3b_summer` | [Línea 3B Velilla verano](https://urbanosalmunecar.es/lineas-urbanas-almunecar/velilla-verano/) |
+| `official_l3c_summer` | [Línea 3C Taramay verano](https://urbanosalmunecar.es/lineas-urbanas-almunecar/taramay-verano/) |
+| `official_torrecuevas_summer` | [Torrecuevas verano](https://urbanosalmunecar.es/lineas-urbanas-almunecar/torrecuevas-verano/) |
+| `official_torrecuevas_winter` | [Línea 5 Torrecuevas invierno](https://urbanosalmunecar.es/lineas-urbanas-almunecar/torrecuevas-linea-5-invierno/) |
+
+### OpenStreetMap — `osm_route_relations`
+
+Stop coordinates, ordered stop sequences and route geometry, via
+[Overpass](https://overpass-api.de/api/interpreter). © OpenStreetMap
+contributors, ODbL. The extract is committed at `data/evidence/osm/relations.json`
+so ingestion is reproducible offline.
+
+| Relation | Line |
+|---|---|
+| [11185550](https://www.openstreetmap.org/relation/11185550) | Bus 1: Circular |
+| [18501805](https://www.openstreetmap.org/relation/18501805) | Línea 2A |
+| [18496909](https://www.openstreetmap.org/relation/18496909) | Línea 2B |
+| [11186061](https://www.openstreetmap.org/relation/11186061) | Bus 3: Velilla–Taramay |
+| [18501914](https://www.openstreetmap.org/relation/18501914) | Línea 5 Torrecuevas |
+
+### Moovit — QA reference only
+
+Four routes transcribed for discrepancy detection. **Never** authoritative
+against the operator, and never copied into the canonical dataset. See
 [`docs/comparison.md`](docs/comparison.md).
 
-## Source methodology
+### Looked for and not found
 
-Evidence is weighed **per field**, not by picking one global winner. Summarised:
+* **iBusGPS.** No public endpoint is reachable from the operator's site,
+  grupofajardo.es, or the open web (checked 2026-08-10). Realtime work has
+  nothing to attach to.
+* **Ayuntamiento de Almuñécar.** No municipal timetable or GIS document located.
+  The `municipal` tier of the hierarchy is currently empty.
+
+---
+
+## Why this was hard: the timetables are pictures
+
+The operator publishes **every** timetable and route diagram as an image. There is
+no markup to parse, no PDF to extract, no API. Each of the 22 transcribed
+timetables was read off a picture by hand and records the exact image URL it came
+from.
+
+All 21 images are mirrored in [`data/evidence/images/`](data/evidence/images/)
+with a manifest (`data/evidence/images.yaml`) giving each one's SHA-256, source
+page and upload URL — so the transcription can be checked against what it was read
+from. `almunecar-gtfs check` fails if an image no longer matches its hash.
+
+**This is the entire winter timetable for Torrecuevas.** Everything the dataset
+knows about when that line runs comes from reading this picture:
+
+![Torrecuevas winter timetable](data/evidence/images/torrecuevas-winter-timetable.png)
+
+**And this is the stop sequence.** Note the `R` suffixes — the operator itself
+treats the two directions as different stops, which is why this dataset keeps
+opposite sides of a road as separate `stop_id`s. It lists 25 calls; OpenStreetMap
+has nodes for only 17:
+
+![Torrecuevas route diagram](data/evidence/images/torrecuevas-route-diagram.png)
+
+---
+
+## Challenges, and what came out of them
+
+**The Torrecuevas stop order was wrong in OpenStreetMap.** OSM listed Cortijo
+Cahicillos — the far apex of the line — between two stops beside the town. A
+proximity check can never catch this: every stop really *is* on the route, only
+the order is wrong. So `qa.check_stop_order` walks the shape forward one stop at a
+time and asks what honouring the given order costs. It measured the contradiction
+exactly: **3,471 m** for Cortijo Cahicillos and **2,432 m** for Torrecuevas,
+against stops that sit within 10 m of the route. Fixed from the operator's own
+diagram, then [fixed upstream in
+OSM](https://www.openstreetmap.org/changeset/187244187).
+
+**Line 2B and the port turned out to be a season, not an exception.** The 2B
+diagram marks `MARINA DEL ESTE*` and the winter page footnotes it: *"Esta parada
+no se realiza en el horario de invierno."* So it is a seasonal pattern difference
+— not an operational exception and not a realtime alert. `ALM_2B_CIRC_WINTER`
+omits that stop.
+
+**A POI is not a bus stop.** A hotel called *Playa Velilla* is not the stop called
+*Playa Velilla*. Any observation tagged `evidence_kind: poi` is disqualified from
+establishing a stop coordinate, and is rescued only if a *different* source
+independently places the stop within 30 m — at reduced confidence.
+
+**Stale pages outrank nothing.** Sources carry `authoritative_until`, and a page
+known to be superseded loses to a current one, so an old route number can never
+win by default.
+
+---
+
+## Open questions
+
+1. **How long does each loop take?** The blocker. One number per line unblocks the
+   whole feed. → drafted email to the operator; or record runs.
+2. **Torrecuevas: line 4 or line 5?** The summer page body says `LINEA 4`; the
+   winter page title *and URL slug* say `Línea 5`; OSM and Moovit say 5. Both
+   operator pages carry the **same** sitemap `lastmod` (2026-05-14), so neither is
+   simply the older one — and the summer page is demonstrably careless, its own
+   validity line reading *"horario de **invierno** desde el 1 julio"*. Recorded as
+   a blocking conflict. **Known weakness:** `routes.yaml` currently shows
+   `route_short_name: "4"`, which is not a decision — it is an alphabetical
+   tiebreak on `source_id` between two equally-ranked claims. The route is held out
+   of the feed by the blocking conflict, so nothing consumes it, but the value
+   looks more settled than it is.
+3. **Which 2B departures actually descend to the port?** The summer image splits
+   into an unmarked row (10:30, 12:30, 16:30, 20:30, 21:30) and a `* BAJADA PUERTO`
+   row (8:45, 14:00, 17:30, 19:00). Which is which is stated nowhere.
+4. **What are the stops on 3B and 3C?** Neither is mapped. The operator's diagrams
+   name 37 and 11 calls respectively; almost none have coordinates anywhere.
+5. **Is 3B's weekday service exactly half-hourly?** Published as a frequency —
+   *"cada 30 min desde las 8:30 hasta 14:30 y desde 17:00 hasta 0:30"*. Expanding
+   that into departures is an interpretation, so it is kept as prose rather than
+   presented as published times.
+6. **Where is the Cabria stop?** From 17 July to 15 September, 3B extends to a new
+   stop at the Avda. Pintor Domínguez de Haro roundabout. The operator links a map
+   pin at `36.746471, -3.652865`, which sits noticeably inland of the beach it
+   claims to serve. Needs checking.
+7. **What routing does the Line 1 diversion actually use?** Since 13 April 2026 the
+   Paseo del Altillo is closed for roadworks (~10 months) and the urban lines
+   divert via calle Guadix. No geometry available; line 1 is held back.
+8. **Which days are public holidays?** Sunday and holiday timetables are shared,
+   but the operator never publishes the holiday calendar. Not modelled.
+9. **`ALM_2B_CIRC_WINTER` has no shape.** Derived by removing one stop from the
+   summer pattern; the corresponding geometry has not been cut.
+10. **Does iBusGPS exist publicly at all?** If so it would supply realtime *and* the
+    loop times. Nothing found.
+
+---
+
+## Contributions made upstream
+
+| Date | What | Where |
+|---|---|---|
+| 2026-08-10 | Reordered the Línea 5 Torrecuevas platform members into travel order | [changeset 187244187](https://www.openstreetmap.org/changeset/187244187) |
+
+Prepared but **not** applied, because it would require inventing data: the eight
+stops the operator names and OSM lacks — `CEMENTERIO`, `EUCALIPTO`,
+`CAHICILLOS 2`, `VTA LUCIANO 2` and their returns. No source gives a position for
+any of them. They need a survey, not a guess. See [`osm/README.md`](osm/README.md).
+
+---
+
+## Cross-checks
+
+Independent descriptions of the same network, compared to catch our own mistakes.
+Full detail in [`docs/comparison.md`](docs/comparison.md).
+
+| Pattern | vs Moovit | vs operator diagram |
+|---|---|---|
+| `ALM_1_CIRC` | 19 / 21 | 19 / 22 |
+| `ALM_2A_CIRC` | — | 20 / 22 |
+| `ALM_2B_CIRC_SUMMER` | 24 / 23 | 24 / 29 |
+| `ALM_3A_CIRC` | 22 / 22 ✅ | 22 / 26 |
+| `ALM_TORRECUEVAS_CIRC` | 17 / 17 ✅ | 17 / 25 |
+
+The pattern is consistent: **OSM is systematically thinner than the operator's own
+diagrams.** Moovit is thinner too, and additionally a season out of date — it
+served the operator's *winter* hours for line 2 while summer was running, and
+still routes line 1 through the closed Paseo del Altillo.
+
+---
+
+## How it works
+
+Two questions, kept apart permanently, because the second will be revised and the
+first must survive that:
+
+1. **What do the sources say?** → `data/evidence/`
+2. **What do we believe the network is?** → `data/canonical/`
+
+```
+sources              reconciliation          canonical              GTFS
+ operator   ─┐                            ┌─ stops.geojson  ─┐
+ municipal  ─┤   observations.csv         ├─ routes.yaml     ├─ data/generated/
+ iBusGPS    ─┼──▶ conflicts.yaml    ─────▶┼─ patterns.yaml   ┼─▶ almunecar-gtfs.zip
+ Moovit     ─┤   stop_registry.yaml       ├─ schedules.yaml  ┤
+ OSM        ─┘   images.yaml              └─ shapes.geojson ─┘
+```
+
+Scrapers may only write observations. Only `reconcile/` may write canonical data.
+Canonical files are generated but **committed**, so every change in what we believe
+shows up as a reviewable diff — and CI re-runs reconciliation and fails if the
+committed data does not reproduce.
+
+Evidence is weighed **per field**, not by picking one global winner:
 
 | Field family | Hierarchy (best first) |
 |---|---|
-| Route names, service periods, departures | operator → municipal → iBusGPS → Moovit → OSM |
-| Stop coordinates | explicit operator/iBusGPS platform coordinate → official map pin → municipal GIS → verified OSM `highway=bus_stop` → Moovit → manual research |
-| Route geometry | operator/iBusGPS data or vehicle traces → municipal geometry → OSM roads → reconstruction from stop sequence |
+| Route names, service periods, departures | operator → municipal → iBusGPS → Moovit → OSM → derived |
+| Stop coordinates | explicit operator/iBusGPS platform coordinate → official map pin → municipal GIS → verified OSM `highway=bus_stop` → field → Moovit → OSM → manual research |
+| Route geometry | operator/iBusGPS or vehicle traces → municipal → OSM roads → reconstruction |
 
-Rules the code enforces rather than merely documents:
-
-- Hierarchy position beats confidence — a medium-confidence operator page
-  outranks a confirmed Moovit page.
-- A page marked `authoritative_until` in the past loses to a current one, so an
-  old route number can never win by default.
-- An ordinary POI coordinate is **disqualified** as stop evidence unless an
-  independent source confirms the same position; if it is, the result is
-  downgraded to low confidence.
-- Physical stops stay separate even with identical names. Opposite sides of a
-  road are different `stop_id`s.
-- Conflicting claims are preserved after reconciliation, and a resolved conflict
-  reopens automatically if the underlying claims change.
+Hierarchy beats confidence on purpose: a medium-confidence operator page outranks
+a confirmed Moovit page, because the operator is the authority on its own network
+and Moovit is a third party reading the same signs we are.
 
 Full detail: [`docs/methodology.md`](docs/methodology.md).
 
-## Rebuilding the feed
+---
+
+## Usage
 
 ```bash
 uv sync
@@ -172,100 +338,91 @@ uv run almunecar-gtfs reconcile
 uv run almunecar-gtfs check
 ```
 
-```bash
-uv run almunecar-gtfs build
-```
+| Command | Does |
+|---|---|
+| `ingest [--offline] [--refresh]` | rebuild `data/evidence` from sources and transcriptions |
+| `reconcile` | evidence → `data/canonical` + `conflicts.yaml` |
+| `check [--strict]` | QA invariants over the canonical dataset |
+| `build` | canonical → `data/generated/gtfs` + zip *(currently refuses — see The Blocker)* |
+| `validate [--validator-jar]` | MobilityData canonical GTFS validator |
+| `map` | interactive QA map at `qa/map.html` |
+| `conflicts` | `docs/conflicts.md` |
+| `compare` | `docs/comparison.md` |
+| `monitor` | re-fetch sources, report content changes |
 
-`build` currently refuses, because no pattern is publishable — see *Current data
-coverage*. Once timings exist, outputs land in `data/generated/gtfs/*.txt` and
-`data/generated/almunecar-gtfs.zip`. The build is deterministic: identical
-canonical input produces a byte-identical zip, so a diff in the artifact always
-means a diff in the data.
+The QA map is the fastest way in: click any stop and it shows every coordinate
+claim, ranked, which one won, from which source, at what confidence, with what
+flags. Click `ALM_0042` and you can see *why* it is there.
 
-`ingest --offline` rebuilds the evidence files from the committed OSM extract and
-the transcribed operator timetables without touching the network. Drop
-`--offline` to re-fetch the operator pages and refresh their content hashes.
+### Validating
 
-Other commands:
-
-```bash
-uv run almunecar-gtfs map
-```
-
-```bash
-uv run almunecar-gtfs conflicts
-```
-
-```bash
-uv run almunecar-gtfs compare
-```
-
-```bash
-uv run almunecar-gtfs monitor
-```
-
-## Validating
-
-The MobilityData Canonical GTFS Schedule Validator is never downloaded
-automatically. Obtain a copy from
-[its releases page](https://github.com/MobilityData/gtfs-validator/releases),
-then:
+The MobilityData validator jar is never downloaded automatically. Get one from
+[its releases](https://github.com/MobilityData/gtfs-validator/releases), then:
 
 ```bash
 GTFS_VALIDATOR_JAR=/path/to/gtfs-validator-cli.jar uv run almunecar-gtfs validate
 ```
 
-CI fetches the jar explicitly in `.github/workflows/validate-gtfs.yml`, fails on
-any validator **error**, and keeps warnings as a downloadable artifact.
-The release criterion is zero errors; suppressing an error to get a green build
-defeats the point.
+CI fetches it explicitly, fails on any validator **error**, and keeps warnings as
+an artifact. Release criterion is zero errors.
 
-## Development
+### Development
 
 ```bash
-uv run pytest
+uv run pytest && uv run ruff check .
 ```
 
-```bash
-uv run ruff check .
-```
+Both run on every push and pull request, alongside a check that `ingest` and
+`reconcile` reproduce exactly what is committed.
 
-Both run on every push and pull request.
+---
 
 ## Repository layout
 
 | Path | Contents |
 |---|---|
-| `data/evidence/` | What sources say: `sources.yaml`, `observations.csv`, `conflicts.yaml`, `stop_registry.yaml`, `geometry/`, `osm/`, `images/` |
-| `data/canonical/` | What we believe: generated by `reconcile`, committed so changes are reviewable |
-| `data/generated/` | GTFS output (git-ignored; rebuilt from canonical data) |
+| `data/evidence/` | What sources say: `sources.yaml`, `observations.csv`, `conflicts.yaml`, `stop_registry.yaml`, `images/`, `images.yaml`, `geometry/`, `osm/` |
+| `data/canonical/` | What we believe: generated by `reconcile`, committed for reviewability |
+| `data/generated/` | GTFS output (git-ignored, rebuilt deterministically) |
+| `data/publication.yaml` | Human-owned: authorisation status, publisher identity, `feed_buildable` |
 | `src/almunecar_gtfs/sources/` | Acquisition. Writes observations only |
 | `src/almunecar_gtfs/reconcile/` | The only code allowed to produce canonical data |
-| `src/almunecar_gtfs/gtfs/` | Deterministic GTFS generation and validator wrapper |
-| `src/almunecar_gtfs/qa.py` | Invariant checks, shared by the CLI, CI and tests |
-| `qa/` | Local review artifacts: QA map, validation reports (git-ignored) |
-| `docs/` | Methodology, sources, conflicts, Google Transit handoff |
+| `src/almunecar_gtfs/gtfs/` | Deterministic generation + validator wrapper |
+| `src/almunecar_gtfs/qa.py` | Invariants, shared by CLI, CI and tests |
+| `osm/` | Prepared OpenStreetMap fixes and an upload tool |
+| `docs/` | Methodology, sources, conflicts, comparison, Google Transit handoff |
 
-## Licensing
+---
 
-Code is one thing; transit data is another. The code in `src/` and `tests/` is
-covered by this repository's licence. The *data* in `data/` is compiled from
-third-party sources whose republication rights are not yet established — that
-question is open and is tracked in `docs/google-transit-submission.md`. No
-copyrighted timetable images or scraped site assets are committed; the
-repository stores extracted facts, URLs, retrieval dates and content hashes.
+## Licensing and attribution
 
-The operator's timetables and route diagrams are published as images, so every
-departure time here was read off a picture by hand. Those 21 images are mirrored
-under [`data/evidence/images/`](data/evidence/images/) with a manifest
-(`data/evidence/images.yaml`) recording each one's SHA-256, source page and
-upload URL, so the transcriptions can be checked against what they were read
-from — `almunecar-gtfs check` fails if an image no longer matches its hash. The
-images remain the property of Autocares Urbanos Almuñécar / Grupo Fajardo and are
-reproduced unmodified with attribution; see
-[`data/evidence/images/README.md`](data/evidence/images/README.md), including how
-to have them removed.
+Code and transit data are separate questions.
 
-Stop coordinates, stop sequences and route geometry come from OpenStreetMap —
-© OpenStreetMap contributors, ODbL — and the Overpass extract they were derived
-from is committed under `data/evidence/osm/`.
+**Code** (`src/`, `tests/`, `osm/`) is covered by this repository's licence.
+
+**Operator material.** The timetable and route-diagram images in
+`data/evidence/images/` are the work of Autocares Urbanos Almuñécar / Grupo
+Fajardo and remain theirs, reproduced unmodified with attribution and source links
+for verification and archive. No ownership is claimed and no licence granted. If
+the operator would prefer they were not mirrored here, open an issue — they will
+be removed, and no transit data is lost, because the *facts* read from them are
+not copyrightable and are what the dataset is built on.
+
+**OpenStreetMap** data — stop coordinates, stop sequences, route geometry — is
+© OpenStreetMap contributors, licensed ODbL.
+
+**Republication rights for the compiled dataset are not yet established.** That is
+the open question behind `data/publication.yaml`, which reads
+`authorized_by_operator: false` and will keep every artifact labelled unofficial
+until it does not.
+
+---
+
+## Helping
+
+The single most useful thing: **ride each line once with a GPS recorder** and note
+how long the loop takes. Three runs per line beats one, because a median survives
+a bus stuck behind a delivery van. That unblocks the feed.
+
+After that: survey the eight missing Torrecuevas stops, and the 3B/3C stops that
+are on no map at all.
