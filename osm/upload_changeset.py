@@ -35,7 +35,7 @@ import ssl
 import subprocess
 import sys
 import tempfile
-import threading
+import time
 import urllib.parse
 import webbrowser
 import xml.etree.ElementTree as ET
@@ -137,13 +137,18 @@ class _CallbackHandler(http.server.BaseHTTPRequestHandler):
 
     def do_GET(self) -> None:  # noqa: N802 - http.server API
         query = urllib.parse.urlparse(self.path).query
-        _CallbackHandler.code = urllib.parse.parse_qs(query).get("code", [None])[0]
+        code = urllib.parse.parse_qs(query).get("code", [None])[0]
+        if code:
+            _CallbackHandler.code = code
         self.send_response(200)
         self.send_header("Content-Type", "text/html; charset=utf-8")
         self.end_headers()
-        self.wfile.write(
+        body = (
             b"<h1>Authorised</h1><p>You can close this tab and return to the terminal.</p>"
+            if code
+            else b"<p>Waiting for the authorisation redirect.</p>"
         )
+        self.wfile.write(body)
 
     def log_message(self, *args) -> None:  # noqa: D102 - silence the default logging
         return
@@ -179,7 +184,7 @@ def authorise(client_id: str, client_secret: str | None) -> str:
     host = parsed.hostname or "localhost"
     port = parsed.port or (443 if parsed.scheme == "https" else 80)
 
-    server = http.server.HTTPServer((host, port), _CallbackHandler)
+    server = http.server.ThreadingHTTPServer((host, port), _CallbackHandler)
     if parsed.scheme == "https":
         # OpenStreetMap requires registered redirect URIs to be https, so the
         # loopback listener has to speak TLS. The certificate is generated here,
@@ -188,24 +193,37 @@ def authorise(client_id: str, client_secret: str | None) -> str:
         # the authorisation code travelling from your browser to your own
         # machine.
         server.socket = _wrap_tls(server.socket)
-
-    thread = threading.Thread(target=server.handle_request, daemon=True)
-    thread.start()
+    server.timeout = 1
 
     print("Opening your browser to authorise. Log in to OpenStreetMap and approve.")
     if parsed.scheme == "https":
         print(
-            "Your browser will warn about a self-signed certificate for "
-            f"{host}. That is this script's own throwaway certificate — "
-            "choose 'Advanced' and proceed."
+            f"Your browser will warn about a self-signed certificate for {host}. "
+            "That is this script's own throwaway certificate — choose 'Advanced' "
+            "and proceed. Safari sometimes refuses outright; Firefox and Chrome "
+            "both offer the override."
         )
     print(f"If it does not open, visit:\n  {url}\n")
     webbrowser.open(url)
-    thread.join(timeout=300)
+
+    # Serve until the redirect actually arrives. A single handle_request() is not
+    # enough: browsers probe the port, request /favicon.ico, and abandon TLS
+    # handshakes, any of which would otherwise consume the one request we get and
+    # leave nothing listening when the real redirect lands.
+    deadline = time.monotonic() + 300
+    while _CallbackHandler.code is None and time.monotonic() < deadline:
+        try:
+            server.handle_request()
+        except (ssl.SSLError, OSError) as error:
+            print(f"  (ignoring a failed connection attempt: {error})")
     server.server_close()
 
     if not _CallbackHandler.code:
-        raise SystemExit("no authorisation code received within five minutes")
+        raise SystemExit(
+            "No authorisation code received within five minutes.\n"
+            "If your browser refused the self-signed certificate outright, use "
+            "JOSM instead — see osm/README.md, which needs no local listener."
+        )
 
     payload = {
         "grant_type": "authorization_code",
