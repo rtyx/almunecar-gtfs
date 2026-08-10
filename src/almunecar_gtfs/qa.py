@@ -283,6 +283,29 @@ def check_patterns(network: Network) -> list[Finding]:
                 )
             )
 
+        if (
+            pattern.has_complete_timings
+            and not pattern.has_anchored_endpoints
+            and pattern.status is PublicationStatus.PUBLISHABLE
+        ):
+            ends = [
+                f"{pattern.stops[0].stop_id} ({pattern.stops[0].timing_method})",
+                f"{pattern.stops[-1].stop_id} ({pattern.stops[-1].timing_method})",
+            ]
+            found.append(
+                Finding(
+                    severity=Severity.ERROR,
+                    code="pattern.unanchored_endpoints",
+                    entity=f"pattern:{pattern.pattern_id}",
+                    message=(
+                        f"first/last calls are not published timepoints: {', '.join(ends)}. "
+                        f"GTFS requires real times at both ends of a trip; an estimate "
+                        f"there is a claim about when the service starts and finishes, "
+                        f"not a marked approximation"
+                    ),
+                )
+            )
+
         if pattern.timing_model is None and pattern.has_complete_timings:
             found.append(
                 Finding(
@@ -647,6 +670,19 @@ def check_readiness(network: Network) -> list[Finding]:
             continue
         entity = f"pattern:{pattern.pattern_id}"
         unknown = [s.stop_id for s in pattern.stops if s.offset_seconds is None]
+        if not unknown and not pattern.has_anchored_endpoints:
+            found.append(
+                Finding(
+                    severity=Severity.WARNING,
+                    code="readiness.unanchored_endpoints",
+                    entity=entity,
+                    message=(
+                        "every stop has an offset, but the first and/or last call is an "
+                        "estimate. GTFS needs real times at both ends before this can ship."
+                    ),
+                )
+            )
+            continue
         # Missing timings are reported first: they are why reconciliation set the
         # status, so leading with "excluded by decision" would hide the cause.
         if unknown:

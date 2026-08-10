@@ -292,8 +292,27 @@ class Pattern(BaseModel):
         return all(stop.offset_seconds is not None for stop in self.stops)
 
     @property
+    def has_anchored_endpoints(self) -> bool:
+        """Whether the first and last calls rest on published times.
+
+        GTFS treats the ends of a trip differently from its middle. Intermediate
+        times may be estimated as long as they say so with ``timepoint=0``, but
+        ``arrival_time`` and ``departure_time`` are *required* at the first and
+        last stop — an estimate there is not an estimate, it is the feed's claim
+        about when the trip starts and finishes.
+
+        So a pattern may be published with a mostly-interpolated middle, and may
+        not be published with a guessed end.
+        """
+        return self.stops[0].is_timepoint and self.stops[-1].is_timepoint
+
+    @property
     def is_publishable(self) -> bool:
-        return self.status is PublicationStatus.PUBLISHABLE and self.has_complete_timings
+        return (
+            self.status is PublicationStatus.PUBLISHABLE
+            and self.has_complete_timings
+            and self.has_anchored_endpoints
+        )
 
 
 class ServicePeriod(BaseModel):

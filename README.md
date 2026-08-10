@@ -73,8 +73,13 @@ What is in the dataset today, all with provenance:
   is simply the older one, and the summer page is demonstrably careless — its own
   validity sentence reads "horario de **invierno** desde el 1 julio". Settle it by
   asking the operator or photographing the vehicle, not by guessing.
-- **Intermediate stop times do not exist in any source.** See above. This is the
-  single thing standing between this dataset and a publishable feed.
+- **Intermediate stop times do not exist in any source.** This is the single
+  thing standing between this dataset and a publishable feed. GTFS is happy with
+  an estimated middle marked `timepoint=0`, but it requires real times at the
+  first and last stop — and since every line here is a circular, that reduces to
+  one missing number per pattern: the loop running time. Ranked ways to get it are
+  in [`docs/methodology.md`](docs/methodology.md#unblocking-stop_timestxt); the
+  two realistic ones are asking the operator and recording a few runs.
 - **Line 2B and Puerto Marina del Este: resolved.** The operator's 2B route
   diagram marks `MARINA DEL ESTE*` and the winter page footnotes it: *"Esta parada
   no se realiza en el horario de invierno."* So it is a **seasonal pattern

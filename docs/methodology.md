@@ -127,6 +127,53 @@ every stop. The resolution:
   build. The build refuses to emit a feed with no publishable trips rather than
   shipping an empty one.
 
+### Unblocking `stop_times.txt`
+
+This is the project's hard problem, so it gets its own plan rather than a hope.
+
+GTFS is asymmetric about times, and the asymmetry is what makes this tractable:
+
+| Position in trip | GTFS requirement | What we may do |
+|---|---|---|
+| First stop | `arrival_time` / `departure_time` **required** | must be a published time |
+| Intermediate stops | conditionally required; `timepoint=0` marks an approximation | may be estimated, if it says so |
+| Last stop | `arrival_time` / `departure_time` **required** | must be a published time |
+
+So an estimated middle is legitimate and honest. An estimated *end* is not an
+approximation at all — it is the feed asserting when the service starts and
+finishes, and every downstream trip planner will treat it as fact. The code
+enforces exactly that split: `Pattern.has_anchored_endpoints` requires the first
+and last calls to be `published`, `is_publishable` requires it, and the builder
+drops any pattern that fails it.
+
+Every line here is a circular that starts and ends at the same stop, so the
+missing anchor is a single number per pattern: **the loop running time**. With it,
+the intermediates follow by distance-proportional allocation along the shape,
+marked `timepoint=0` with `method: interpolated`. Without it, nothing ships.
+
+Ranked ways to get that number, best first:
+
+1. **Ask the operator.** They dispatch to it. One email settles every pattern at
+   `confirmed`, and it is also the conversation that has to happen anyway about
+   publication rights.
+2. **Recorded vehicle runs.** A handful of GPS traces of each loop, or simply
+   riding it with a phone. Take the **median across several runs**, never a single
+   trip — one bus stuck behind a delivery van is not a timetable. This also yields
+   real per-stop offsets rather than a modelled allocation, upgrading the middles
+   from `interpolated` to `observed_median`.
+3. **iBusGPS, if it is ever located.** Vehicle positions over a day give the same
+   thing automatically, and are the prerequisite for realtime anyway.
+4. **Headway inference.** Where consecutive departures are 30 minutes apart and a
+   single vehicle works the line, the loop must fit inside 30 minutes. That is an
+   upper bound, not a duration, and bounds do not belong in `stop_times.txt`.
+5. **Moovit's stated durations** (18–33 minutes per loop). Recorded in
+   `docs/comparison.md` and deliberately unused: Moovit is a QA reference, its data
+   is currently a season out of date, and one number for a whole loop cannot be
+   apportioned between stops without inventing the apportionment.
+
+Options 1 and 2 are the real ones. Until one of them lands, the honest output is
+no feed, which is what the pipeline produces.
+
 ## Geometry
 
 `shapes.txt` is generated even though GTFS tolerates its absence, because a feed

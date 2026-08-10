@@ -196,3 +196,55 @@ def test_a_pattern_referencing_an_unknown_stop_is_an_error(network):
     )
     findings = qa.check_patterns(network.model_copy(update={"patterns": [broken]}))
     assert any(f.code == "pattern.unknown_stop" for f in findings)
+
+
+def test_a_trip_may_not_ship_with_an_estimated_first_or_last_call(network):
+    """GTFS allows an estimated middle; it does not allow guessed ends."""
+    pattern = network.patterns_by_id["ALM_9_OUT"]
+    assert pattern.has_anchored_endpoints
+    assert pattern.is_publishable
+
+    guessed_end = pattern.model_copy(
+        update={
+            "stops": [
+                *pattern.stops[:-1],
+                pattern.stops[-1].model_copy(
+                    update={"timing_method": TimingMethod.INTERPOLATED}
+                ),
+            ]
+        }
+    )
+    assert not guessed_end.has_anchored_endpoints
+    assert not guessed_end.is_publishable
+
+    findings = qa.check_patterns(network.model_copy(update={"patterns": [guessed_end]}))
+    assert any(f.code == "pattern.unanchored_endpoints" for f in findings)
+
+
+def test_an_estimated_middle_is_fine_when_the_ends_are_published(network):
+    pattern = network.patterns_by_id["ALM_9_OUT"]
+    # The fixture already has observed_median middles and published ends.
+    assert [s.timing_method for s in pattern.stops[1:-1]] == [
+        TimingMethod.OBSERVED_MEDIAN,
+        TimingMethod.OBSERVED_MEDIAN,
+    ]
+    assert pattern.is_publishable
+    assert not [
+        f for f in qa.check_patterns(network) if f.code == "pattern.unanchored_endpoints"
+    ]
+
+
+def test_a_pattern_with_guessed_ends_never_reaches_the_feed(network):
+    from almunecar_gtfs.gtfs import build as build_mod
+
+    pattern = network.patterns_by_id["ALM_9_OUT"]
+    guessed = pattern.model_copy(
+        update={
+            "stops": [
+                pattern.stops[0].model_copy(update={"timing_method": TimingMethod.INTERPOLATED}),
+                *pattern.stops[1:],
+            ]
+        }
+    )
+    with pytest.raises(build_mod.BuildError, match="no publishable trips"):
+        build_mod.build_feed(network.model_copy(update={"patterns": [guessed]}))
