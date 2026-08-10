@@ -1,0 +1,57 @@
+name: monitor-sources
+
+# Transit data goes stale silently. This job notices that a source page changed
+# and asks a human to look; it never rewrites canonical data by itself.
+on:
+  schedule:
+    - cron: '17 5 * * 1'  # Mondays, 05:17 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
+      - name: Install dependencies
+        run: uv sync --locked
+
+      - name: Check sources
+        id: check
+        run: |
+          set +e
+          uv run almunecar-gtfs monitor | tee /tmp/monitor.txt
+          echo "changed=$?" >> "$GITHUB_OUTPUT"
+
+      - name: Open an issue when a source changed
+        if: steps.check.outputs.changed != '0'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          {
+            echo "A monitored transit source changed."
+            echo
+            echo "Detected: $(date -u +%Y-%m-%d)"
+            echo
+            echo '```'
+            cat /tmp/monitor.txt
+            echo '```'
+            echo
+            echo "Action required: review the source, update"
+            echo "\`data/evidence/observations.csv\` and the baseline hash in"
+            echo "\`data/evidence/sources.yaml\`, then regenerate the feed."
+            echo "Do not overwrite canonical data without reading the page."
+          } > /tmp/body.md
+          gh issue create \
+            --title "Transit source changed ($(date -u +%Y-%m-%d))" \
+            --body-file /tmp/body.md \
+            --label "source-change" || true

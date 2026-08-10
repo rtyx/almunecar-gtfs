@@ -1,0 +1,14 @@
+# Publication settings. Human-owned; reconciliation reads this and never writes it.
+#
+# `authorized_by_operator` stays false until Roalfa / Autocares Urbanos Almunecar
+# has actually agreed to the feed being published on their behalf. While it is
+# false, the README, the QA map and feed_info all describe the dataset as
+# unofficial. Flipping it is a decision, not a formality.
+authorized_by_operator: false
+
+feed_publisher_name: "almunecar-gtfs (unofficial community feed)"
+feed_publisher_url: "https://github.com/rtoledano/almunecar-gtfs"
+feed_contact_email: null
+feed_contact_url: null
+
+agency_id: "ALM"

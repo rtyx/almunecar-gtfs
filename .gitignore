@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+dist/
+build/
+
+# Generated GTFS output (rebuilt deterministically from canonical data)
+data/generated/
+
+# Cached raw source responses (may contain copyrighted site assets)
+data/cache/
+
+# QA artifacts
+qa/
+validation-report*.html
+validation-report*.json
+
+# OS
+.DS_Store

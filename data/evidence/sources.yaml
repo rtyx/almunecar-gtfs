@@ -1,0 +1,7 @@
+# Registered sources. Every observation must cite a source_id declared here.
+#
+# source_type: official | municipal | ibusgps | moovit | osm | field | derived
+# authoritative_until: set when a page is known to be superseded, so that a
+#   stale operator page can never outrank a current one.
+# content_sha256: normalised content hash, maintained by `almunecar-gtfs monitor`.
+[]

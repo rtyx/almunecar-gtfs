@@ -1,0 +1,77 @@
+name: validate-gtfs
+
+on:
+  push:
+  pull_request:
+
+concurrency:
+  group: validate-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Install dependencies
+        run: uv sync --locked
+
+      # Canonical data is committed, so a pull request that hand-edits it is
+      # caught here: reconciliation must reproduce exactly what is in the tree.
+      - name: Reconcile is reproducible
+        run: |
+          uv run almunecar-gtfs reconcile
+          git diff --exit-code -- data/canonical data/evidence/conflicts.yaml
+
+      - name: QA invariants
+        run: uv run almunecar-gtfs check
+
+      - name: Build GTFS
+        run: uv run almunecar-gtfs build
+
+      - name: Build is deterministic
+        run: |
+          sha256sum data/generated/almunecar-gtfs.zip > /tmp/first.sha
+          uv run almunecar-gtfs build
+          sha256sum -c /tmp/first.sha
+
+      # Downloaded explicitly here rather than by the library, so the provenance
+      # of the jar is visible in the workflow rather than hidden in code.
+      - name: Fetch the MobilityData canonical GTFS validator
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release download --repo MobilityData/gtfs-validator \
+            --pattern 'gtfs-validator-*-cli.jar' --output /tmp/gtfs-validator.jar
+          ls -l /tmp/gtfs-validator.jar
+
+      - name: Validate
+        env:
+          GTFS_VALIDATOR_JAR: /tmp/gtfs-validator.jar
+        run: uv run almunecar-gtfs validate
+
+      - name: Upload validation report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gtfs-validation-report
+          path: qa/validation/
+          if-no-files-found: ignore
+
+      - name: Upload feed
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: almunecar-gtfs
+          path: data/generated/almunecar-gtfs.zip
