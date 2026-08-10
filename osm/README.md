@@ -20,7 +20,19 @@ from where the sequence puts them, while both sit within 10 m of the route.
 Only the member *order* changes. No tags, geometry, nodes or ways are touched,
 and the way members are left exactly as they were.
 
-### How to apply
+### Regenerating it
+
+`build_reorder.py` rebuilds this file from the *live* relation, so the version
+number is always current — uploading a stale version is rejected by the API,
+which is correct behaviour but an unpleasant way to discover the problem. It
+refuses to write anything if the relation's platforms have changed upstream,
+because then the mapping needs a human to re-check it, not a blind re-apply.
+
+```bash
+python osm/build_reorder.py
+```
+
+### How to apply, option A: JOSM (simplest)
 
 1. Open JOSM.
 2. `File → Open…` and select `relation-18501914-reorder.osm`.
@@ -30,8 +42,33 @@ and the way members are left exactly as they were.
    > Línea 5 Torrecuevas: reorder platform members into travel order, per the
    > operator's published route diagram (urbanosalmunecar.es)
 
-JOSM will ask for your OSM login. Check the diff before uploading — the file is
-generated, and a generated file deserves a human's eyes.
+JOSM will ask for your OSM login and handles the OAuth flow itself, so your
+password goes only to openstreetmap.org. Check the diff before uploading — the
+file is generated, and a generated file deserves a human's eyes.
+
+### How to apply, option B: the upload script
+
+For scripted uploads, `upload_changeset.py` runs the OAuth 2 authorisation-code
+flow with PKCE: it opens your browser, you log in and approve on
+openstreetmap.org, and the resulting token is cached in your user cache
+directory (`~/.cache/almunecar-gtfs/osm-token.json`, mode 600). The token never
+enters this repository.
+
+Register an app at <https://www.openstreetmap.org/oauth2/applications> with
+redirect URI `http://localhost:3000` and the `write_api` permission, then:
+
+```bash
+python osm/upload_changeset.py osm/relation-18501914-reorder.osm --comment "..." --dry-run
+```
+
+```bash
+export OSM_CLIENT_ID=...
+python osm/upload_changeset.py osm/relation-18501914-reorder.osm \
+  --comment "Línea 5 Torrecuevas: reorder platform members into travel order"
+```
+
+Run `--dry-run` first; it prints the exact osmChange payload and touches
+neither the network nor your account.
 
 ## Not included: the missing stops
 
