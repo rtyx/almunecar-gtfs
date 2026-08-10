@@ -99,8 +99,15 @@ What is in the dataset today, all with provenance:
 - **Public holidays are not modelled.** Sunday and holiday timetables are shared,
   but the operator does not publish which days are holidays.
 
+- **OpenStreetMap's Torrecuevas route is missing stops.** The operator's own
+  diagram lists 25 calls (including Cementerio, Eucalipto and Cahicillos 1/2);
+  OSM and Moovit both list 17. Since the sequence comes from OSM, the pattern is
+  very likely incomplete — another reason that route is held back.
+
 Every unresolved disagreement is in [`docs/conflicts.md`](docs/conflicts.md),
-generated from `data/evidence/conflicts.yaml`.
+generated from `data/evidence/conflicts.yaml`. Cross-checks against Moovit and
+against the operator's own route diagrams are in
+[`docs/comparison.md`](docs/comparison.md).
 
 ## Source methodology
 
@@ -168,6 +175,10 @@ uv run almunecar-gtfs map
 
 ```bash
 uv run almunecar-gtfs conflicts
+```
+
+```bash
+uv run almunecar-gtfs compare
 ```
 
 ```bash

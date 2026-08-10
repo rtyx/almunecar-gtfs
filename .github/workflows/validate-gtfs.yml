@@ -35,6 +35,12 @@ jobs:
           uv run almunecar-gtfs reconcile
           git diff --exit-code -- data/canonical data/evidence
 
+      - name: Reports are reproducible
+        run: |
+          uv run almunecar-gtfs conflicts
+          uv run almunecar-gtfs compare
+          git diff --exit-code -- docs/conflicts.md docs/comparison.md
+
       - name: QA invariants
         run: uv run almunecar-gtfs check
 

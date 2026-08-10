@@ -6,6 +6,7 @@
     uv run almunecar-gtfs validate    # zip       -> MobilityData validator report
     uv run almunecar-gtfs map         # canonical -> qa/map.html
     uv run almunecar-gtfs conflicts   # evidence  -> docs/conflicts.md
+    uv run almunecar-gtfs compare     # canonical -> docs/comparison.md
 """
 
 from __future__ import annotations
@@ -16,6 +17,7 @@ from pathlib import Path
 
 from almunecar_gtfs import dataset, qa
 from almunecar_gtfs import reconcile as reconcile_pkg
+from almunecar_gtfs.compare import write_comparison_markdown
 from almunecar_gtfs.conflicts_report import write_conflicts_markdown
 from almunecar_gtfs.gtfs import build as build_mod
 from almunecar_gtfs.gtfs import validate as validate_mod
@@ -152,6 +154,15 @@ def cmd_conflicts(args: argparse.Namespace) -> int:
     return EXIT_OK
 
 
+def cmd_compare(args: argparse.Namespace) -> int:
+    root, _, canonical_dir = _paths(args)
+    network = dataset.read_network(canonical_dir)
+    output = root / "docs" / "comparison.md"
+    disagreements = write_comparison_markdown(output, network)
+    print(f"wrote {output} ({disagreements} disagreement(s))")
+    return EXIT_OK
+
+
 def cmd_monitor(args: argparse.Namespace) -> int:
     """Re-fetch registered sources and report the ones whose content changed.
 
@@ -233,6 +244,9 @@ def build_parser() -> argparse.ArgumentParser:
     subparsers.add_parser("conflicts", help="write docs/conflicts.md").set_defaults(
         func=cmd_conflicts
     )
+    subparsers.add_parser(
+        "compare", help="cross-check against Moovit and the operator's diagrams"
+    ).set_defaults(func=cmd_compare)
     subparsers.add_parser(
         "monitor", help="re-fetch registered sources and report content changes"
     ).set_defaults(func=cmd_monitor)

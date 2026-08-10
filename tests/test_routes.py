@@ -160,3 +160,25 @@ def test_a_blocking_conflict_marks_its_entity_unpublishable():
         conflicts=[_conflict("4", "5", blocks_publication=True)],
     )
     assert store.blocking_entities() == {"route:ALM_4"}
+
+
+def test_moovit_is_compared_not_copied(network):
+    """Moovit rows must never end up as canonical facts."""
+    from almunecar_gtfs.compare import compare_moovit
+    from almunecar_gtfs.sources import moovit
+
+    # The fixture network shares no pattern ids with Moovit, so nothing matches...
+    assert compare_moovit(network) == []
+    # ...and no Moovit source id can appear on a canonical stop or trip.
+    moovit_labels = {route.route_label for route in moovit.ROUTES}
+    assert not moovit_labels & {route.route_long_name for route in network.routes}
+
+
+def test_comparison_report_flags_stop_count_mismatches(network):
+    from almunecar_gtfs.compare import Comparison, compare_operator_diagrams
+
+    rows = compare_operator_diagrams(network)
+    # The fixture route has no operator diagram, so every row is the
+    # "nothing to compare" kind rather than a false agreement.
+    assert all(isinstance(row, Comparison) for row in rows)
+    assert not any(row.pattern_id == "ALM_9_OUT" for row in rows)
