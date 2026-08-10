@@ -104,14 +104,20 @@ What is in the dataset today, all with provenance:
 - **Public holidays are not modelled.** Sunday and holiday timetables are shared,
   but the operator does not publish which days are holidays.
 
-- **OpenStreetMap's Torrecuevas data is both incomplete and mis-ordered.** The
-  operator's diagram lists 25 calls; OSM and Moovit list 17. Worse, OSM's order
-  was wrong — it placed Cortijo Cahicillos, the far apex, between two stops beside
-  the town. The geometry check caught it (honouring that order puts the stop
-  3.5 km from where it sits) and the sequence now follows the operator's diagram
-  instead. The eight unmapped calls — Cementerio, Eucalipto, Cahicillos 2 and
-  their returns — are named in `data/evidence/observations.csv` and are the survey
-  work needed to finish the line.
+- **OpenStreetMap's Torrecuevas order was wrong, and has been fixed upstream.**
+  OSM placed Cortijo Cahicillos, the far apex of the line, between two stops
+  beside the town. The geometry check caught it — honouring that order puts the
+  stop 3.5 km from where it actually sits, while it is within 10 m of the route.
+  Corrected in OSM on 2026-08-10
+  ([changeset 187244187](https://www.openstreetmap.org/changeset/187244187),
+  relation 18501914 v6), so OSM and the operator now agree. The conflict record is
+  kept rather than deleted: the disagreement was real, and keeping it is what makes
+  the fix auditable.
+- **Torrecuevas is still incomplete.** The operator's diagram lists 25 calls; OSM
+  and Moovit list 17. The eight unmapped calls — Cementerio, Eucalipto,
+  Cahicillos 2, Vta Luciano 2 and their returns — are named in
+  `data/evidence/observations.csv`. No source gives a position for any of them, so
+  they need a survey rather than a guess.
 - **OSM is systematically thinner than the operator's diagrams**, not just on
   Torrecuevas. Line 1's diagram names `IES ANTIGUA SEXI` and `AVD. MEDITERRÁNEO`,
   which appear in neither OSM nor Moovit. Per-line counts are in

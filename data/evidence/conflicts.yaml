@@ -19,8 +19,10 @@
     between two stops beside the town. The geometry check settles it rather than the hierarchy alone —
     honouring OSM''s order forces Cortijo Cahicillos to a point 3,471 m from where it actually sits, and
     Torrecuevas to one 2,432 m away, while both are within 10 m of the route. The operator''s order produces
-    no such contradiction. OSM''s claim is kept here because the upstream relation should be fixed, not
-    just worked around.'
+    no such contradiction. Fixed upstream on 2026-08-10: relation 18501914 v6, changeset 187244187, reorders
+    the platform members into the operator''s order, so OSM and the operator now agree. OSM''s original
+    claim is kept here rather than deleted — the disagreement was real and the record of it is what makes
+    the fix auditable.'
   resolved_value: ALM_0001;ALM_0072;ALM_0069;ALM_0060;ALM_0065;ALM_0061;ALM_0062;ALM_0063;ALM_0073;ALM_0064;ALM_0074;ALM_0066;ALM_0067;ALM_0068;ALM_0070;ALM_0071;ALM_0001
   resolved_at: '2026-08-10'
   blocks_publication: false
