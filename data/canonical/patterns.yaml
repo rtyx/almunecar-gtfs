@@ -1,0 +1,431 @@
+- pattern_id: ALM_1_CIRC
+  route_id: ALM_1
+  direction_id: 0
+  season: all_year
+  headsign: Circular
+  stops:
+  - stop_id: ALM_0001
+    offset_seconds: 0
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0002
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0003
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0004
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0005
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0006
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0007
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0008
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0009
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0010
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0011
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0012
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0013
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0014
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0015
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0016
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0017
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0018
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0001
+    timing_method: unknown
+    request_stop: false
+  shape_id: ALM_1_CIRC
+  status: not_publishable
+- pattern_id: ALM_2A_CIRC
+  route_id: ALM_2A
+  direction_id: 0
+  season: all_year
+  headsign: La Herradura
+  stops:
+  - stop_id: ALM_0001
+    offset_seconds: 0
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0019
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0020
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0021
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0022
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0023
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0024
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0025
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0026
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0027
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0028
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0029
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0030
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0031
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0032
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0033
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0016
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0017
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0018
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0001
+    timing_method: unknown
+    request_stop: false
+  shape_id: ALM_2A_CIRC
+  status: not_publishable
+- pattern_id: ALM_2B_CIRC_SUMMER
+  route_id: ALM_2B
+  direction_id: 0
+  season: summer
+  headsign: La Herradura – Punta de la Mona
+  stops:
+  - stop_id: ALM_0001
+    offset_seconds: 0
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0019
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0020
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0021
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0022
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0023
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0024
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0025
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0026
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0027
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0028
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0029
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0030
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0034
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0035
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0036
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0037
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0038
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0039
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0033
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0016
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0017
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0018
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0001
+    timing_method: unknown
+    request_stop: false
+  shape_id: ALM_2B_CIRC_SUMMER
+  status: not_publishable
+- pattern_id: ALM_2B_CIRC_WINTER
+  route_id: ALM_2B
+  direction_id: 0
+  season: winter
+  headsign: La Herradura – Punta de la Mona
+  variant_code: NOMARINA
+  stops:
+  - stop_id: ALM_0001
+    offset_seconds: 0
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0019
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0020
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0021
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0022
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0023
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0024
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0025
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0026
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0027
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0028
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0029
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0030
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0034
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0035
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0036
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0037
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0039
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0033
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0016
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0017
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0018
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0001
+    timing_method: unknown
+    request_stop: false
+  status: not_publishable
+  conditional: 'Winter routing. Marina del Este (Puerto Deportivo) is omitted: the operator''s winter
+    page footnotes that stop with ''Esta parada no se realiza en el horario de invierno''.'
+- pattern_id: ALM_3A_CIRC
+  route_id: ALM_3A
+  direction_id: 0
+  season: all_year
+  headsign: Velilla – Taramay
+  stops:
+  - stop_id: ALM_0001
+    offset_seconds: 0
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0040
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0041
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0042
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0043
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0044
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0045
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0046
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0047
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0048
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0049
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0050
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0051
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0052
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0053
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0054
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0055
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0056
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0057
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0058
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0059
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0001
+    timing_method: unknown
+    request_stop: false
+  shape_id: ALM_3A_CIRC
+  status: not_publishable
+- pattern_id: ALM_TORRECUEVAS_CIRC
+  route_id: ALM_TORRECUEVAS
+  direction_id: 0
+  season: all_year
+  headsign: Torrecuevas
+  stops:
+  - stop_id: ALM_0001
+    offset_seconds: 0
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0060
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0061
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0062
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0063
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0064
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0065
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0066
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0067
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0068
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0069
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0070
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0071
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0072
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0073
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0074
+    timing_method: unknown
+    request_stop: false
+  - stop_id: ALM_0001
+    timing_method: unknown
+    request_stop: false
+  shape_id: ALM_TORRECUEVAS_CIRC
+  status: not_publishable

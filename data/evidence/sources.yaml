@@ -1,7 +1,96 @@
-# Registered sources. Every observation must cite a source_id declared here.
-#
-# source_type: official | municipal | ibusgps | moovit | osm | field | derived
-# authoritative_until: set when a page is known to be superseded, so that a
-#   stale operator page can never outrank a current one.
-# content_sha256: normalised content hash, maintained by `almunecar-gtfs monitor`.
-[]
+- source_id: official_index
+  source_type: official
+  source_url: https://urbanosalmunecar.es/lineas-urbanas-almunecar/
+  title: Líneas urbanas Almuñécar
+  retrieved_at: '2026-08-10'
+  content_sha256: 593d00465f6a22f80a03ba803397b49e19ae094198db52e76d41da67482ce41a
+  notes: 'Operator page; sitemap lastmod 2021-06-16. Covers: route inventory. Timetables are published
+    as images and were transcribed by hand.'
+- source_id: official_l1_summer
+  source_type: official
+  source_url: https://urbanosalmunecar.es/lineas-urbanas-almunecar/circular-verano/
+  title: Línea 1 Circular verano
+  retrieved_at: '2026-08-10'
+  content_sha256: 8ed3a1b8f8ffde90d0ab3bf3917f647b5371e9913d9b3ec1d5b030ebafafa654
+  notes: 'Operator page; sitemap lastmod 2026-07-03. Covers: line 1 summer timetable and diversion notice.
+    Timetables are published as images and were transcribed by hand.'
+- source_id: official_l1_winter
+  source_type: official
+  source_url: https://urbanosalmunecar.es/lineas-urbanas-almunecar/almunecar-circular-linea-1-invierno/
+  title: Línea 1 Circular invierno
+  retrieved_at: '2026-08-10'
+  content_sha256: 67b8ca61605069ba47cb315947ad8b6e70e1dd779f06662dc98f6a6b231d925c
+  notes: 'Operator page; sitemap lastmod 2026-05-14. Covers: line 1 winter timetable and roadworks notice.
+    Timetables are published as images and were transcribed by hand.'
+- source_id: official_l2_summer
+  source_type: official
+  source_url: https://urbanosalmunecar.es/lineas-urbanas-almunecar/la-herradura-verano/
+  title: Línea 2 La Herradura verano
+  retrieved_at: '2026-08-10'
+  content_sha256: 752d51afe117afb07334808d5aaba1e5af89de1c23094cd90a438740c7de4260
+  notes: 'Operator page; sitemap lastmod 2026-07-03. Covers: lines 2A and 2B summer timetables and route
+    diagrams. Timetables are published as images and were transcribed by hand.'
+- source_id: official_l2_winter
+  source_type: official
+  source_url: https://urbanosalmunecar.es/lineas-urbanas-almunecar/la-herradura-linea-2-invierno/
+  title: Línea 2 La Herradura invierno
+  retrieved_at: '2026-08-10'
+  content_sha256: 500181c5589b3ed50df385112e7893a484fb5ad8cd941d00c4fb4b9026688d3a
+  notes: 'Operator page; sitemap lastmod 2026-05-14. Covers: lines 2A and 2B winter timetables; Marina
+    del Este not served in winter. Timetables are published as images and were transcribed by hand.'
+- source_id: official_l3a_summer
+  source_type: official
+  source_url: https://urbanosalmunecar.es/lineas-urbanas-almunecar/velilla-taramay-verano/
+  title: Línea 3A Velilla–Taramay verano
+  retrieved_at: '2026-08-10'
+  content_sha256: 93653cec790c4cba04d6a56d2325690933a18eb2f3e02d1b6e4541cfaf2237b9
+  notes: 'Operator page; sitemap lastmod 2026-07-03. Covers: line 3A summer timetable. Timetables are
+    published as images and were transcribed by hand.'
+- source_id: official_l3a_winter
+  source_type: official
+  source_url: https://urbanosalmunecar.es/lineas-urbanas-almunecar/velilla-taramay-invierno/
+  title: Línea 3A Velilla–Taramay invierno
+  retrieved_at: '2026-08-10'
+  content_sha256: 1dea5791a225bc4348a8096ac306926e808c79d557c762adba897052928ee645
+  notes: 'Operator page; sitemap lastmod 2026-05-14. Covers: line 3A winter timetable. Timetables are
+    published as images and were transcribed by hand.'
+- source_id: official_l3b_summer
+  source_type: official
+  source_url: https://urbanosalmunecar.es/lineas-urbanas-almunecar/velilla-verano/
+  title: Línea 3B Velilla verano
+  retrieved_at: '2026-08-10'
+  content_sha256: 8c6132c4e683aa734f3f14d0481cd8340b44b272472d86e47a4ac4a2dd011f90
+  notes: 'Operator page; sitemap lastmod 2026-07-03. Covers: line 3B summer-only timetable and Cabria
+    extension notice. Timetables are published as images and were transcribed by hand.'
+- source_id: official_l3c_summer
+  source_type: official
+  source_url: https://urbanosalmunecar.es/lineas-urbanas-almunecar/taramay-verano/
+  title: Línea 3C Taramay verano
+  retrieved_at: '2026-08-10'
+  content_sha256: 3de8022f38b2efd6b18cbf31d4cd6cd38601bd83e05491f655f722c3e3abfc8d
+  notes: 'Operator page; sitemap lastmod 2026-07-03. Covers: line 3C summer-only timetable. Timetables
+    are published as images and were transcribed by hand.'
+- source_id: official_torrecuevas_summer
+  source_type: official
+  source_url: https://urbanosalmunecar.es/lineas-urbanas-almunecar/torrecuevas-verano/
+  title: Línea Torrecuevas verano
+  retrieved_at: '2026-08-10'
+  content_sha256: 0517b520b95cf56758f27ba7035120016a6d83f18ea75ab7b047fb55d9af58bf
+  notes: 'Operator page; sitemap lastmod 2026-05-14. Covers: Torrecuevas summer timetable; body text says
+    LINEA 4. Timetables are published as images and were transcribed by hand.'
+- source_id: official_torrecuevas_winter
+  source_type: official
+  source_url: https://urbanosalmunecar.es/lineas-urbanas-almunecar/torrecuevas-linea-5-invierno/
+  title: Línea 5 Torrecuevas invierno
+  retrieved_at: '2026-08-10'
+  content_sha256: 7dd989b00f659590966b62eb1107c3f34412ddfca38e3f97afbb646e5b970b8e
+  notes: 'Operator page; sitemap lastmod 2026-05-14. Covers: Torrecuevas winter timetable; title and URL
+    say Línea 5. Timetables are published as images and were transcribed by hand.'
+- source_id: osm_route_relations
+  source_type: osm
+  source_url: https://overpass-api.de/api/interpreter
+  title: OpenStreetMap bus route relations for Grupo Fajardo, via Overpass
+  retrieved_at: '2026-08-10'
+  license: © OpenStreetMap contributors, ODbL
+  notes: Relations 11185550, 11186061, 18496909, 18501805, 18501914. Supplies stop coordinates, ordered
+    stop sequences and route geometry. Ranks below the operator for anything the operator states.

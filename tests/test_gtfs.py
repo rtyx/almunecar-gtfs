@@ -183,3 +183,63 @@ def test_validator_reports_are_parsed(tmp_path):
     notices = parse_report(report)
     assert notices[0].code == "missing_required_file"
     assert notices[0].total == 2
+
+
+def test_readiness_names_the_blocker_instead_of_failing_mysteriously(network):
+    """A research-stage dataset must explain itself, not just produce no feed."""
+    pattern = network.patterns_by_id["ALM_9_OUT"]
+    blocked = pattern.model_copy(
+        update={
+            "stops": [
+                pattern.stops[0],
+                *[s.model_copy(update={"offset_seconds": None}) for s in pattern.stops[1:]],
+            ]
+        }
+    )
+    stripped = network.model_copy(update={"patterns": [blocked]})
+    findings = qa.check_readiness(stripped)
+    codes = {f.code for f in findings}
+    assert "readiness.no_intermediate_timings" in codes
+    assert "readiness.feed_not_buildable" in codes
+    # Research-stage is not a failure state, so nothing here is an error.
+    assert qa.errors(findings) == []
+
+
+def test_a_blocking_conflict_is_only_an_error_if_the_entity_escapes_into_the_feed(network):
+    import datetime as dt
+
+    from almunecar_gtfs.provenance import Claim, Confidence, Conflict, EvidenceStore
+
+    conflict = Conflict(
+        entity="route:ALM_9",
+        field="route_short_name",
+        claims=[
+            Claim(
+                source_id="fixture_operator",
+                value="9",
+                retrieved_at=dt.date(2026, 8, 9),
+                confidence=Confidence.HIGH,
+            ),
+            Claim(
+                source_id="fixture_moovit",
+                value="10",
+                retrieved_at=dt.date(2026, 8, 9),
+                confidence=Confidence.LOW,
+            ),
+        ],
+        blocks_publication=True,
+    )
+    store = EvidenceStore(sources=[], conflicts=[conflict])
+
+    escaped = qa.check_provenance(network, store)
+    blocking = [f for f in escaped if f.code == "provenance.blocking_conflict"]
+    assert blocking and blocking[0].severity is qa.Severity.ERROR
+
+    from almunecar_gtfs.models import PublicationStatus
+
+    excluded = network.patterns_by_id["ALM_9_OUT"].model_copy(
+        update={"status": PublicationStatus.NOT_PUBLISHABLE}
+    )
+    held_out = qa.check_provenance(network.model_copy(update={"patterns": [excluded]}), store)
+    blocking = [f for f in held_out if f.code == "provenance.blocking_conflict"]
+    assert blocking and blocking[0].severity is qa.Severity.WARNING

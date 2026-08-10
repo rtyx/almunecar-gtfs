@@ -22,6 +22,7 @@ from almunecar_gtfs.gtfs import validate as validate_mod
 from almunecar_gtfs.provenance import EvidenceStore, dump_conflicts
 from almunecar_gtfs.qamap import write_qa_map
 from almunecar_gtfs.sources.base import fetch
+from almunecar_gtfs.sources.ingest import ingest
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 
@@ -42,6 +43,14 @@ def _load_evidence(evidence_dir: Path) -> EvidenceStore:
             f"Source acquisition has to happen before anything else can run."
         )
     return EvidenceStore.load(evidence_dir)
+
+
+def cmd_ingest(args: argparse.Namespace) -> int:
+    """Rebuild the evidence files from cached sources and transcriptions."""
+    root, evidence_dir, _ = _paths(args)
+    sources, observations = ingest(root / "data", refresh=args.refresh, offline=args.offline)
+    print(f"wrote {sources} source(s) and {observations} observation(s) to {evidence_dir}")
+    return EXIT_OK
 
 
 def cmd_reconcile(args: argparse.Namespace) -> int:
@@ -192,6 +201,19 @@ def build_parser() -> argparse.ArgumentParser:
         help="repository root (default: the installed package's repository)",
     )
     subparsers = parser.add_subparsers(dest="command", required=True)
+
+    ingest_parser = subparsers.add_parser(
+        "ingest", help="rebuild data/evidence from cached sources"
+    )
+    ingest_parser.add_argument(
+        "--refresh", action="store_true", help="re-fetch source pages instead of using the cache"
+    )
+    ingest_parser.add_argument(
+        "--offline",
+        action="store_true",
+        help="do not fetch at all; keep the content hashes already in sources.yaml",
+    )
+    ingest_parser.set_defaults(func=cmd_ingest)
 
     subparsers.add_parser("reconcile", help="build canonical data from evidence").set_defaults(
         func=cmd_reconcile

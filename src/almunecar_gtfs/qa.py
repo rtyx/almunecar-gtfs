@@ -194,7 +194,9 @@ def check_routes(network: Network) -> list[Finding]:
         trips_by_pattern[trip.pattern_id] += 1
 
     for route in network.routes:
-        if route.status is PublicationStatus.RETIRED:
+        if route.status is not PublicationStatus.PUBLISHABLE:
+            # A route we have deliberately excluded owes us nothing further; the
+            # reason it is excluded is recorded on the route itself.
             continue
         pattern_ids = [p.pattern_id for p in network.patterns if p.route_id == route.route_id]
         if not pattern_ids:
@@ -404,12 +406,19 @@ def check_calendars(
             )
 
     if not active:
+        # When nothing is publishable the cause lies upstream, and
+        # `check_readiness` names it. Reporting it here as well would bury the
+        # real reason under a symptom.
+        blocked = any(not p.is_publishable for p in network.patterns)
         found.append(
             Finding(
-                severity=Severity.ERROR,
+                severity=Severity.WARNING if blocked else Severity.ERROR,
                 code="calendar.no_active_service",
                 entity="calendar",
-                message="no publishable trip references any service period",
+                message=(
+                    "no publishable trip references any service period"
+                    + (" (see the readiness findings for why)" if blocked else "")
+                ),
             )
         )
         return found
@@ -601,13 +610,79 @@ def check_provenance(network: Network, evidence: EvidenceStore) -> list[Finding]
                 )
             )
 
+    published_routes = {f"route:{p.route_id}" for p in network.publishable_patterns()}
+    published_patterns = {f"pattern:{p.pattern_id}" for p in network.publishable_patterns()}
+    reaching_the_feed = published_routes | published_patterns
+
     for entity in sorted(evidence.blocking_entities()):
+        # A block that is being honoured is the system working, not a defect.
+        # It only becomes an error if the entity is in the feed anyway.
+        escaped = entity in reaching_the_feed
         found.append(
             Finding(
-                severity=Severity.ERROR,
+                severity=Severity.ERROR if escaped else Severity.WARNING,
                 code="provenance.blocking_conflict",
                 entity=entity,
-                message="an unresolved conflict marked blocks_publication still stands",
+                message=(
+                    "an unresolved conflict marked blocks_publication still stands, and this "
+                    "entity is in the feed anyway"
+                    if escaped
+                    else "held out of the feed by an unresolved blocks_publication conflict"
+                ),
+            )
+        )
+    return found
+
+
+def check_readiness(network: Network) -> list[Finding]:
+    """Say plainly what is keeping the dataset out of a feed.
+
+    A research-stage dataset is not a broken one. These findings are warnings so
+    that CI stays meaningful, but they name the exact blocker per pattern rather
+    than letting an empty feed look like a mysterious failure.
+    """
+    found: list[Finding] = []
+    for pattern in sorted(network.patterns, key=lambda p: p.pattern_id):
+        if pattern.is_publishable:
+            continue
+        entity = f"pattern:{pattern.pattern_id}"
+        unknown = [s.stop_id for s in pattern.stops if s.offset_seconds is None]
+        # Missing timings are reported first: they are why reconciliation set the
+        # status, so leading with "excluded by decision" would hide the cause.
+        if unknown:
+            found.append(
+                Finding(
+                    severity=Severity.WARNING,
+                    code="readiness.no_intermediate_timings",
+                    entity=entity,
+                    message=(
+                        f"{len(unknown)} of {len(pattern.stops)} stops have no offset from "
+                        f"the origin departure. The operator publishes only departures from "
+                        f"the principal stop, so these cannot be filled without observed runs."
+                    ),
+                )
+            )
+            continue
+        found.append(
+            Finding(
+                severity=Severity.WARNING,
+                code="readiness.pattern_excluded",
+                entity=entity,
+                message=f"marked {pattern.status}; excluded from the feed by decision",
+            )
+        )
+
+    if network.patterns and not network.publishable_patterns():
+        found.append(
+            Finding(
+                severity=Severity.WARNING,
+                code="readiness.feed_not_buildable",
+                entity="feed",
+                message=(
+                    "No pattern is publishable, so no GTFS feed can be built. This is the "
+                    "documented research-stage state, not a regression: see "
+                    "docs/methodology.md on timings."
+                ),
             )
         )
     return found
@@ -625,6 +700,7 @@ def check_all(
         *check_trips(network),
         *check_calendars(network, today=today),
         *check_geometry(network),
+        *check_readiness(network),
     ]
     if evidence is not None:
         found.extend(check_provenance(network, evidence))

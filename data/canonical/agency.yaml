@@ -1,0 +1,15 @@
+agency:
+  agency_id: ALM
+  agency_name: Autocares Urbanos Almuñécar
+  agency_url: https://urbanosalmunecar.es/
+  agency_timezone: Europe/Madrid
+  agency_lang: es
+  agency_phone: +34 958 88 27 62
+  is_official_feed: false
+feed_info:
+  feed_publisher_name: almunecar-gtfs (unofficial community feed)
+  feed_publisher_url: https://github.com/rtoledano/almunecar-gtfs
+  feed_lang: es
+  feed_version: '2026-08-10'
+  feed_start_date: '2026-07-01'
+  feed_end_date: '2027-06-30'

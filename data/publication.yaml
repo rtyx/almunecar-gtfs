@@ -12,3 +12,12 @@ feed_contact_email: null
 feed_contact_url: null
 
 agency_id: "ALM"
+
+# False while no source provides intermediate stop times, which GTFS requires.
+# `almunecar-gtfs check` explains the blocker per pattern; CI skips the build and
+# validator steps rather than reporting a permanent failure for a known gap.
+feed_buildable: false
+feed_buildable_blocker: >-
+  The operator publishes only departures from the principal stop. No source found
+  so far gives a time at any intermediate stop, and no observed vehicle runs are
+  available to derive one. See docs/methodology.md, "Timings".

@@ -30,45 +30,77 @@ sources          reconciliation        canonical            GTFS
 
 ## Current data coverage
 
-**None yet.** The pipeline, models, QA suite and CI are in place; source
-acquisition (plan tasks 3–8) has not been completed, so `data/evidence/` holds
-only its headers and no feed can be built. Coverage will be reported here, per
-route and season, as evidence lands.
+Source research is done for the operator's whole published network; the dataset
+reconciles cleanly and passes every QA invariant. **No GTFS feed can be built
+yet**, for one reason, stated up front:
 
-Routes to be researched and verified, summer and winter separately:
+> The operator publishes only the departure time from the principal stop —
+> every page says so: *"LOS HORARIOS INDICAN LA HORA DE SALIDA DESDE LA PARADA
+> PRINCIPAL"*. GTFS requires a time at every stop. No source found so far gives
+> one, and no observed vehicle runs are available to derive one. Rather than
+> invent them, every pattern is marked `not_publishable` and
+> `almunecar-gtfs check` names the blocker per pattern.
 
-| Line | Service | Status |
-|------|---------|--------|
-| 1 | Circular | not yet researched |
-| 2A | Almuñécar – La Herradura | not yet researched |
-| 2B | Almuñécar – La Herradura – Punta de la Mona | not yet researched |
-| 3A | Velilla – Taramay | not yet researched |
-| 3B | Velilla (summer) | not yet researched |
-| 3C | Taramay (summer) | not yet researched |
-| 4 | Torrecuevas | not yet researched — **numbering disputed**, see below |
+What is in the dataset today, all with provenance:
+
+| | Count |
+|---|---|
+| Physical stops with coordinates | 74 |
+| Routes | 7 |
+| Route patterns with ordered stop sequences | 6 |
+| Origin departures transcribed from operator timetables | 116 |
+| Route shapes from real road geometry | 5 |
+| Recorded source conflicts | 1 (blocking) |
+
+| Line | Service | Sequence | Timetable | Publishable |
+|------|---------|----------|-----------|-------------|
+| 1 | Circular | ✅ OSM | ✅ summer + winter | ❌ roadworks diversion not in geometry |
+| 2A | Almuñécar – La Herradura | ✅ OSM | ✅ summer + winter | ❌ no intermediate timings |
+| 2B | …– Punta de la Mona | ✅ OSM, summer and winter variants | ✅ summer + winter | ❌ no intermediate timings |
+| 3A | Velilla – Taramay | ✅ OSM | ✅ summer + winter | ❌ no intermediate timings |
+| 3B | Velilla (summer only) | ❌ not mapped | ⚠️ Sundays only; weekdays published as a frequency | ❌ no stop sequence |
+| 3C | Taramay (summer only) | ❌ not mapped | ✅ summer | ❌ no stop sequence |
+| 4 / 5 | Torrecuevas | ✅ OSM | ✅ summer + winter | ❌ line number disputed |
+
+**Last source verification: 2026-08-10.**
 
 ## Known uncertainties
 
-- **Torrecuevas line number.** A winter operator page identifies the service as
-  line 5; more recent operator material calls it line 4. Both claims are to be
-  recorded with dates and the current designation established from evidence, not
-  intuition. Until then the conflict is registered and blocks publication of
-  that route.
-- **Intermediate stop times.** The operator appears to publish departures from
-  the principal stop rather than a time at every stop. GTFS needs
-  `stop_times.txt` regardless. Origin departures are marked `timepoint=1`;
-  anything derived is marked `timepoint=0` and records how it was derived. A
-  route whose timings cannot be established with reasonable confidence is
-  flagged `not_publishable` rather than fabricated.
-- **Line 2B and Puerto Marina del Este.** Whether the port is always served is
-  an open question — alternate pattern, operational exception, or realtime alert.
-- **Temporary diversions** (construction, seasonal extensions such as the 3B
-  Cabria extension) still need to be inventoried.
+- **The Torrecuevas line number is unresolved and blocks publication of that
+  route.** The operator's summer page body says `LINEA 4 TORRECUEVAS`; its winter
+  page title and URL say `Línea 5`; OpenStreetMap independently says `Línea 5`.
+  Both operator pages carry the *same* sitemap `lastmod` (2026-05-14), so neither
+  is simply the older one, and the summer page is demonstrably careless — its own
+  validity sentence reads "horario de **invierno** desde el 1 julio". Settle it by
+  asking the operator or photographing the vehicle, not by guessing.
+- **Intermediate stop times do not exist in any source.** See above. This is the
+  single thing standing between this dataset and a publishable feed.
+- **Line 2B and Puerto Marina del Este: resolved.** The operator's 2B route
+  diagram marks `MARINA DEL ESTE*` and the winter page footnotes it: *"Esta parada
+  no se realiza en el horario de invierno."* So it is a **seasonal pattern
+  difference**, not an operational exception and not a realtime alert. The winter
+  pattern `ALM_2B_CIRC_WINTER` omits that stop. What remains unclear is the summer
+  timetable's split into an unmarked row and a `* BAJADA PUERTO` row — which of
+  the two actually descends to the port is not stated anywhere.
+- **Temporary diversion, active now.** From 13 April 2026 the Paseo del Altillo is
+  closed for roadworks on the Paseo de la Caletilla, estimated ten months, and the
+  urban lines divert via calle Guadix. The available geometry does not reflect
+  this, which is why line 1 is held back.
+- **3B Cabria extension, confirmed.** From 17 July to 15 September, line 3B runs
+  on to a new stop at the Avda. Pintor Domínguez de Haro roundabout by Playa de
+  Cabria. The operator links a map pin for it; that pin sits noticeably inland of
+  the beach and needs checking before use.
+- **Feria de San José.** Between 16 and 22 March, line 2B runs the 2A itinerary.
+- **3B weekday service is a frequency, not a list** ("cada 30 min desde las 8:30
+  hasta 14:30 y desde 17:00 hasta 0:30"). Expanding that into departures is an
+  interpretation, so it is recorded as prose rather than as published times.
+- **iBusGPS was looked for and not found.** Nothing on the operator's site or on
+  grupofajardo.es links to a public realtime endpoint as of 2026-08-10.
+- **Public holidays are not modelled.** Sunday and holiday timetables are shared,
+  but the operator does not publish which days are holidays.
 
 Every unresolved disagreement is in [`docs/conflicts.md`](docs/conflicts.md),
 generated from `data/evidence/conflicts.yaml`.
-
-**Last source verification:** not yet performed.
 
 ## Source methodology
 
@@ -103,6 +135,10 @@ uv sync
 ```
 
 ```bash
+uv run almunecar-gtfs ingest --offline
+```
+
+```bash
 uv run almunecar-gtfs reconcile
 ```
 
@@ -114,9 +150,15 @@ uv run almunecar-gtfs check
 uv run almunecar-gtfs build
 ```
 
-Outputs land in `data/generated/gtfs/*.txt` and `data/generated/almunecar-gtfs.zip`.
-The build is deterministic: identical canonical input produces a byte-identical
-zip, so a diff in the artifact always means a diff in the data.
+`build` currently refuses, because no pattern is publishable — see *Current data
+coverage*. Once timings exist, outputs land in `data/generated/gtfs/*.txt` and
+`data/generated/almunecar-gtfs.zip`. The build is deterministic: identical
+canonical input produces a byte-identical zip, so a diff in the artifact always
+means a diff in the data.
+
+`ingest --offline` rebuilds the evidence files from the committed OSM extract and
+the transcribed operator timetables without touching the network. Drop
+`--offline` to re-fetch the operator pages and refresh their content hashes.
 
 Other commands:
 
@@ -164,7 +206,7 @@ Both run on every push and pull request.
 
 | Path | Contents |
 |---|---|
-| `data/evidence/` | What sources say: `sources.yaml`, `observations.csv`, `conflicts.yaml`, `geometry/` |
+| `data/evidence/` | What sources say: `sources.yaml`, `observations.csv`, `conflicts.yaml`, `stop_registry.yaml`, `geometry/`, `osm/` |
 | `data/canonical/` | What we believe: generated by `reconcile`, committed so changes are reviewable |
 | `data/generated/` | GTFS output (git-ignored; rebuilt from canonical data) |
 | `src/almunecar_gtfs/sources/` | Acquisition. Writes observations only |
@@ -182,3 +224,10 @@ third-party sources whose republication rights are not yet established — that
 question is open and is tracked in `docs/google-transit-submission.md`. No
 copyrighted timetable images or scraped site assets are committed; the
 repository stores extracted facts, URLs, retrieval dates and content hashes.
+
+The operator's timetables are published as images. Those images are **not**
+committed; they are fetched into the git-ignored `data/cache/` and the departure
+times were transcribed from them by hand, each recording the image URL it came
+from. Stop coordinates, stop sequences and route geometry come from
+OpenStreetMap — © OpenStreetMap contributors, ODbL — and the Overpass extract
+they were derived from is committed under `data/evidence/osm/`.

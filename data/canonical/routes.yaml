@@ -1,0 +1,69 @@
+- route_id: ALM_1
+  route_short_name: '1'
+  route_long_name: Circular
+  route_type: 3
+  route_desc: Circular. Routing is temporarily diverted via calle Guadix while Paseo del Altillo is closed
+    for roadworks from 13 April 2026 for about ten months; the available geometry does not reflect the
+    diversion.
+  seasons:
+  - summer
+  - winter
+  status: not_publishable
+  former_short_names: []
+- route_id: ALM_2A
+  route_short_name: 2A
+  route_long_name: Almuñécar – La Herradura
+  route_type: 3
+  seasons:
+  - summer
+  - winter
+  status: publishable
+  former_short_names: []
+- route_id: ALM_2B
+  route_short_name: 2B
+  route_long_name: Almuñécar – La Herradura – Punta de la Mona
+  route_type: 3
+  seasons:
+  - summer
+  - winter
+  status: publishable
+  former_short_names: []
+- route_id: ALM_3A
+  route_short_name: 3A
+  route_long_name: Velilla – Taramay
+  route_type: 3
+  seasons:
+  - summer
+  - winter
+  status: publishable
+  former_short_names: []
+- route_id: ALM_3B
+  route_short_name: 3B
+  route_long_name: Velilla
+  route_type: 3
+  route_desc: Summer only. No machine-readable stop sequence or coordinates are available for this line;
+    the operator diagram names stops that are not mapped, and the Monday-to-Saturday timetable is published
+    as a frequency.
+  seasons:
+  - summer
+  status: not_publishable
+  former_short_names: []
+- route_id: ALM_3C
+  route_short_name: 3C
+  route_long_name: Taramay
+  route_type: 3
+  route_desc: Summer only. No machine-readable stop sequence or coordinates available.
+  seasons:
+  - summer
+  status: not_publishable
+  former_short_names: []
+- route_id: ALM_TORRECUEVAS
+  route_short_name: '4'
+  route_long_name: Torrecuevas
+  route_type: 3
+  route_desc: Line number disputed between the operator's own summer and winter pages.
+  seasons:
+  - summer
+  - winter
+  status: not_publishable
+  former_short_names: []

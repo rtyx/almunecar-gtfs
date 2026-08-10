@@ -1,0 +1,1485 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "ALM_0001",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.690181,
+          36.735781
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0001",
+        "name": "Plaza de la Carrera",
+        "municipality": "Almuñécar",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 4266754568,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0002",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.688497,
+          36.732431
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0002",
+        "name": "Plaza de Madrid",
+        "municipality": "Almuñécar",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 4266754569,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0003",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.690154,
+          36.731577
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0003",
+        "name": "Paseo del Altillo",
+        "municipality": "Almuñécar",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 4266754570,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0004",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.694506,
+          36.729311
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0004",
+        "name": "Peñón del Santo",
+        "municipality": "Almuñécar",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 4266754571,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0005",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.697672,
+          36.731276
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0005",
+        "name": "San Cristóbal 1 - Hotel Playa",
+        "municipality": "Almuñécar",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 4105757302,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0006",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.699076,
+          36.732152
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0006",
+        "name": "San Cristóbal 2 - Hotel Helios",
+        "municipality": "Almuñécar",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 4266754573,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0007",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.700519,
+          36.733098
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0007",
+        "name": "San Cristóbal 3 - Mar del Sol",
+        "municipality": "Almuñécar",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 4266754574,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0008",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.702832,
+          36.734153
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0008",
+        "name": "Chinasol",
+        "municipality": "Almuñécar",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 4266754575,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0009",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.705133,
+          36.734026
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0009",
+        "name": "Rincón de la China",
+        "municipality": "Almuñécar",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 4266754576,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0010",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.707399,
+          36.733183
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0010",
+        "name": "Los Ramos",
+        "municipality": "Almuñécar",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 7604785894,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0011",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.713318,
+          36.733193
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0011",
+        "name": "Playa de Cotobro",
+        "municipality": "Almuñécar",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 486704337,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0012",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.7074,
+          36.733122
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0012",
+        "name": "Los Ramos",
+        "municipality": "Almuñécar",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 7604785893,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0013",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.705108,
+          36.733962
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0013",
+        "name": "Rincón de la China",
+        "municipality": "Almuñécar",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 7604785892,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0014",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.702429,
+          36.735364
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0014",
+        "name": "Barrio de los Marinos",
+        "municipality": "Almuñécar",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 7604785891,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0015",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.702789,
+          36.738563
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0015",
+        "name": "Puente del Noy",
+        "municipality": "Almuñécar",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 7604785890,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0016",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.698472,
+          36.739775
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0016",
+        "name": "Costa Banana",
+        "municipality": "Almuñécar",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 7604785887,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0017",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.69446,
+          36.737166
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0017",
+        "name": "Albaicín del Mar",
+        "municipality": "Almuñécar",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 7604785885,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0018",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.691711,
+          36.73569
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0018",
+        "name": "Avenida Costa del Sol",
+        "municipality": "Almuñécar",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 4742070171,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0019",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.692035,
+          36.736106
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0019",
+        "name": "Avenida Costa del Sol",
+        "municipality": "Almuñécar",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 12471065226,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0020",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.694554,
+          36.737304
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0020",
+        "name": "Albaicín del Mar",
+        "municipality": "Almuñécar",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 7604785886,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0021",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.698333,
+          36.739682
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0021",
+        "name": "Costa Banana",
+        "municipality": "Almuñécar",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 12471065227,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0022",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.708325,
+          36.738082
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0022",
+        "name": "Mirador De Cotobro",
+        "municipality": "Almuñécar",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 12471065229,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0023",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.739712,
+          36.735339
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0023",
+        "name": "La Herradura",
+        "municipality": "La Herradura",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 5751425341,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0024",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.741893,
+          36.734253
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0024",
+        "name": "Mercado La Herradura",
+        "municipality": "La Herradura",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 12471065230,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0025",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.744688,
+          36.735864
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0025",
+        "name": "Paseo Andrés Segovia, Windsurf",
+        "municipality": "La Herradura",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 12471065232,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0026",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.747982,
+          36.737553
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0026",
+        "name": "Paseo Andrés Segovia, Naúticas",
+        "municipality": "La Herradura",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 12471065234,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0027",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.753879,
+          36.738919
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0027",
+        "name": "Peña Parda",
+        "municipality": "La Herradura",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 3398426900,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0028",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.748031,
+          36.737522
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0028",
+        "name": "Paseo Andrés Segovia, Naúticas",
+        "municipality": "La Herradura",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 12471065233,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0029",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.744933,
+          36.735949
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0029",
+        "name": "Paseo Andrés Segovia, Windsurf",
+        "municipality": "La Herradura",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 12471065231,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0030",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.741096,
+          36.733524
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0030",
+        "name": "Mercado La Herradura",
+        "municipality": "La Herradura",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 9282688574,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0031",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.739376,
+          36.734911
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0031",
+        "name": "Acera del Pilar",
+        "municipality": "La Herradura",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 12473746708,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0032",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.739256,
+          36.736025
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0032",
+        "name": "La Herradura",
+        "municipality": "La Herradura",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 12473746709,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0033",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.707934,
+          36.738189
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0033",
+        "name": "Mirador De Cotobro",
+        "municipality": "Almuñécar",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 12471065228,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0034",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.739937,
+          36.732637
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0034",
+        "name": "Paseo Andrés Segovia, Bar Bambú",
+        "municipality": "La Herradura",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 12471065235,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0035",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.737948,
+          36.730975
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0035",
+        "name": "Paseo Andrés Segovia, La Caleta",
+        "municipality": "La Herradura",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 12471065236,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0036",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.734927,
+          36.725407
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0036",
+        "name": "Urb Punta De La Mona",
+        "municipality": "La Herradura",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 12471065238,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0037",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.731109,
+          36.727909
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0037",
+        "name": "Marina del Este (Best Alcázar)",
+        "municipality": "La Herradura",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 12471004588,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0038",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.727072,
+          36.724027
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0038",
+        "name": "Puerto Deportivo Marina del Este",
+        "municipality": "La Herradura",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 4167568437,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0039",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.731038,
+          36.728017
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0039",
+        "name": "Marina del Este (Best Alcázar)",
+        "municipality": "La Herradura",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 12471004589,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0040",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.688795,
+          36.735479
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0040",
+        "name": "Frente a Estación de Autobuses",
+        "municipality": "Almuñécar",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 7605377110,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0041",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.68863,
+          36.734775
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0041",
+        "name": "Avenida Juan Carlos I",
+        "municipality": "Almuñécar",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 1661424656,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0042",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.686646,
+          36.730998
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0042",
+        "name": "Playa Puerta del Mar",
+        "municipality": "Almuñécar",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 4742030526,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0043",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.683248,
+          36.730993
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0043",
+        "name": "Las Góndolas",
+        "municipality": "Almuñécar",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 4742030523,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0044",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.681108,
+          36.730484
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0044",
+        "name": "Paseo Reina Sofía",
+        "municipality": "Almuñécar",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 4742030522,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0045",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.675473,
+          36.731177
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0045",
+        "name": "Aquatropic",
+        "municipality": "Almuñécar",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 4742026519,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0046",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.673286,
+          36.733047
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0046",
+        "name": "Espigón",
+        "municipality": "Almuñécar",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 7605377109,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0047",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.672443,
+          36.734911
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0047",
+        "name": "Playa Tropical 2",
+        "municipality": "Almuñécar",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 4742026518,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0048",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.670644,
+          36.737031
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0048",
+        "name": "Playa Tropical 1",
+        "municipality": "Almuñécar",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 4742026516,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0049",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.669845,
+          36.737711
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0049",
+        "name": "Velilla 1",
+        "municipality": "Almuñécar",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 7605377108,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0050",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.668532,
+          36.739121
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0050",
+        "name": "Velilla 2",
+        "municipality": "Almuñécar",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 6564005931,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0051",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.667314,
+          36.740666
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0051",
+        "name": "Velilla 3",
+        "municipality": "Almuñécar",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 4742026514,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0052",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.664765,
+          36.742858
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0052",
+        "name": "Velilla 4",
+        "municipality": "Almuñécar",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 4742026512,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0053",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.663508,
+          36.744307
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0053",
+        "name": "Tesorillo",
+        "municipality": "Almuñécar",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 4742026510,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0054",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.662081,
+          36.746324
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0054",
+        "name": "Playa del Pozuelo",
+        "municipality": "Almuñécar",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 4742026506,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0055",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.656997,
+          36.750158
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0055",
+        "name": "Taramay",
+        "municipality": "Almuñécar",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 4742026508,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0056",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.657335,
+          36.752168
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0056",
+        "name": "Barranco de las Golondrinas",
+        "municipality": "Almuñécar",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 7605377107,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0057",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.665407,
+          36.7488
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0057",
+        "name": "Taramay",
+        "municipality": "Almuñécar",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 7605377104,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0058",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.670826,
+          36.744668
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0058",
+        "name": "Portichuelo",
+        "municipality": "Almuñécar",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 7605377106,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0059",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.678029,
+          36.737902
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0059",
+        "name": "La Paloma",
+        "municipality": "Almuñécar",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 7605377105,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0060",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.687074,
+          36.743774
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0060",
+        "name": "Laderas De Castelar",
+        "municipality": "Almuñécar",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 4742153106,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0061",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.688878,
+          36.755482
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0061",
+        "name": "Venta Luciano",
+        "municipality": "Almuñécar",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 12473808200,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0062",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.689669,
+          36.759469
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0062",
+        "name": "Torrecuevas",
+        "municipality": "Almuñécar",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 12473838001,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0063",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.690019,
+          36.762651
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0063",
+        "name": "Arcos De Torrecuevas",
+        "municipality": "Almuñécar",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 12473838002,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0064",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.690199,
+          36.762361
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0064",
+        "name": "Arcos De Torrecuevas",
+        "municipality": "Almuñécar",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 9897655750,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0065",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.683989,
+          36.749907
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0065",
+        "name": "Peñuelas",
+        "municipality": "Almuñécar",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 12473808199,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0066",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.68935,
+          36.755773
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0066",
+        "name": "Venta Luciano",
+        "municipality": "Almuñécar",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 12473838005,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0067",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.684133,
+          36.750772
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0067",
+        "name": "Peñuelas",
+        "municipality": "Almuñécar",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 12473838006,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0068",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.687296,
+          36.743598
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0068",
+        "name": "Laderas De Castelar",
+        "municipality": "Almuñécar",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 12473838007,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0069",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.68835,
+          36.740539
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0069",
+        "name": "Barrio De San Sebastián II",
+        "municipality": "Almuñécar",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 4742153105,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0070",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.688495,
+          36.740397
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0070",
+        "name": "Barrio De San Sebastián II",
+        "municipality": "Almuñécar",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 12473838008,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0071",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.689573,
+          36.73775
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0071",
+        "name": "Barrio De San Sebastián I",
+        "municipality": "Almuñécar",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 12473808198,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0072",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.689744,
+          36.737889
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0072",
+        "name": "Barrio De San Sebastián I",
+        "municipality": "Almuñécar",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 4742153104,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0073",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.683755,
+          36.7686
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0073",
+        "name": "Cortijo Cahicillos",
+        "municipality": "Almuñécar",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 12473838003,
+        "status": "publishable"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALM_0074",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.689771,
+          36.759625
+        ]
+      },
+      "properties": {
+        "internal_stop_id": "ALM_0074",
+        "name": "Torrecuevas",
+        "municipality": "Almuñécar",
+        "confidence": "medium",
+        "source_id": "osm_route_relations",
+        "osm_node_id": 12473838004,
+        "status": "publishable"
+      }
+    }
+  ]
+}

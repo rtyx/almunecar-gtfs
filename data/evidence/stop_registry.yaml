@@ -1,0 +1,521 @@
+# Physical stop registry. Hand-owned: the link between an OSM node and an
+# ALM id is a human judgement, and ids are never renumbered once assigned.
+# Generated once from the OSM route relations; edit in place afterwards.
+- internal_stop_id: ALM_0001
+  osm_node_id: 4266754568
+  name: Plaza de la Carrera
+  latitude: 36.735781
+  longitude: -3.690181
+  municipality: Almuñécar
+  verified_bus_stop: true
+- internal_stop_id: ALM_0002
+  osm_node_id: 4266754569
+  name: Plaza de Madrid
+  latitude: 36.732431
+  longitude: -3.688497
+  municipality: Almuñécar
+  verified_bus_stop: true
+- internal_stop_id: ALM_0003
+  osm_node_id: 4266754570
+  name: Paseo del Altillo
+  latitude: 36.731577
+  longitude: -3.690154
+  municipality: Almuñécar
+  verified_bus_stop: true
+- internal_stop_id: ALM_0004
+  osm_node_id: 4266754571
+  name: Peñón del Santo
+  latitude: 36.729311
+  longitude: -3.694506
+  municipality: Almuñécar
+  verified_bus_stop: true
+- internal_stop_id: ALM_0005
+  osm_node_id: 4105757302
+  name: San Cristóbal 1 - Hotel Playa
+  latitude: 36.731276
+  longitude: -3.697672
+  municipality: Almuñécar
+  verified_bus_stop: true
+- internal_stop_id: ALM_0006
+  osm_node_id: 4266754573
+  name: San Cristóbal 2 - Hotel Helios
+  latitude: 36.732152
+  longitude: -3.699076
+  municipality: Almuñécar
+  verified_bus_stop: true
+- internal_stop_id: ALM_0007
+  osm_node_id: 4266754574
+  name: San Cristóbal 3 - Mar del Sol
+  latitude: 36.733098
+  longitude: -3.700519
+  municipality: Almuñécar
+  verified_bus_stop: true
+- internal_stop_id: ALM_0008
+  osm_node_id: 4266754575
+  name: Chinasol
+  latitude: 36.734153
+  longitude: -3.702832
+  municipality: Almuñécar
+  verified_bus_stop: true
+- internal_stop_id: ALM_0009
+  osm_node_id: 4266754576
+  name: Rincón de la China
+  latitude: 36.734026
+  longitude: -3.705133
+  municipality: Almuñécar
+  verified_bus_stop: true
+- internal_stop_id: ALM_0010
+  osm_node_id: 7604785894
+  name: Los Ramos
+  latitude: 36.733183
+  longitude: -3.707399
+  municipality: Almuñécar
+  verified_bus_stop: true
+- internal_stop_id: ALM_0011
+  osm_node_id: 486704337
+  name: Playa de Cotobro
+  latitude: 36.733193
+  longitude: -3.713318
+  municipality: Almuñécar
+  verified_bus_stop: true
+- internal_stop_id: ALM_0012
+  osm_node_id: 7604785893
+  name: Los Ramos
+  latitude: 36.733122
+  longitude: -3.7074
+  municipality: Almuñécar
+  verified_bus_stop: true
+- internal_stop_id: ALM_0013
+  osm_node_id: 7604785892
+  name: Rincón de la China
+  latitude: 36.733962
+  longitude: -3.705108
+  municipality: Almuñécar
+  verified_bus_stop: true
+- internal_stop_id: ALM_0014
+  osm_node_id: 7604785891
+  name: Barrio de los Marinos
+  latitude: 36.735364
+  longitude: -3.702429
+  municipality: Almuñécar
+  verified_bus_stop: true
+- internal_stop_id: ALM_0015
+  osm_node_id: 7604785890
+  name: Puente del Noy
+  latitude: 36.738563
+  longitude: -3.702789
+  municipality: Almuñécar
+  verified_bus_stop: true
+- internal_stop_id: ALM_0016
+  osm_node_id: 7604785887
+  name: Costa Banana
+  latitude: 36.739775
+  longitude: -3.698472
+  municipality: Almuñécar
+  verified_bus_stop: true
+- internal_stop_id: ALM_0017
+  osm_node_id: 7604785885
+  name: Albaicín del Mar
+  latitude: 36.737166
+  longitude: -3.69446
+  municipality: Almuñécar
+  verified_bus_stop: true
+- internal_stop_id: ALM_0018
+  osm_node_id: 4742070171
+  name: Avenida Costa del Sol
+  latitude: 36.73569
+  longitude: -3.691711
+  municipality: Almuñécar
+  verified_bus_stop: true
+- internal_stop_id: ALM_0019
+  osm_node_id: 12471065226
+  name: Avenida Costa del Sol
+  latitude: 36.736106
+  longitude: -3.692035
+  municipality: Almuñécar
+  verified_bus_stop: true
+- internal_stop_id: ALM_0020
+  osm_node_id: 7604785886
+  name: Albaicín del Mar
+  latitude: 36.737304
+  longitude: -3.694554
+  municipality: Almuñécar
+  verified_bus_stop: true
+- internal_stop_id: ALM_0021
+  osm_node_id: 12471065227
+  name: Costa Banana
+  latitude: 36.739682
+  longitude: -3.698333
+  municipality: Almuñécar
+  verified_bus_stop: true
+- internal_stop_id: ALM_0022
+  osm_node_id: 12471065229
+  name: Mirador De Cotobro
+  latitude: 36.738082
+  longitude: -3.708325
+  municipality: Almuñécar
+  verified_bus_stop: true
+- internal_stop_id: ALM_0023
+  osm_node_id: 5751425341
+  name: La Herradura
+  latitude: 36.735339
+  longitude: -3.739712
+  municipality: La Herradura
+  verified_bus_stop: true
+- internal_stop_id: ALM_0024
+  osm_node_id: 12471065230
+  name: Mercado La Herradura
+  latitude: 36.734253
+  longitude: -3.741893
+  municipality: La Herradura
+  verified_bus_stop: true
+- internal_stop_id: ALM_0025
+  osm_node_id: 12471065232
+  name: Paseo Andrés Segovia, Windsurf
+  latitude: 36.735864
+  longitude: -3.744688
+  municipality: La Herradura
+  verified_bus_stop: true
+- internal_stop_id: ALM_0026
+  osm_node_id: 12471065234
+  name: Paseo Andrés Segovia, Naúticas
+  latitude: 36.737553
+  longitude: -3.747982
+  municipality: La Herradura
+  verified_bus_stop: true
+- internal_stop_id: ALM_0027
+  osm_node_id: 3398426900
+  name: Peña Parda
+  latitude: 36.738919
+  longitude: -3.753879
+  municipality: La Herradura
+  verified_bus_stop: true
+- internal_stop_id: ALM_0028
+  osm_node_id: 12471065233
+  name: Paseo Andrés Segovia, Naúticas
+  latitude: 36.737522
+  longitude: -3.748031
+  municipality: La Herradura
+  verified_bus_stop: true
+- internal_stop_id: ALM_0029
+  osm_node_id: 12471065231
+  name: Paseo Andrés Segovia, Windsurf
+  latitude: 36.735949
+  longitude: -3.744933
+  municipality: La Herradura
+  verified_bus_stop: true
+- internal_stop_id: ALM_0030
+  osm_node_id: 9282688574
+  name: Mercado La Herradura
+  latitude: 36.733524
+  longitude: -3.741096
+  municipality: La Herradura
+  verified_bus_stop: true
+- internal_stop_id: ALM_0031
+  osm_node_id: 12473746708
+  name: Acera del Pilar
+  latitude: 36.734911
+  longitude: -3.739376
+  municipality: La Herradura
+  verified_bus_stop: true
+- internal_stop_id: ALM_0032
+  osm_node_id: 12473746709
+  name: La Herradura
+  latitude: 36.736025
+  longitude: -3.739256
+  municipality: La Herradura
+  verified_bus_stop: true
+- internal_stop_id: ALM_0033
+  osm_node_id: 12471065228
+  name: Mirador De Cotobro
+  latitude: 36.738189
+  longitude: -3.707934
+  municipality: Almuñécar
+  verified_bus_stop: true
+- internal_stop_id: ALM_0034
+  osm_node_id: 12471065235
+  name: Paseo Andrés Segovia, Bar Bambú
+  latitude: 36.732637
+  longitude: -3.739937
+  municipality: La Herradura
+  verified_bus_stop: true
+- internal_stop_id: ALM_0035
+  osm_node_id: 12471065236
+  name: Paseo Andrés Segovia, La Caleta
+  latitude: 36.730975
+  longitude: -3.737948
+  municipality: La Herradura
+  verified_bus_stop: true
+- internal_stop_id: ALM_0036
+  osm_node_id: 12471065238
+  name: Urb Punta De La Mona
+  latitude: 36.725407
+  longitude: -3.734927
+  municipality: La Herradura
+  verified_bus_stop: true
+- internal_stop_id: ALM_0037
+  osm_node_id: 12471004588
+  name: Marina del Este (Best Alcázar)
+  latitude: 36.727909
+  longitude: -3.731109
+  municipality: La Herradura
+  verified_bus_stop: true
+- internal_stop_id: ALM_0038
+  osm_node_id: 4167568437
+  name: Puerto Deportivo Marina del Este
+  latitude: 36.724027
+  longitude: -3.727072
+  municipality: La Herradura
+  verified_bus_stop: true
+- internal_stop_id: ALM_0039
+  osm_node_id: 12471004589
+  name: Marina del Este (Best Alcázar)
+  latitude: 36.728017
+  longitude: -3.731038
+  municipality: La Herradura
+  verified_bus_stop: true
+- internal_stop_id: ALM_0040
+  osm_node_id: 7605377110
+  name: Frente a Estación de Autobuses
+  latitude: 36.735479
+  longitude: -3.688795
+  municipality: Almuñécar
+  verified_bus_stop: true
+- internal_stop_id: ALM_0041
+  osm_node_id: 1661424656
+  name: Avenida Juan Carlos I
+  latitude: 36.734775
+  longitude: -3.68863
+  municipality: Almuñécar
+  verified_bus_stop: true
+- internal_stop_id: ALM_0042
+  osm_node_id: 4742030526
+  name: Playa Puerta del Mar
+  latitude: 36.730998
+  longitude: -3.686646
+  municipality: Almuñécar
+  verified_bus_stop: true
+- internal_stop_id: ALM_0043
+  osm_node_id: 4742030523
+  name: Las Góndolas
+  latitude: 36.730993
+  longitude: -3.683248
+  municipality: Almuñécar
+  verified_bus_stop: true
+- internal_stop_id: ALM_0044
+  osm_node_id: 4742030522
+  name: Paseo Reina Sofía
+  latitude: 36.730484
+  longitude: -3.681108
+  municipality: Almuñécar
+  verified_bus_stop: true
+- internal_stop_id: ALM_0045
+  osm_node_id: 4742026519
+  name: Aquatropic
+  latitude: 36.731177
+  longitude: -3.675473
+  municipality: Almuñécar
+  verified_bus_stop: true
+- internal_stop_id: ALM_0046
+  osm_node_id: 7605377109
+  name: Espigón
+  latitude: 36.733047
+  longitude: -3.673286
+  municipality: Almuñécar
+  verified_bus_stop: true
+- internal_stop_id: ALM_0047
+  osm_node_id: 4742026518
+  name: Playa Tropical 2
+  latitude: 36.734911
+  longitude: -3.672443
+  municipality: Almuñécar
+  verified_bus_stop: true
+- internal_stop_id: ALM_0048
+  osm_node_id: 4742026516
+  name: Playa Tropical 1
+  latitude: 36.737031
+  longitude: -3.670644
+  municipality: Almuñécar
+  verified_bus_stop: true
+- internal_stop_id: ALM_0049
+  osm_node_id: 7605377108
+  name: Velilla 1
+  latitude: 36.737711
+  longitude: -3.669845
+  municipality: Almuñécar
+  verified_bus_stop: true
+- internal_stop_id: ALM_0050
+  osm_node_id: 6564005931
+  name: Velilla 2
+  latitude: 36.739121
+  longitude: -3.668532
+  municipality: Almuñécar
+  verified_bus_stop: true
+- internal_stop_id: ALM_0051
+  osm_node_id: 4742026514
+  name: Velilla 3
+  latitude: 36.740666
+  longitude: -3.667314
+  municipality: Almuñécar
+  verified_bus_stop: true
+- internal_stop_id: ALM_0052
+  osm_node_id: 4742026512
+  name: Velilla 4
+  latitude: 36.742858
+  longitude: -3.664765
+  municipality: Almuñécar
+  verified_bus_stop: true
+- internal_stop_id: ALM_0053
+  osm_node_id: 4742026510
+  name: Tesorillo
+  latitude: 36.744307
+  longitude: -3.663508
+  municipality: Almuñécar
+  verified_bus_stop: true
+- internal_stop_id: ALM_0054
+  osm_node_id: 4742026506
+  name: Playa del Pozuelo
+  latitude: 36.746324
+  longitude: -3.662081
+  municipality: Almuñécar
+  verified_bus_stop: true
+- internal_stop_id: ALM_0055
+  osm_node_id: 4742026508
+  name: Taramay
+  latitude: 36.750158
+  longitude: -3.656997
+  municipality: Almuñécar
+  verified_bus_stop: true
+- internal_stop_id: ALM_0056
+  osm_node_id: 7605377107
+  name: Barranco de las Golondrinas
+  latitude: 36.752168
+  longitude: -3.657335
+  municipality: Almuñécar
+  verified_bus_stop: true
+- internal_stop_id: ALM_0057
+  osm_node_id: 7605377104
+  name: Taramay
+  latitude: 36.7488
+  longitude: -3.665407
+  municipality: Almuñécar
+  verified_bus_stop: true
+- internal_stop_id: ALM_0058
+  osm_node_id: 7605377106
+  name: Portichuelo
+  latitude: 36.744668
+  longitude: -3.670826
+  municipality: Almuñécar
+  verified_bus_stop: true
+- internal_stop_id: ALM_0059
+  osm_node_id: 7605377105
+  name: La Paloma
+  latitude: 36.737902
+  longitude: -3.678029
+  municipality: Almuñécar
+  verified_bus_stop: true
+- internal_stop_id: ALM_0060
+  osm_node_id: 4742153106
+  name: Laderas De Castelar
+  latitude: 36.743774
+  longitude: -3.687074
+  municipality: Almuñécar
+  verified_bus_stop: true
+- internal_stop_id: ALM_0061
+  osm_node_id: 12473808200
+  name: Venta Luciano
+  latitude: 36.755482
+  longitude: -3.688878
+  municipality: Almuñécar
+  verified_bus_stop: true
+- internal_stop_id: ALM_0062
+  osm_node_id: 12473838001
+  name: Torrecuevas
+  latitude: 36.759469
+  longitude: -3.689669
+  municipality: Almuñécar
+  verified_bus_stop: true
+- internal_stop_id: ALM_0063
+  osm_node_id: 12473838002
+  name: Arcos De Torrecuevas
+  latitude: 36.762651
+  longitude: -3.690019
+  municipality: Almuñécar
+  verified_bus_stop: true
+- internal_stop_id: ALM_0064
+  osm_node_id: 9897655750
+  name: Arcos De Torrecuevas
+  latitude: 36.762361
+  longitude: -3.690199
+  municipality: Almuñécar
+  verified_bus_stop: true
+- internal_stop_id: ALM_0065
+  osm_node_id: 12473808199
+  name: Peñuelas
+  latitude: 36.749907
+  longitude: -3.683989
+  municipality: Almuñécar
+  verified_bus_stop: true
+- internal_stop_id: ALM_0066
+  osm_node_id: 12473838005
+  name: Venta Luciano
+  latitude: 36.755773
+  longitude: -3.68935
+  municipality: Almuñécar
+  verified_bus_stop: true
+- internal_stop_id: ALM_0067
+  osm_node_id: 12473838006
+  name: Peñuelas
+  latitude: 36.750772
+  longitude: -3.684133
+  municipality: Almuñécar
+  verified_bus_stop: true
+- internal_stop_id: ALM_0068
+  osm_node_id: 12473838007
+  name: Laderas De Castelar
+  latitude: 36.743598
+  longitude: -3.687296
+  municipality: Almuñécar
+  verified_bus_stop: true
+- internal_stop_id: ALM_0069
+  osm_node_id: 4742153105
+  name: Barrio De San Sebastián II
+  latitude: 36.740539
+  longitude: -3.68835
+  municipality: Almuñécar
+  verified_bus_stop: true
+- internal_stop_id: ALM_0070
+  osm_node_id: 12473838008
+  name: Barrio De San Sebastián II
+  latitude: 36.740397
+  longitude: -3.688495
+  municipality: Almuñécar
+  verified_bus_stop: true
+- internal_stop_id: ALM_0071
+  osm_node_id: 12473808198
+  name: Barrio De San Sebastián I
+  latitude: 36.73775
+  longitude: -3.689573
+  municipality: Almuñécar
+  verified_bus_stop: true
+- internal_stop_id: ALM_0072
+  osm_node_id: 4742153104
+  name: Barrio De San Sebastián I
+  latitude: 36.737889
+  longitude: -3.689744
+  municipality: Almuñécar
+  verified_bus_stop: true
+- internal_stop_id: ALM_0073
+  osm_node_id: 12473838003
+  name: Cortijo Cahicillos
+  latitude: 36.7686
+  longitude: -3.683755
+  municipality: Almuñécar
+  verified_bus_stop: true
+- internal_stop_id: ALM_0074
+  osm_node_id: 12473838004
+  name: Torrecuevas
+  latitude: 36.759625
+  longitude: -3.689771
+  municipality: Almuñécar
+  verified_bus_stop: true

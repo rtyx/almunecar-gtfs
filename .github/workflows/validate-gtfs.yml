@@ -29,18 +29,32 @@ jobs:
 
       # Canonical data is committed, so a pull request that hand-edits it is
       # caught here: reconciliation must reproduce exactly what is in the tree.
-      - name: Reconcile is reproducible
+      - name: Evidence and reconciliation are reproducible
         run: |
+          uv run almunecar-gtfs ingest --offline
           uv run almunecar-gtfs reconcile
-          git diff --exit-code -- data/canonical data/evidence/conflicts.yaml
+          git diff --exit-code -- data/canonical data/evidence
 
       - name: QA invariants
         run: uv run almunecar-gtfs check
 
+      # While the dataset is research-stage there is nothing to build. The flag is
+      # in data/publication.yaml so that flipping it is a reviewable data change.
+      - name: Is the feed buildable yet?
+        id: buildable
+        run: |
+          value=$(uv run python -c "import yaml,pathlib; \
+            print(yaml.safe_load(pathlib.Path('data/publication.yaml').read_text()) \
+            .get('feed_buildable', False))")
+          echo "value=$value" >> "$GITHUB_OUTPUT"
+          echo "feed_buildable=$value"
+
       - name: Build GTFS
+        if: steps.buildable.outputs.value == 'True'
         run: uv run almunecar-gtfs build
 
       - name: Build is deterministic
+        if: steps.buildable.outputs.value == 'True'
         run: |
           sha256sum data/generated/almunecar-gtfs.zip > /tmp/first.sha
           uv run almunecar-gtfs build
@@ -49,6 +63,7 @@ jobs:
       # Downloaded explicitly here rather than by the library, so the provenance
       # of the jar is visible in the workflow rather than hidden in code.
       - name: Fetch the MobilityData canonical GTFS validator
+        if: steps.buildable.outputs.value == 'True'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -57,6 +72,7 @@ jobs:
           ls -l /tmp/gtfs-validator.jar
 
       - name: Validate
+        if: steps.buildable.outputs.value == 'True'
         env:
           GTFS_VALIDATOR_JAR: /tmp/gtfs-validator.jar
         run: uv run almunecar-gtfs validate
@@ -70,7 +86,7 @@ jobs:
           if-no-files-found: ignore
 
       - name: Upload feed
-        if: success()
+        if: success() && steps.buildable.outputs.value == 'True'
         uses: actions/upload-artifact@v4
         with:
           name: almunecar-gtfs

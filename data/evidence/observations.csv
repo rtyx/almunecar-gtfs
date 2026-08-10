@@ -1,1 +1,433 @@
 entity,field,value,source_id,retrieved_at,confidence,evidence_kind,source_url,derivation,derived_from,sample_size,notes
+agency:ALM,agency_name,Autocares Urbanos Almuñécar,official_index,2026-08-10,high,,,,,,
+agency:ALM,agency_phone,+34 958 88 27 62,official_index,2026-08-10,medium,,,,,,Published as 958882762 on the contact page.
+agency:ALM,agency_url,https://urbanosalmunecar.es/,official_index,2026-08-10,confirmed,,,,,,
+pattern:ALM_1_CIRC,departures:SUMMER_MONSAT,8:30;9:30;10:00;10:30;11:00;11:30;12:00;12:30;13:00;14:00;17:00;18:00;19:00;20:00;21:00;22:00,official_l1_summer,2026-08-10,confirmed,timetable,https://urbanosalmunecar.es/wp-content/uploads/2025/08/domingo-y-festivos-circular-ok-pica.png,,,,Transcribed by hand from the operator's timetable image on 2026-08-10. Departures from the principal stop.
+pattern:ALM_1_CIRC,departures:SUMMER_SUNHOL,8:30;9:30;10:30;12:45;17:00;18:45;21:00,official_l1_summer,2026-08-10,confirmed,timetable,https://urbanosalmunecar.es/wp-content/uploads/2025/08/domingo-y-festivos-circular-ok-pica.png,,,,Transcribed by hand from the operator's timetable image on 2026-08-10. Departures from the principal stop.
+pattern:ALM_1_CIRC,departures:WINTER_MONSAT,8:30;9:30;10:00;11:00;11:30;12:00;12:30;13:00;14:00;17:00;18:00;19:00;20:00,official_l1_winter,2026-08-10,confirmed,timetable,https://urbanosalmunecar.es/wp-content/uploads/2022/09/linea-1-almunecar-correcta.png,,,,Transcribed by hand from the operator's timetable image on 2026-08-10. Departures from the principal stop.
+pattern:ALM_1_CIRC,departures:WINTER_SUNHOL,8:30;10:30;12:45;16:30;18:45,official_l1_winter,2026-08-10,confirmed,timetable,https://urbanosalmunecar.es/wp-content/uploads/2022/09/linea-1-almunecar-correcta.png,,,,Transcribed by hand from the operator's timetable image on 2026-08-10. Departures from the principal stop. Printed as 'Domingo' only; whether public holidays are included is not stated.
+pattern:ALM_1_CIRC,direction_id,0,osm_route_relations,2026-08-10,high,,,,,,"roundtrip=yes: one circular direction, not an out-and-back pair."
+pattern:ALM_1_CIRC,headsign,Circular,official_index,2026-08-10,high,,,,,,
+pattern:ALM_1_CIRC,route_id,ALM_1,osm_route_relations,2026-08-10,high,,https://www.openstreetmap.org/relation/11185550,,,,
+pattern:ALM_1_CIRC,season,all_year,osm_route_relations,2026-08-10,medium,,,,,,
+pattern:ALM_1_CIRC,shape_id,ALM_1_CIRC,osm_route_relations,2026-08-10,high,,,,,,
+pattern:ALM_1_CIRC,stop_sequence,ALM_0001;ALM_0002;ALM_0003;ALM_0004;ALM_0005;ALM_0006;ALM_0007;ALM_0008;ALM_0009;ALM_0010;ALM_0011;ALM_0012;ALM_0013;ALM_0014;ALM_0015;ALM_0016;ALM_0017;ALM_0018;ALM_0001,osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/relation/11185550,,,,19 stops from the relation's platform members in order. The operator's own diagram is transcribed separately for comparison.
+pattern:ALM_2A_CIRC,departures:SUMMER_MONFRI,8:00;11:40,official_l2_summer,2026-08-10,confirmed,timetable,https://urbanosalmunecar.es/wp-content/uploads/2025/08/horarios-2-a-ok-subir.png,,,,Transcribed by hand from the operator's timetable image on 2026-08-10. Departures from the principal stop.
+pattern:ALM_2A_CIRC,departures:SUMMER_SAT,8:00,official_l2_summer,2026-08-10,confirmed,timetable,https://urbanosalmunecar.es/wp-content/uploads/2025/08/horarios-2-a-ok-subir.png,,,,Transcribed by hand from the operator's timetable image on 2026-08-10. Departures from the principal stop. Sundays and holidays: sin servicio.
+pattern:ALM_2A_CIRC,departures:WINTER_MONFRI,7:35;11:40,official_l2_winter,2026-08-10,confirmed,timetable,https://urbanosalmunecar.es/wp-content/uploads/2022/09/image-3.png,,,,Transcribed by hand from the operator's timetable image on 2026-08-10. Departures from the principal stop.
+pattern:ALM_2A_CIRC,departures:WINTER_SAT,8:00,official_l2_winter,2026-08-10,confirmed,timetable,https://urbanosalmunecar.es/wp-content/uploads/2022/09/image-3.png,,,,Transcribed by hand from the operator's timetable image on 2026-08-10. Departures from the principal stop. Sundays: sin servicio.
+pattern:ALM_2A_CIRC,direction_id,0,osm_route_relations,2026-08-10,high,,,,,,"roundtrip=yes: one circular direction, not an out-and-back pair."
+pattern:ALM_2A_CIRC,headsign,La Herradura,official_index,2026-08-10,high,,,,,,
+pattern:ALM_2A_CIRC,route_id,ALM_2A,osm_route_relations,2026-08-10,high,,https://www.openstreetmap.org/relation/18501805,,,,
+pattern:ALM_2A_CIRC,season,all_year,osm_route_relations,2026-08-10,medium,,,,,,
+pattern:ALM_2A_CIRC,shape_id,ALM_2A_CIRC,osm_route_relations,2026-08-10,high,,,,,,
+pattern:ALM_2A_CIRC,stop_sequence,ALM_0001;ALM_0019;ALM_0020;ALM_0021;ALM_0022;ALM_0023;ALM_0024;ALM_0025;ALM_0026;ALM_0027;ALM_0028;ALM_0029;ALM_0030;ALM_0031;ALM_0032;ALM_0033;ALM_0016;ALM_0017;ALM_0018;ALM_0001,osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/relation/18501805,,,,20 stops from the relation's platform members in order. The operator's own diagram is transcribed separately for comparison.
+pattern:ALM_2B_CIRC_SUMMER,departures:SUMMER_MONSAT,10:30;12:30;16:30;20:30;21:30,official_l2_summer,2026-08-10,confirmed,timetable,https://urbanosalmunecar.es/wp-content/uploads/2022/06/image-7.png,,,,Transcribed by hand from the operator's timetable image on 2026-08-10. Departures from the principal stop. Printed as the unmarked row. A second row on the same image is labelled '* BAJADA PUERTO' with different times; which of the two actually descends to Marina del Este is not stated. See conflicts.yaml.
+pattern:ALM_2B_CIRC_SUMMER,departures:SUMMER_MONSAT_PUERTO,8:45;14:00;17:30;19:00,official_l2_summer,2026-08-10,confirmed,timetable,https://urbanosalmunecar.es/wp-content/uploads/2022/06/image-7.png,,,,Transcribed by hand from the operator's timetable image on 2026-08-10. Departures from the principal stop. Printed as '* BAJADA PUERTO'.
+pattern:ALM_2B_CIRC_SUMMER,departures:SUMMER_SUNHOL_PUERTO,8:50;11:30;13:15;17:30;19:45,official_l2_summer,2026-08-10,confirmed,timetable,https://urbanosalmunecar.es/wp-content/uploads/2022/06/image-7.png,,,,Transcribed by hand from the operator's timetable image on 2026-08-10. Departures from the principal stop. Printed as '* BAJADA PUERTO'; no unmarked Sunday row is shown.
+pattern:ALM_2B_CIRC_SUMMER,direction_id,0,osm_route_relations,2026-08-10,high,,,,,,"roundtrip=yes: one circular direction, not an out-and-back pair."
+pattern:ALM_2B_CIRC_SUMMER,headsign,La Herradura – Punta de la Mona,official_index,2026-08-10,high,,,,,,
+pattern:ALM_2B_CIRC_SUMMER,route_id,ALM_2B,osm_route_relations,2026-08-10,high,,https://www.openstreetmap.org/relation/18496909,,,,
+pattern:ALM_2B_CIRC_SUMMER,season,summer,osm_route_relations,2026-08-10,medium,,,,,,
+pattern:ALM_2B_CIRC_SUMMER,shape_id,ALM_2B_CIRC_SUMMER,osm_route_relations,2026-08-10,high,,,,,,
+pattern:ALM_2B_CIRC_SUMMER,stop_sequence,ALM_0001;ALM_0019;ALM_0020;ALM_0021;ALM_0022;ALM_0023;ALM_0024;ALM_0025;ALM_0026;ALM_0027;ALM_0028;ALM_0029;ALM_0030;ALM_0034;ALM_0035;ALM_0036;ALM_0037;ALM_0038;ALM_0039;ALM_0033;ALM_0016;ALM_0017;ALM_0018;ALM_0001,osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/relation/18496909,,,,24 stops from the relation's platform members in order. The operator's own diagram is transcribed separately for comparison.
+pattern:ALM_2B_CIRC_WINTER,conditional,Winter routing. Marina del Este (Puerto Deportivo) is omitted: the operator's winter page footnotes that stop with 'Esta parada no se realiza en el horario de invierno'.,official_l2_winter,2026-08-10,confirmed,,,,,,
+pattern:ALM_2B_CIRC_WINTER,departures:WINTER_MONSAT,8:45;10:30;12:30;14:00;16:30;17:30;19:00;20:30,official_l2_winter,2026-08-10,confirmed,timetable,https://urbanosalmunecar.es/wp-content/uploads/2022/09/image-5.png,,,,Transcribed by hand from the operator's timetable image on 2026-08-10. Departures from the principal stop. Single undivided row; the summer BAJADA PUERTO split does not appear.
+pattern:ALM_2B_CIRC_WINTER,departures:WINTER_SUNHOL,8:50;11:30;13:15;17:30;19:45,official_l2_winter,2026-08-10,confirmed,timetable,https://urbanosalmunecar.es/wp-content/uploads/2022/09/image-5.png,,,,Transcribed by hand from the operator's timetable image on 2026-08-10. Departures from the principal stop.
+pattern:ALM_2B_CIRC_WINTER,direction_id,0,official_l2_winter,2026-08-10,high,,,,,,
+pattern:ALM_2B_CIRC_WINTER,headsign,La Herradura – Punta de la Mona,official_index,2026-08-10,high,,,,,,
+pattern:ALM_2B_CIRC_WINTER,route_id,ALM_2B,official_l2_winter,2026-08-10,high,,,,,,
+pattern:ALM_2B_CIRC_WINTER,season,winter,official_l2_winter,2026-08-10,confirmed,,,,,,
+pattern:ALM_2B_CIRC_WINTER,stop_sequence,ALM_0001;ALM_0019;ALM_0020;ALM_0021;ALM_0022;ALM_0023;ALM_0024;ALM_0025;ALM_0026;ALM_0027;ALM_0028;ALM_0029;ALM_0030;ALM_0034;ALM_0035;ALM_0036;ALM_0037;ALM_0039;ALM_0033;ALM_0016;ALM_0017;ALM_0018;ALM_0001,official_l2_winter,2026-08-10,medium,,,"OSM relation 18496909 stop order, minus Marina del Este (ALM_0038), per the operator's winter footnote.",osm_route_relations;official_l2_winter,,The winter geometry is assumed to be the summer geometry with the port spur removed; that assumption is not itself sourced.
+pattern:ALM_2B_CIRC_WINTER,variant_code,NOMARINA,official_l2_winter,2026-08-10,confirmed,,,,,,
+pattern:ALM_3A_CIRC,departures:SUMMER_MONSAT,8:00;16:30,official_l3a_summer,2026-08-10,confirmed,timetable,https://urbanosalmunecar.es/wp-content/uploads/2022/06/image-10.png,,,,Transcribed by hand from the operator's timetable image on 2026-08-10. Departures from the principal stop. Sundays and holidays: sin servicio. 3B and 3C cover Velilla and Taramay in summer.
+pattern:ALM_3A_CIRC,departures:WINTER_MONSAT,7:35;9:30;10:00;11:30;12:15;13:30;16:30;17:30;18:20;20:00,official_l3a_winter,2026-08-10,confirmed,timetable,https://urbanosalmunecar.es/wp-content/uploads/2022/09/image-6.png,,,,Transcribed by hand from the operator's timetable image on 2026-08-10. Departures from the principal stop. Footnotes on the image: 7:35 runs from 8:00 on Saturdays; 12:15 runs Monday to Friday only. Both need their own service periods.
+pattern:ALM_3A_CIRC,departures:WINTER_SUNHOL,10:00;12:15;14:15;18:15;20:30,official_l3a_winter,2026-08-10,confirmed,timetable,https://urbanosalmunecar.es/wp-content/uploads/2022/09/image-6.png,,,,Transcribed by hand from the operator's timetable image on 2026-08-10. Departures from the principal stop.
+pattern:ALM_3A_CIRC,direction_id,0,osm_route_relations,2026-08-10,high,,,,,,"roundtrip=yes: one circular direction, not an out-and-back pair."
+pattern:ALM_3A_CIRC,headsign,Velilla – Taramay,official_index,2026-08-10,high,,,,,,
+pattern:ALM_3A_CIRC,route_id,ALM_3A,osm_route_relations,2026-08-10,high,,https://www.openstreetmap.org/relation/11186061,,,,
+pattern:ALM_3A_CIRC,season,all_year,osm_route_relations,2026-08-10,medium,,,,,,
+pattern:ALM_3A_CIRC,shape_id,ALM_3A_CIRC,osm_route_relations,2026-08-10,high,,,,,,
+pattern:ALM_3A_CIRC,stop_sequence,ALM_0001;ALM_0040;ALM_0041;ALM_0042;ALM_0043;ALM_0044;ALM_0045;ALM_0046;ALM_0047;ALM_0048;ALM_0049;ALM_0050;ALM_0051;ALM_0052;ALM_0053;ALM_0054;ALM_0055;ALM_0056;ALM_0057;ALM_0058;ALM_0059;ALM_0001,osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/relation/11186061,,,,22 stops from the relation's platform members in order. The operator's own diagram is transcribed separately for comparison.
+pattern:ALM_TORRECUEVAS_CIRC,departures:SUMMER_MONSAT,9:00;10:00;12:00;13:30;17:00;18:30;19:30;20:30,official_torrecuevas_summer,2026-08-10,confirmed,timetable,https://urbanosalmunecar.es/wp-content/uploads/2022/06/image-8.png,,,,Transcribed by hand from the operator's timetable image on 2026-08-10. Departures from the principal stop.
+pattern:ALM_TORRECUEVAS_CIRC,departures:SUMMER_SUNHOL,9:30;11:00;14:00;17:00;19:15,official_torrecuevas_summer,2026-08-10,confirmed,timetable,https://urbanosalmunecar.es/wp-content/uploads/2022/06/image-8.png,,,,Transcribed by hand from the operator's timetable image on 2026-08-10. Departures from the principal stop.
+pattern:ALM_TORRECUEVAS_CIRC,departures:WINTER_MONSAT,9:00;10:30;12:00;13:30;17:00;18:30;19:30,official_torrecuevas_winter,2026-08-10,confirmed,timetable,https://urbanosalmunecar.es/wp-content/uploads/2022/09/image-7.png,,,,Transcribed by hand from the operator's timetable image on 2026-08-10. Departures from the principal stop.
+pattern:ALM_TORRECUEVAS_CIRC,departures:WINTER_SUNHOL,9:30;11:00;13:50;17:00;19:15,official_torrecuevas_winter,2026-08-10,confirmed,timetable,https://urbanosalmunecar.es/wp-content/uploads/2022/09/image-7.png,,,,Transcribed by hand from the operator's timetable image on 2026-08-10. Departures from the principal stop.
+pattern:ALM_TORRECUEVAS_CIRC,direction_id,0,osm_route_relations,2026-08-10,high,,,,,,"roundtrip=yes: one circular direction, not an out-and-back pair."
+pattern:ALM_TORRECUEVAS_CIRC,headsign,Torrecuevas,official_index,2026-08-10,high,,,,,,
+pattern:ALM_TORRECUEVAS_CIRC,route_id,ALM_TORRECUEVAS,osm_route_relations,2026-08-10,high,,https://www.openstreetmap.org/relation/18501914,,,,
+pattern:ALM_TORRECUEVAS_CIRC,season,all_year,osm_route_relations,2026-08-10,medium,,,,,,
+pattern:ALM_TORRECUEVAS_CIRC,shape_id,ALM_TORRECUEVAS_CIRC,osm_route_relations,2026-08-10,high,,,,,,
+pattern:ALM_TORRECUEVAS_CIRC,stop_sequence,ALM_0001;ALM_0060;ALM_0061;ALM_0062;ALM_0063;ALM_0064;ALM_0065;ALM_0066;ALM_0067;ALM_0068;ALM_0069;ALM_0070;ALM_0071;ALM_0072;ALM_0073;ALM_0074;ALM_0001,osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/relation/18501914,,,,17 stops from the relation's platform members in order. The operator's own diagram is transcribed separately for comparison.
+route:ALM_1,route_desc,Circular. Routing is temporarily diverted via calle Guadix while Paseo del Altillo is closed for roadworks from 13 April 2026 for about ten months; the available geometry does not reflect the diversion.,official_index,2026-08-10,high,,,,,,
+route:ALM_1,route_long_name,Circular,official_index,2026-08-10,confirmed,narrative,,,,,
+route:ALM_1,route_short_name,1,official_index,2026-08-10,confirmed,narrative,,,,,
+route:ALM_1,seasons,summer;winter,official_index,2026-08-10,high,,,,,,
+route:ALM_1,status,not_publishable,official_index,2026-08-10,confirmed,,,,,,Circular. Routing is temporarily diverted via calle Guadix while Paseo del Altillo is closed for roadworks from 13 April 2026 for about ten months; the available geometry does not reflect the diversion.
+route:ALM_2A,route_long_name,Almuñécar – La Herradura,official_index,2026-08-10,confirmed,narrative,,,,,
+route:ALM_2A,route_short_name,2A,official_index,2026-08-10,confirmed,narrative,,,,,
+route:ALM_2A,seasons,summer;winter,official_index,2026-08-10,high,,,,,,
+route:ALM_2B,route_long_name,Almuñécar – La Herradura – Punta de la Mona,official_index,2026-08-10,confirmed,narrative,,,,,
+route:ALM_2B,route_short_name,2B,official_index,2026-08-10,confirmed,narrative,,,,,
+route:ALM_2B,seasons,summer;winter,official_index,2026-08-10,high,,,,,,
+route:ALM_3A,route_long_name,Velilla – Taramay,official_index,2026-08-10,confirmed,narrative,,,,,
+route:ALM_3A,route_short_name,3A,official_index,2026-08-10,confirmed,narrative,,,,,
+route:ALM_3A,seasons,summer;winter,official_index,2026-08-10,high,,,,,,
+route:ALM_3B,route_desc,"Summer only. No machine-readable stop sequence or coordinates are available for this line; the operator diagram names stops that are not mapped, and the Monday-to-Saturday timetable is published as a frequency.",official_index,2026-08-10,high,,,,,,
+route:ALM_3B,route_long_name,Velilla,official_index,2026-08-10,confirmed,narrative,,,,,
+route:ALM_3B,route_short_name,3B,official_index,2026-08-10,confirmed,narrative,,,,,
+route:ALM_3B,seasons,summer,official_index,2026-08-10,high,,,,,,
+route:ALM_3B,status,not_publishable,official_index,2026-08-10,confirmed,,,,,,"Summer only. No machine-readable stop sequence or coordinates are available for this line; the operator diagram names stops that are not mapped, and the Monday-to-Saturday timetable is published as a frequency."
+route:ALM_3C,route_desc,Summer only. No machine-readable stop sequence or coordinates available.,official_index,2026-08-10,high,,,,,,
+route:ALM_3C,route_long_name,Taramay,official_index,2026-08-10,confirmed,narrative,,,,,
+route:ALM_3C,route_short_name,3C,official_index,2026-08-10,confirmed,narrative,,,,,
+route:ALM_3C,seasons,summer,official_index,2026-08-10,high,,,,,,
+route:ALM_3C,status,not_publishable,official_index,2026-08-10,confirmed,,,,,,Summer only. No machine-readable stop sequence or coordinates available.
+route:ALM_TORRECUEVAS,route_desc,Line number disputed between the operator's own summer and winter pages.,official_index,2026-08-10,high,,,,,,
+route:ALM_TORRECUEVAS,route_long_name,Torrecuevas,official_index,2026-08-10,confirmed,narrative,,,,,
+route:ALM_TORRECUEVAS,route_short_name,4,official_torrecuevas_summer,2026-08-10,high,narrative,https://urbanosalmunecar.es/lineas-urbanas-almunecar/torrecuevas-verano/,,,,"Page body heading reads 'LINEA 4 TORRECUEVAS'. The same page's validity sentence wrongly says 'horario de invierno' for 1 July to 15 September, so the page is not carefully maintained."
+route:ALM_TORRECUEVAS,route_short_name,5,official_torrecuevas_winter,2026-08-10,high,narrative,https://urbanosalmunecar.es/lineas-urbanas-almunecar/torrecuevas-linea-5-invierno/,,,,"Page title reads 'Línea 5 Torrecuevas invierno' and the URL slug contains 'linea-5'. Same sitemap lastmod as the summer page (2026-05-14), so neither can be dismissed as simply older."
+route:ALM_TORRECUEVAS,route_short_name,5,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/relation/18501914,,,,"OSM relation ref='Línea 5', operator='Grupo Fajardo'."
+route:ALM_TORRECUEVAS,seasons,summer;winter,official_index,2026-08-10,high,,,,,,
+route:ALM_TORRECUEVAS,status,not_publishable,official_index,2026-08-10,confirmed,,,,,,Line number disputed between the operator's own summer and winter pages.
+service:SUMMER_MONFRI,description,summer monfri,official_l2_summer,2026-08-10,high,,,,,,
+service:SUMMER_MONFRI,end_date,2026-09-15,official_l2_summer,2026-08-10,confirmed,,,,,,
+service:SUMMER_MONFRI,start_date,2026-07-01,official_l2_summer,2026-08-10,confirmed,,,,,,
+service:SUMMER_MONFRI,weekdays,mon;tue;wed;thu;fri,official_l2_summer,2026-08-10,high,,,,,,
+service:SUMMER_MONSAT,description,summer monsat,official_l1_summer,2026-08-10,high,,,,,,
+service:SUMMER_MONSAT,end_date,2026-09-15,official_l1_summer,2026-08-10,confirmed,,,,,,
+service:SUMMER_MONSAT,start_date,2026-07-01,official_l1_summer,2026-08-10,confirmed,,,,,,
+service:SUMMER_MONSAT,weekdays,mon;tue;wed;thu;fri;sat,official_l1_summer,2026-08-10,high,,,,,,
+service:SUMMER_MONSAT_PUERTO,description,summer monsat puerto,official_l2_summer,2026-08-10,high,,,,,,
+service:SUMMER_MONSAT_PUERTO,end_date,2026-09-15,official_l2_summer,2026-08-10,confirmed,,,,,,
+service:SUMMER_MONSAT_PUERTO,start_date,2026-07-01,official_l2_summer,2026-08-10,confirmed,,,,,,
+service:SUMMER_MONSAT_PUERTO,weekdays,mon;tue;wed;thu;fri;sat,official_l2_summer,2026-08-10,high,,,,,,
+service:SUMMER_SAT,description,summer sat,official_l2_summer,2026-08-10,high,,,,,,
+service:SUMMER_SAT,end_date,2026-09-15,official_l2_summer,2026-08-10,confirmed,,,,,,
+service:SUMMER_SAT,start_date,2026-07-01,official_l2_summer,2026-08-10,confirmed,,,,,,
+service:SUMMER_SAT,weekdays,sat,official_l2_summer,2026-08-10,high,,,,,,
+service:SUMMER_SUNHOL,description,summer sunhol,official_l1_summer,2026-08-10,high,,,,,,
+service:SUMMER_SUNHOL,end_date,2026-09-15,official_l1_summer,2026-08-10,confirmed,,,,,,
+service:SUMMER_SUNHOL,start_date,2026-07-01,official_l1_summer,2026-08-10,confirmed,,,,,,
+service:SUMMER_SUNHOL,weekdays,sun,official_l1_summer,2026-08-10,high,,,,,,Sundays and public holidays share a timetable; the holiday calendar itself is not published and is not modelled.
+service:SUMMER_SUNHOL_PUERTO,description,summer sunhol puerto,official_l2_summer,2026-08-10,high,,,,,,
+service:SUMMER_SUNHOL_PUERTO,end_date,2026-09-15,official_l2_summer,2026-08-10,confirmed,,,,,,
+service:SUMMER_SUNHOL_PUERTO,start_date,2026-07-01,official_l2_summer,2026-08-10,confirmed,,,,,,
+service:SUMMER_SUNHOL_PUERTO,weekdays,sun,official_l2_summer,2026-08-10,high,,,,,,Sundays and public holidays share a timetable; the holiday calendar itself is not published and is not modelled.
+service:WINTER_MONFRI,description,winter monfri,official_l2_winter,2026-08-10,high,,,,,,
+service:WINTER_MONFRI,end_date,2027-06-30,official_l2_winter,2026-08-10,confirmed,,,,,,
+service:WINTER_MONFRI,start_date,2026-09-16,official_l2_winter,2026-08-10,confirmed,,,,,,
+service:WINTER_MONFRI,weekdays,mon;tue;wed;thu;fri,official_l2_winter,2026-08-10,high,,,,,,
+service:WINTER_MONSAT,description,winter monsat,official_l1_winter,2026-08-10,high,,,,,,
+service:WINTER_MONSAT,end_date,2027-06-30,official_l1_winter,2026-08-10,confirmed,,,,,,
+service:WINTER_MONSAT,start_date,2026-09-16,official_l1_winter,2026-08-10,confirmed,,,,,,
+service:WINTER_MONSAT,weekdays,mon;tue;wed;thu;fri;sat,official_l1_winter,2026-08-10,high,,,,,,
+service:WINTER_SAT,description,winter sat,official_l2_winter,2026-08-10,high,,,,,,
+service:WINTER_SAT,end_date,2027-06-30,official_l2_winter,2026-08-10,confirmed,,,,,,
+service:WINTER_SAT,start_date,2026-09-16,official_l2_winter,2026-08-10,confirmed,,,,,,
+service:WINTER_SAT,weekdays,sat,official_l2_winter,2026-08-10,high,,,,,,
+service:WINTER_SUNHOL,description,winter sunhol,official_l1_winter,2026-08-10,high,,,,,,
+service:WINTER_SUNHOL,end_date,2027-06-30,official_l1_winter,2026-08-10,confirmed,,,,,,
+service:WINTER_SUNHOL,start_date,2026-09-16,official_l1_winter,2026-08-10,confirmed,,,,,,
+service:WINTER_SUNHOL,weekdays,sun,official_l1_winter,2026-08-10,high,,,,,,Sundays and public holidays share a timetable; the holiday calendar itself is not published and is not modelled.
+shape:ALM_1_CIRC,geometry,geometry/ALM_1_CIRC.geojson,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/relation/11185550,"Way members of relation 11185550 stitched in relation order, each flipped when its endpoints indicate reverse traversal.",,,"355 points. © OpenStreetMap contributors, ODbL."
+shape:ALM_2A_CIRC,geometry,geometry/ALM_2A_CIRC.geojson,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/relation/18501805,"Way members of relation 18501805 stitched in relation order, each flipped when its endpoints indicate reverse traversal.",,,"734 points. © OpenStreetMap contributors, ODbL."
+shape:ALM_2B_CIRC_SUMMER,geometry,geometry/ALM_2B_CIRC_SUMMER.geojson,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/relation/18496909,"Way members of relation 18496909 stitched in relation order, each flipped when its endpoints indicate reverse traversal.",,,"990 points. © OpenStreetMap contributors, ODbL."
+shape:ALM_3A_CIRC,geometry,geometry/ALM_3A_CIRC.geojson,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/relation/11186061,"Way members of relation 11186061 stitched in relation order, each flipped when its endpoints indicate reverse traversal.",,,"597 points. © OpenStreetMap contributors, ODbL."
+shape:ALM_TORRECUEVAS_CIRC,geometry,geometry/ALM_TORRECUEVAS_CIRC.geojson,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/relation/18501914,"Way members of relation 18501914 stitched in relation order, each flipped when its endpoints indicate reverse traversal.",,,"499 points. © OpenStreetMap contributors, ODbL."
+stop:ALM_0001,coordinate,"36.735781,-3.690181",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/4266754568,,,,
+stop:ALM_0001,municipality,Almuñécar,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0001,name,Plaza de la Carrera,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/4266754568,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0001,osm_node_id,4266754568,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0002,coordinate,"36.732431,-3.688497",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/4266754569,,,,
+stop:ALM_0002,municipality,Almuñécar,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0002,name,Plaza de Madrid,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/4266754569,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0002,osm_node_id,4266754569,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0003,coordinate,"36.731577,-3.690154",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/4266754570,,,,
+stop:ALM_0003,municipality,Almuñécar,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0003,name,Paseo del Altillo,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/4266754570,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0003,osm_node_id,4266754570,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0004,coordinate,"36.729311,-3.694506",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/4266754571,,,,
+stop:ALM_0004,municipality,Almuñécar,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0004,name,Peñón del Santo,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/4266754571,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0004,osm_node_id,4266754571,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0005,coordinate,"36.731276,-3.697672",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/4105757302,,,,
+stop:ALM_0005,municipality,Almuñécar,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0005,name,San Cristóbal 1 - Hotel Playa,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/4105757302,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0005,osm_node_id,4105757302,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0006,coordinate,"36.732152,-3.699076",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/4266754573,,,,
+stop:ALM_0006,municipality,Almuñécar,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0006,name,San Cristóbal 2 - Hotel Helios,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/4266754573,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0006,osm_node_id,4266754573,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0007,coordinate,"36.733098,-3.700519",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/4266754574,,,,
+stop:ALM_0007,municipality,Almuñécar,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0007,name,San Cristóbal 3 - Mar del Sol,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/4266754574,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0007,osm_node_id,4266754574,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0008,coordinate,"36.734153,-3.702832",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/4266754575,,,,
+stop:ALM_0008,municipality,Almuñécar,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0008,name,Chinasol,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/4266754575,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0008,osm_node_id,4266754575,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0009,coordinate,"36.734026,-3.705133",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/4266754576,,,,
+stop:ALM_0009,municipality,Almuñécar,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0009,name,Rincón de la China,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/4266754576,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0009,osm_node_id,4266754576,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0010,coordinate,"36.733183,-3.707399",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/7604785894,,,,
+stop:ALM_0010,municipality,Almuñécar,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0010,name,Los Ramos,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/7604785894,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0010,osm_node_id,7604785894,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0011,coordinate,"36.733193,-3.713318",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/486704337,,,,
+stop:ALM_0011,municipality,Almuñécar,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0011,name,Playa de Cotobro,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/486704337,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0011,osm_node_id,486704337,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0012,coordinate,"36.733122,-3.707400",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/7604785893,,,,
+stop:ALM_0012,municipality,Almuñécar,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0012,name,Los Ramos,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/7604785893,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0012,osm_node_id,7604785893,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0013,coordinate,"36.733962,-3.705108",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/7604785892,,,,
+stop:ALM_0013,municipality,Almuñécar,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0013,name,Rincón de la China,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/7604785892,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0013,osm_node_id,7604785892,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0014,coordinate,"36.735364,-3.702429",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/7604785891,,,,
+stop:ALM_0014,municipality,Almuñécar,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0014,name,Barrio de los Marinos,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/7604785891,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0014,osm_node_id,7604785891,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0015,coordinate,"36.738563,-3.702789",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/7604785890,,,,
+stop:ALM_0015,municipality,Almuñécar,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0015,name,Puente del Noy,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/7604785890,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0015,osm_node_id,7604785890,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0016,coordinate,"36.739775,-3.698472",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/7604785887,,,,
+stop:ALM_0016,municipality,Almuñécar,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0016,name,Costa Banana,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/7604785887,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0016,osm_node_id,7604785887,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0017,coordinate,"36.737166,-3.694460",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/7604785885,,,,
+stop:ALM_0017,municipality,Almuñécar,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0017,name,Albaicín del Mar,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/7604785885,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0017,osm_node_id,7604785885,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0018,coordinate,"36.735690,-3.691711",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/4742070171,,,,
+stop:ALM_0018,municipality,Almuñécar,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0018,name,Avenida Costa del Sol,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/4742070171,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0018,osm_node_id,4742070171,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0019,coordinate,"36.736106,-3.692035",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/12471065226,,,,
+stop:ALM_0019,municipality,Almuñécar,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0019,name,Avenida Costa del Sol,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/12471065226,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0019,osm_node_id,12471065226,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0020,coordinate,"36.737304,-3.694554",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/7604785886,,,,
+stop:ALM_0020,municipality,Almuñécar,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0020,name,Albaicín del Mar,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/7604785886,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0020,osm_node_id,7604785886,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0021,coordinate,"36.739682,-3.698333",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/12471065227,,,,
+stop:ALM_0021,municipality,Almuñécar,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0021,name,Costa Banana,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/12471065227,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0021,osm_node_id,12471065227,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0022,coordinate,"36.738082,-3.708325",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/12471065229,,,,
+stop:ALM_0022,municipality,Almuñécar,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0022,name,Mirador De Cotobro,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/12471065229,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0022,osm_node_id,12471065229,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0023,coordinate,"36.735339,-3.739712",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/5751425341,,,,
+stop:ALM_0023,municipality,La Herradura,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0023,name,La Herradura,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/5751425341,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0023,osm_node_id,5751425341,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0024,coordinate,"36.734253,-3.741893",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/12471065230,,,,
+stop:ALM_0024,municipality,La Herradura,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0024,name,Mercado La Herradura,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/12471065230,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0024,osm_node_id,12471065230,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0025,coordinate,"36.735864,-3.744688",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/12471065232,,,,
+stop:ALM_0025,municipality,La Herradura,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0025,name,"Paseo Andrés Segovia, Windsurf",osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/12471065232,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0025,osm_node_id,12471065232,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0026,coordinate,"36.737553,-3.747982",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/12471065234,,,,
+stop:ALM_0026,municipality,La Herradura,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0026,name,"Paseo Andrés Segovia, Naúticas",osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/12471065234,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0026,osm_node_id,12471065234,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0027,coordinate,"36.738919,-3.753879",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/3398426900,,,,
+stop:ALM_0027,municipality,La Herradura,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0027,name,Peña Parda,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/3398426900,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0027,osm_node_id,3398426900,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0028,coordinate,"36.737522,-3.748031",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/12471065233,,,,
+stop:ALM_0028,municipality,La Herradura,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0028,name,"Paseo Andrés Segovia, Naúticas",osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/12471065233,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0028,osm_node_id,12471065233,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0029,coordinate,"36.735949,-3.744933",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/12471065231,,,,
+stop:ALM_0029,municipality,La Herradura,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0029,name,"Paseo Andrés Segovia, Windsurf",osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/12471065231,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0029,osm_node_id,12471065231,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0030,coordinate,"36.733524,-3.741096",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/9282688574,,,,
+stop:ALM_0030,municipality,La Herradura,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0030,name,Mercado La Herradura,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/9282688574,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0030,osm_node_id,9282688574,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0031,coordinate,"36.734911,-3.739376",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/12473746708,,,,
+stop:ALM_0031,municipality,La Herradura,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0031,name,Acera del Pilar,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/12473746708,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0031,osm_node_id,12473746708,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0032,coordinate,"36.736025,-3.739256",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/12473746709,,,,
+stop:ALM_0032,municipality,La Herradura,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0032,name,La Herradura,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/12473746709,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0032,osm_node_id,12473746709,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0033,coordinate,"36.738189,-3.707934",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/12471065228,,,,
+stop:ALM_0033,municipality,Almuñécar,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0033,name,Mirador De Cotobro,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/12471065228,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0033,osm_node_id,12471065228,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0034,coordinate,"36.732637,-3.739937",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/12471065235,,,,
+stop:ALM_0034,municipality,La Herradura,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0034,name,"Paseo Andrés Segovia, Bar Bambú",osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/12471065235,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0034,osm_node_id,12471065235,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0035,coordinate,"36.730975,-3.737948",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/12471065236,,,,
+stop:ALM_0035,municipality,La Herradura,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0035,name,"Paseo Andrés Segovia, La Caleta",osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/12471065236,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0035,osm_node_id,12471065236,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0036,coordinate,"36.725407,-3.734927",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/12471065238,,,,
+stop:ALM_0036,municipality,La Herradura,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0036,name,Urb Punta De La Mona,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/12471065238,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0036,osm_node_id,12471065238,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0037,coordinate,"36.727909,-3.731109",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/12471004588,,,,
+stop:ALM_0037,municipality,La Herradura,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0037,name,Marina del Este (Best Alcázar),osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/12471004588,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0037,osm_node_id,12471004588,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0038,coordinate,"36.724027,-3.727072",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/4167568437,,,,
+stop:ALM_0038,municipality,La Herradura,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0038,name,Puerto Deportivo Marina del Este,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/4167568437,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0038,osm_node_id,4167568437,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0039,coordinate,"36.728017,-3.731038",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/12471004589,,,,
+stop:ALM_0039,municipality,La Herradura,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0039,name,Marina del Este (Best Alcázar),osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/12471004589,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0039,osm_node_id,12471004589,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0040,coordinate,"36.735479,-3.688795",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/7605377110,,,,
+stop:ALM_0040,municipality,Almuñécar,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0040,name,Frente a Estación de Autobuses,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/7605377110,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0040,osm_node_id,7605377110,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0041,coordinate,"36.734775,-3.688630",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/1661424656,,,,
+stop:ALM_0041,municipality,Almuñécar,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0041,name,Avenida Juan Carlos I,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/1661424656,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0041,osm_node_id,1661424656,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0042,coordinate,"36.730998,-3.686646",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/4742030526,,,,
+stop:ALM_0042,municipality,Almuñécar,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0042,name,Playa Puerta del Mar,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/4742030526,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0042,osm_node_id,4742030526,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0043,coordinate,"36.730993,-3.683248",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/4742030523,,,,
+stop:ALM_0043,municipality,Almuñécar,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0043,name,Las Góndolas,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/4742030523,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0043,osm_node_id,4742030523,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0044,coordinate,"36.730484,-3.681108",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/4742030522,,,,
+stop:ALM_0044,municipality,Almuñécar,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0044,name,Paseo Reina Sofía,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/4742030522,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0044,osm_node_id,4742030522,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0045,coordinate,"36.731177,-3.675473",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/4742026519,,,,
+stop:ALM_0045,municipality,Almuñécar,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0045,name,Aquatropic,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/4742026519,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0045,osm_node_id,4742026519,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0046,coordinate,"36.733047,-3.673286",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/7605377109,,,,
+stop:ALM_0046,municipality,Almuñécar,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0046,name,Espigón,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/7605377109,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0046,osm_node_id,7605377109,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0047,coordinate,"36.734911,-3.672443",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/4742026518,,,,
+stop:ALM_0047,municipality,Almuñécar,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0047,name,Playa Tropical 2,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/4742026518,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0047,osm_node_id,4742026518,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0048,coordinate,"36.737031,-3.670644",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/4742026516,,,,
+stop:ALM_0048,municipality,Almuñécar,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0048,name,Playa Tropical 1,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/4742026516,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0048,osm_node_id,4742026516,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0049,coordinate,"36.737711,-3.669845",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/7605377108,,,,
+stop:ALM_0049,municipality,Almuñécar,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0049,name,Velilla 1,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/7605377108,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0049,osm_node_id,7605377108,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0050,coordinate,"36.739121,-3.668532",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/6564005931,,,,
+stop:ALM_0050,municipality,Almuñécar,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0050,name,Velilla 2,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/6564005931,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0050,osm_node_id,6564005931,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0051,coordinate,"36.740666,-3.667314",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/4742026514,,,,
+stop:ALM_0051,municipality,Almuñécar,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0051,name,Velilla 3,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/4742026514,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0051,osm_node_id,4742026514,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0052,coordinate,"36.742858,-3.664765",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/4742026512,,,,
+stop:ALM_0052,municipality,Almuñécar,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0052,name,Velilla 4,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/4742026512,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0052,osm_node_id,4742026512,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0053,coordinate,"36.744307,-3.663508",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/4742026510,,,,
+stop:ALM_0053,municipality,Almuñécar,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0053,name,Tesorillo,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/4742026510,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0053,osm_node_id,4742026510,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0054,coordinate,"36.746324,-3.662081",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/4742026506,,,,
+stop:ALM_0054,municipality,Almuñécar,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0054,name,Playa del Pozuelo,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/4742026506,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0054,osm_node_id,4742026506,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0055,coordinate,"36.750158,-3.656997",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/4742026508,,,,
+stop:ALM_0055,municipality,Almuñécar,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0055,name,Taramay,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/4742026508,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0055,osm_node_id,4742026508,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0056,coordinate,"36.752168,-3.657335",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/7605377107,,,,
+stop:ALM_0056,municipality,Almuñécar,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0056,name,Barranco de las Golondrinas,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/7605377107,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0056,osm_node_id,7605377107,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0057,coordinate,"36.748800,-3.665407",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/7605377104,,,,
+stop:ALM_0057,municipality,Almuñécar,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0057,name,Taramay,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/7605377104,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0057,osm_node_id,7605377104,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0058,coordinate,"36.744668,-3.670826",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/7605377106,,,,
+stop:ALM_0058,municipality,Almuñécar,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0058,name,Portichuelo,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/7605377106,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0058,osm_node_id,7605377106,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0059,coordinate,"36.737902,-3.678029",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/7605377105,,,,
+stop:ALM_0059,municipality,Almuñécar,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0059,name,La Paloma,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/7605377105,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0059,osm_node_id,7605377105,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0060,coordinate,"36.743774,-3.687074",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/4742153106,,,,
+stop:ALM_0060,municipality,Almuñécar,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0060,name,Laderas De Castelar,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/4742153106,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0060,osm_node_id,4742153106,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0061,coordinate,"36.755482,-3.688878",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/12473808200,,,,
+stop:ALM_0061,municipality,Almuñécar,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0061,name,Venta Luciano,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/12473808200,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0061,osm_node_id,12473808200,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0062,coordinate,"36.759469,-3.689669",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/12473838001,,,,
+stop:ALM_0062,municipality,Almuñécar,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0062,name,Torrecuevas,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/12473838001,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0062,osm_node_id,12473838001,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0063,coordinate,"36.762651,-3.690019",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/12473838002,,,,
+stop:ALM_0063,municipality,Almuñécar,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0063,name,Arcos De Torrecuevas,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/12473838002,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0063,osm_node_id,12473838002,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0064,coordinate,"36.762361,-3.690199",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/9897655750,,,,
+stop:ALM_0064,municipality,Almuñécar,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0064,name,Arcos De Torrecuevas,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/9897655750,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0064,osm_node_id,9897655750,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0065,coordinate,"36.749907,-3.683989",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/12473808199,,,,
+stop:ALM_0065,municipality,Almuñécar,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0065,name,Peñuelas,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/12473808199,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0065,osm_node_id,12473808199,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0066,coordinate,"36.755773,-3.689350",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/12473838005,,,,
+stop:ALM_0066,municipality,Almuñécar,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0066,name,Venta Luciano,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/12473838005,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0066,osm_node_id,12473838005,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0067,coordinate,"36.750772,-3.684133",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/12473838006,,,,
+stop:ALM_0067,municipality,Almuñécar,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0067,name,Peñuelas,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/12473838006,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0067,osm_node_id,12473838006,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0068,coordinate,"36.743598,-3.687296",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/12473838007,,,,
+stop:ALM_0068,municipality,Almuñécar,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0068,name,Laderas De Castelar,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/12473838007,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0068,osm_node_id,12473838007,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0069,coordinate,"36.740539,-3.688350",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/4742153105,,,,
+stop:ALM_0069,municipality,Almuñécar,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0069,name,Barrio De San Sebastián II,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/4742153105,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0069,osm_node_id,4742153105,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0070,coordinate,"36.740397,-3.688495",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/12473838008,,,,
+stop:ALM_0070,municipality,Almuñécar,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0070,name,Barrio De San Sebastián II,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/12473838008,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0070,osm_node_id,12473838008,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0071,coordinate,"36.737750,-3.689573",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/12473808198,,,,
+stop:ALM_0071,municipality,Almuñécar,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0071,name,Barrio De San Sebastián I,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/12473808198,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0071,osm_node_id,12473808198,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0072,coordinate,"36.737889,-3.689744",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/4742153104,,,,
+stop:ALM_0072,municipality,Almuñécar,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0072,name,Barrio De San Sebastián I,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/4742153104,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0072,osm_node_id,4742153104,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0073,coordinate,"36.768600,-3.683755",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/12473838003,,,,
+stop:ALM_0073,municipality,Almuñécar,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0073,name,Cortijo Cahicillos,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/12473838003,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0073,osm_node_id,12473838003,osm_route_relations,2026-08-10,high,,,,,,
+stop:ALM_0074,coordinate,"36.759625,-3.689771",osm_route_relations,2026-08-10,medium,bus_stop_node,https://www.openstreetmap.org/node/12473838004,,,,
+stop:ALM_0074,municipality,Almuñécar,osm_route_relations,2026-08-10,medium,,,Assigned from longitude: west of -3.725 is La Herradura.,,,
+stop:ALM_0074,name,Torrecuevas,osm_route_relations,2026-08-10,medium,,https://www.openstreetmap.org/node/12473838004,,,,OSM name; the operator's diagrams use different wording.
+stop:ALM_0074,osm_node_id,12473838004,osm_route_relations,2026-08-10,high,,,,,,
