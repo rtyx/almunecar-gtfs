@@ -46,7 +46,7 @@ DEFAULT_PUBLICATION: dict[str, object] = {
     # must not present itself as theirs.
     "authorized_by_operator": False,
     "feed_publisher_name": "almunecar-gtfs (unofficial community feed)",
-    "feed_publisher_url": "https://github.com/rtoledano/almunecar-gtfs",
+    "feed_publisher_url": "https://github.com/rtyx/almunecar-gtfs",
     "feed_contact_email": None,
     "feed_contact_url": None,
     "agency_id": "ALM",

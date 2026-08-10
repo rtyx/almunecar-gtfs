@@ -22,7 +22,7 @@ from urllib.parse import urlparse
 import httpx
 
 USER_AGENT = (
-    "almunecar-gtfs/0.1 (+https://github.com/rtoledano/almunecar-gtfs; "
+    "almunecar-gtfs/0.1 (+https://github.com/rtyx/almunecar-gtfs; "
     "open transit data research; contact via repository issues)"
 )
 

@@ -8,7 +8,7 @@ agency:
   is_official_feed: false
 feed_info:
   feed_publisher_name: almunecar-gtfs (unofficial community feed)
-  feed_publisher_url: https://github.com/rtoledano/almunecar-gtfs
+  feed_publisher_url: https://github.com/rtyx/almunecar-gtfs
   feed_lang: es
   feed_version: '2026-08-10'
   feed_start_date: '2026-07-01'
